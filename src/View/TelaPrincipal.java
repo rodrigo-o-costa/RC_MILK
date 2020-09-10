@@ -80,6 +80,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fazendaM.setText("Fazenda");
         cadastroM.add(fazendaM);
 
+        usuarioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         usuarioM.setText("Usuario");
         usuarioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +152,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void usuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioMActionPerformed
         // TODO add your handling code here:
+         TelaCadastroUsuario telaU = new TelaCadastroUsuario();
+         telaU.setVisible(true);
+         telaU.setTitle("RC MILK (CADASTRO USUARIOS)");
     }//GEN-LAST:event_usuarioMActionPerformed
 
     private void trocarUsuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarUsuarioMActionPerformed
@@ -161,6 +165,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void bovinoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bovinoMActionPerformed
         TelaCadastroBovino telaB = new TelaCadastroBovino();
+        telaB.setTitle("RC MILK (CADASTRO BOVINOS)");
         telaB.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_bovinoMActionPerformed
 

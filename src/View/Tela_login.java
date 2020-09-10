@@ -32,6 +32,7 @@ public class Tela_login extends javax.swing.JFrame {
    
     public Tela_login() {
         initComponents();
+        this.setTitle("RC MILK (LOGIN)");
          try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
@@ -232,6 +233,7 @@ public class Tela_login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Tela_login().setVisible(true);
             }
