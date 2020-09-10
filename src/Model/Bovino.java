@@ -116,8 +116,7 @@ public class Bovino {
     public void setClasficacao(String clasficacao) {
         this.clasficacao = clasficacao;
     }
-
-   
+      
 }
     
 

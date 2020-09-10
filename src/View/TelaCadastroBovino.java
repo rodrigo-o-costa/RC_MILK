@@ -5,6 +5,8 @@
  */
 package View;
 
+import Model.Bovino;
+
 /**
  *
  * @author rodri
