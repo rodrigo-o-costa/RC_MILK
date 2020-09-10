@@ -163,6 +163,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          TelaCadastroUsuario telaU = new TelaCadastroUsuario();
          telaU.setVisible(true);
          telaU.setTitle("RC MILK (CADASTRO USUARIOS)");
+         telaU.setResizable(false);
     }//GEN-LAST:event_usuarioMActionPerformed
 
     private void trocarUsuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarUsuarioMActionPerformed
