@@ -77,7 +77,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         cadastroM.add(bovinoM);
 
+        fazendaM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         fazendaM.setText("Fazenda");
+        fazendaM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fazendaMActionPerformed(evt);
+            }
+        });
         cadastroM.add(fazendaM);
 
         usuarioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
@@ -93,6 +99,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         eventosM.setText("Eventos");
 
+        cioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         cioM.setText("Cio");
         eventosM.add(cioM);
 
@@ -103,6 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         utilitariosM.setText("Utiliarios");
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Sair");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +180,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void cadastroMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroMActionPerformed
+
+    private void fazendaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazendaMActionPerformed
+        TelaCadastroFazenda telaF = new TelaCadastroFazenda();
+        telaF.setTitle("RC MILK (CADASTRO FAZENDA)");
+        telaF.setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_fazendaMActionPerformed
 
     /**
      * @param args the command line arguments

@@ -9,12 +9,12 @@ package View;
  *
  * @author rodri
  */
-public class TelaCadastroUsuario extends javax.swing.JFrame {
+public class TelaCadastroFazenda extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroBovino
      */
-    public TelaCadastroUsuario() {
+    public TelaCadastroFazenda() {
         initComponents();
     }
 
@@ -54,11 +54,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         listarB.setText("Listar");
         listarB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        listarB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarBActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,7 +75,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(291, Short.MAX_VALUE)
+                .addContainerGap(267, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inclusaoB)
                     .addComponent(alterarB)
@@ -97,10 +92,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void alterarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_alterarBActionPerformed
-
-    private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listarBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,13 +110,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFazenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFazenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFazenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroFazenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -139,7 +130,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroUsuario().setVisible(true);
+                new TelaCadastroFazenda().setVisible(true);
             }
         });
     }
