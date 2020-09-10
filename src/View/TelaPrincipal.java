@@ -32,6 +32,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, e);
         }
+        
     }
 
     /**
@@ -138,16 +139,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(562, Short.MAX_VALUE)
                 .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(359, Short.MAX_VALUE)
-                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         setSize(new java.awt.Dimension(799, 526));
@@ -174,7 +176,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void bovinoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bovinoMActionPerformed
         TelaCadastroBovino telaB = new TelaCadastroBovino();
         telaB.setTitle("RC MILK (CADASTRO BOVINOS)");
-        telaB.setVisible(true);        // TODO add your handling code here:
+        telaB.setVisible(true);    
+        // TODO add your handling code here:
     }//GEN-LAST:event_bovinoMActionPerformed
 
     private void cadastroMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMActionPerformed
