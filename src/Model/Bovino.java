@@ -5,6 +5,17 @@
  */
 package Model;
 
+import Controller.Conec;
+import View.TelaPrincipal;
+import View.Tela_login;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rodri
@@ -116,7 +127,34 @@ public class Bovino {
     public void setClasficacao(String clasficacao) {
         this.clasficacao = clasficacao;
     }
-      
-}
+ /*   public void cadastroBovino(String nome, int brinco, char sexo, String cor, String clasficacao, String data_nasc, String raca, String observacao, String nome_pai, String nome_mae){
+    
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Tela_login.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "INSERT INTO tb_usuario (ativo,nome_usuario,usuario,senha,telefone,email)VALUES('?','?','?','?','?');";
+        
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setString(1,usuarioD.getText());
+            pst.setString(2,senhaD.getText());
+            rs = pst.executeQuery();
+             if(rs.next()){
+                 JOptionPane.showMessageDialog(null, "Bovino cadastrado com sucesso");
+             }else{
+                 JOptionPane.showMessageDialog(null, "Bovino Não Cadastrado");
+             }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+    }  */
+}  
+
     
 

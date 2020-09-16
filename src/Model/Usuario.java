@@ -5,12 +5,20 @@
  */
 package Model;
 
+import Controller.Conec;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author rodri
  */
 public class Usuario {
-     private String nome;
+    private boolean ativo;
+    private String nome;
     private String user;
     private String senha;
     private String telefone;
@@ -19,7 +27,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String user, String senha, String telefone, String email) {
+    public Usuario(boolean ativo, String nome, String user, String senha, String telefone, String email) {
+        this.ativo = ativo;
         this.nome = nome;
         this.user = user;
         this.senha = senha;
@@ -27,7 +36,14 @@ public class Usuario {
         this.email = email;
     }
     
+    public boolean getAtivo() {
+        return ativo;
+    }
 
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -67,5 +83,44 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+    public void cadastrar(){
+        Connection con =null;
+        PreparedStatement pst = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "INSERT INTO tb_usuario (ativo,nome_usuario,usuario,senha,telefone,email)VALUES(?,?,?,?,?,?)";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setBoolean(1,this.getAtivo());
+            pst.setString(2,this.getNome());
+            pst.setString(3,this.getUser());
+            pst.setString(4,this.getSenha());
+            pst.setString(5,this.getTelefone());
+            pst.setString(6,this.getEmail());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Usuario Não Cadastrado");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+    }
+    public void alterar(){
     
+    }
+    public void excluir(){
+    
+    }
+    public void pesquisar(){
+    
+    }
+    public void listar(){
+    
+    }
 }
+

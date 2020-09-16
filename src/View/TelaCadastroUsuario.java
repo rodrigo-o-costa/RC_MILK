@@ -5,12 +5,16 @@
  */
 package View;
 
+import Model.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rodri
  */
 public class TelaCadastroUsuario extends javax.swing.JFrame {
-
+    int aux_inclu = 0;
+    int aux_altera = 0;
     /**
      * Creates new form TelaCadastroBovino
      */
@@ -211,43 +215,39 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                             .addComponent(telefoneD))
                         .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(nomeUsuarioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inclusaoU)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nomeUsuarioD)
-                                    .addComponent(codU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nomeUsuarioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nomeUsuarioD)
+                                        .addComponent(codU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(alterarU)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(usuarioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(usuarioD)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(usuarioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(usuarioD))))
                         .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pesquisarU)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(senhaL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(senhaD)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(senhaL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(senhaD))))
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(excluirU)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(emailL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(emailD)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(emailD))))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(listarB)
@@ -270,6 +270,21 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
         // TODO add your handling code here:
+        if(aux_inclu == 1){
+            Usuario user = new Usuario();
+            user.setAtivo(ativoD.getHideActionText());
+            user.setNome(nomeUsuarioD.getText());
+            user.setUser(usuarioD.getText());
+            user.setSenha(senhaD.getText());
+            user.setTelefone(telefoneD.getText());
+            user.setEmail(emailD.getText());
+            if(!((user.getNome() == "")&&(user.getUser() == "")&&(user.getSenha() == ""))){
+                JOptionPane.showMessageDialog(null, "Campus obrigatorios nao foram Preenchidas");
+            }else{
+                user.cadastrar();
+            }
+            aux_inclu = 0;    
+        }
         nomeUsuarioD.setEnabled(false);
         ativoD.setEnabled(false);
         codU.setEnabled(false);
@@ -278,10 +293,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         senhaD.setEnabled(false);
         telefoneD.setEnabled(false);
         usuarioD.setEnabled(false);
+
     }//GEN-LAST:event_salvarUActionPerformed
 
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ativoDActionPerformed
 
     private void nomeUsuarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioDActionPerformed
@@ -299,12 +316,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void inclusaoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoUActionPerformed
         nomeUsuarioD.setEnabled(true);
         ativoD.setEnabled(true);
-        codU.setEnabled(true);
         emailD.setEnabled(true);
         salvarU.setEnabled(true);
         senhaD.setEnabled(true);
         telefoneD.setEnabled(true);
-        usuarioD.setEnabled(true);        // TODO add your handling code here:
+        usuarioD.setEnabled(true);
+        aux_inclu = 1;
+        // TODO add your handling code here:
     }//GEN-LAST:event_inclusaoUActionPerformed
 
     private void pesquisarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarUActionPerformed
