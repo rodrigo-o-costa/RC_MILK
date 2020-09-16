@@ -123,39 +123,59 @@ public class Usuario {
     public void alterar(){
         Connection con =null;
         PreparedStatement pst = null;
-        ResultSet rs = null;
          try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario where usuario like ?";
+        String sql = "UPDATE tb_usuario SET ativo = ?,nome_usuario = ?,usuario = ?, senha = ?,telefone = ?,email = ? WHERE id_usuario = ?";
         try{
             pst = con.prepareStatement(sql);
-            pst.setString(1,this.getUser());
-            rs = pst.executeQuery();
-            if(rs.next()){
-                this.setCodigo(rs.getInt("id_usuario"));
-                this.setAtivo(rs.getBoolean("ativo"));
-                this.setNome(rs.getString("nome_usuario"));
-                this.setUser(rs.getString("usuario"));
-                this.setSenha(rs.getString("senha"));
-                this.setTelefone(rs.getString("telefone"));
-                this.setEmail(rs.getString("email"));
-                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+            pst.setBoolean(1,this.getAtivo());
+            pst.setString(2,this.getNome());
+            pst.setString(3,this.getUser());
+            pst.setString(4,this.getSenha());
+            pst.setString(5,this.getTelefone());
+            pst.setString(6,this.getEmail());
+            System.out.println(this.getCodigo());
+            pst.setInt(7,this.getCodigo());
+            System.out.println(pst);
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Usuario Alterado com Sucesso");
             }else{
-                JOptionPane.showMessageDialog(null, "Usuario Não Encontrad"); 
+                 JOptionPane.showMessageDialog(null, "Usuario Não Alterado");
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
         }
-    
+        
     }
     public void excluir(){
-    
+        Connection con = null;
+        PreparedStatement pst = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "DELETE FROM tb_usuario WHERE id_usuario = ?";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setInt(1,this.getCodigo());
+            System.out.println(pst);
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Usuario Excluido com Sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Usuario Não Excluido");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+        
     }
-    public void pesquisar(){
+    public boolean pesquisar(){
         Connection con =null;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -179,12 +199,15 @@ public class Usuario {
                 this.setTelefone(rs.getString("telefone"));
                 this.setEmail(rs.getString("email"));
                 JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+                return true;
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario Não Encontrad"); 
+                return false;
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
         }
+        return false;
     }
     public void listar(){
     
