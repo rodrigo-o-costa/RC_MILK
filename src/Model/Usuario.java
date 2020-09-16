@@ -138,9 +138,7 @@ public class Usuario {
             pst.setString(4,this.getSenha());
             pst.setString(5,this.getTelefone());
             pst.setString(6,this.getEmail());
-            System.out.println(this.getCodigo());
             pst.setInt(7,this.getCodigo());
-            System.out.println(pst);
             if(!pst.execute()){
                  JOptionPane.showMessageDialog(null, "Usuario Alterado com Sucesso");
             }else{
@@ -209,8 +207,7 @@ public class Usuario {
         }
         return false;
     }
-    public void listar(){
     
     }
-}
+
 

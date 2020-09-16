@@ -311,7 +311,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-        // TODO add your handling code here:
+        TelaListagem telaLU = new TelaListagem();
+        telaLU.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
     
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
