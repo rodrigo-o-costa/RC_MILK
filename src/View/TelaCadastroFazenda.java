@@ -33,7 +33,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         pesquisarB = new javax.swing.JButton();
         listarB = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         alterarB.setText("Alterar");
         alterarB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
