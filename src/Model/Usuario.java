@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author rodri
  */
 public class Usuario {
+    private int codigo;
     private boolean ativo;
     private String nome;
     private String user;
@@ -27,7 +28,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(boolean ativo, String nome, String user, String senha, String telefone, String email) {
+    public Usuario(int codigo, boolean ativo, String nome, String user, String senha, String telefone, String email) {
+        this.codigo = codigo;
         this.ativo = ativo;
         this.nome = nome;
         this.user = user;
@@ -36,6 +38,14 @@ public class Usuario {
         this.email = email;
     }
     
+    public int getCodigo(){
+        return codigo;
+    }
+    
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
+
     public boolean getAtivo() {
         return ativo;
     }
@@ -111,13 +121,70 @@ public class Usuario {
         }
     }
     public void alterar(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario where usuario like ?";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setString(1,this.getUser());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                this.setCodigo(rs.getInt("id_usuario"));
+                this.setAtivo(rs.getBoolean("ativo"));
+                this.setNome(rs.getString("nome_usuario"));
+                this.setUser(rs.getString("usuario"));
+                this.setSenha(rs.getString("senha"));
+                this.setTelefone(rs.getString("telefone"));
+                this.setEmail(rs.getString("email"));
+                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario Não Encontrad"); 
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
     
     }
     public void excluir(){
     
     }
     public void pesquisar(){
-    
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario where usuario like ?";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setString(1,this.getUser());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                this.setCodigo(rs.getInt("id_usuario"));
+                this.setAtivo(rs.getBoolean("ativo"));
+                this.setNome(rs.getString("nome_usuario"));
+                this.setUser(rs.getString("usuario"));
+                this.setSenha(rs.getString("senha"));
+                this.setTelefone(rs.getString("telefone"));
+                this.setEmail(rs.getString("email"));
+                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario Não Encontrad"); 
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
     }
     public void listar(){
     

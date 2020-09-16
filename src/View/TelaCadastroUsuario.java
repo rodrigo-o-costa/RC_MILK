@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author rodri
  */
+
 public class TelaCadastroUsuario extends javax.swing.JFrame {
     int aux_inclu = 0;
     int aux_altera = 0;
@@ -20,15 +21,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
      */
     public TelaCadastroUsuario() {
         initComponents();
-        nomeUsuarioD.setEnabled(false);
-        ativoD.setEnabled(false);
-        codU.setEnabled(false);
-        emailD.setEnabled(false);
-        pesquisarU.setEnabled(false);
-        salvarU.setEnabled(false);
-        senhaD.setEnabled(false);
-        telefoneD.setEnabled(false);
-        usuarioD.setEnabled(false);
+        this.desabilitaCampos();
     }
 
     /**
@@ -57,7 +50,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         telefoneL = new javax.swing.JLabel();
         telefoneD = new javax.swing.JFormattedTextField();
         senhaD = new javax.swing.JPasswordField();
-        codU = new javax.swing.JTextField();
+        codD = new javax.swing.JTextField();
+        limparU = new javax.swing.JButton();
+        cancelarU = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -102,7 +97,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         usuarioL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         usuarioL.setText("Usuario");
 
-        salvarU.setText("salvar");
+        salvarU.setText("Salvar");
         salvarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         salvarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +143,28 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        codD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codDActionPerformed(evt);
+            }
+        });
+
+        limparU.setText("Limpar");
+        limparU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        limparU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparUActionPerformed(evt);
+            }
+        });
+
+        cancelarU.setText("Cancelar");
+        cancelarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cancelarU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarUActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,6 +203,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -197,7 +218,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(nomeUsuarioD, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codU)
+                                .addComponent(codD)
                                 .addGap(3, 3, 3)))))
                 .addContainerGap())
         );
@@ -223,7 +244,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                     .addComponent(nomeUsuarioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(nomeUsuarioD)
-                                        .addComponent(codU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(codD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(alterarU)
@@ -251,7 +272,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(listarB)
-                            .addComponent(salvarU))))
+                            .addComponent(salvarU)
+                            .addComponent(limparU)
+                            .addComponent(cancelarU))))
                 .addGap(20, 20, 20))
         );
 
@@ -260,42 +283,56 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarUActionPerformed
-        // TODO add your handling code here:
-        
+        usuarioD.setText(JOptionPane.showInputDialog("Digite o Usuario:"));
+        Usuario user = new Usuario();
+        user.setUser(usuarioD.getText());
+        user.pesquisar();
+        codD.setText(Integer.toString(user.getCodigo()));
+        ativoD.setSelected(user.getAtivo());
+        nomeUsuarioD.setText(user.getNome());
+        usuarioD.setText(user.getUser());
+        senhaD.setText(user.getSenha());
+        telefoneD.setText(user.getTelefone());
+        emailD.setText(user.getEmail());
+    
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
-
+    
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
         // TODO add your handling code here:
         if(aux_inclu == 1){
             Usuario user = new Usuario();
-            user.setAtivo(ativoD.getHideActionText());
+            user.setAtivo(ativoD.isSelected());
             user.setNome(nomeUsuarioD.getText());
             user.setUser(usuarioD.getText());
             user.setSenha(senhaD.getText());
             user.setTelefone(telefoneD.getText());
             user.setEmail(emailD.getText());
-            if(!((user.getNome() == "")&&(user.getUser() == "")&&(user.getSenha() == ""))){
-                JOptionPane.showMessageDialog(null, "Campus obrigatorios nao foram Preenchidas");
+            if(nomeUsuarioD.getText().equals("")){
+               JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio");
+            }if(usuarioD.getText().equals("")){
+               JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio");
+            }if(senhaD.getText().equals("")){
+               JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio");
             }else{
                 user.cadastrar();
+                this.desabilitaCampos();
+                aux_inclu = 0;
             }
-            aux_inclu = 0;    
         }
-        nomeUsuarioD.setEnabled(false);
-        ativoD.setEnabled(false);
-        codU.setEnabled(false);
-        emailD.setEnabled(false);
-        salvarU.setEnabled(false);
-        senhaD.setEnabled(false);
-        telefoneD.setEnabled(false);
-        usuarioD.setEnabled(false);
-
+              
     }//GEN-LAST:event_salvarUActionPerformed
-
+    public void limpaCampus(){
+        ativoD.setHideActionText(false);
+        nomeUsuarioD.setText("");
+        usuarioD.setText("");
+        senhaD.setText("");
+        telefoneD.setText("");
+        emailD.setText("");
+    }
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
         // TODO add your handling code here:
         
@@ -314,6 +351,43 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioDActionPerformed
 
     private void inclusaoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoUActionPerformed
+        this.habilitaCampos();
+        aux_inclu = 1;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inclusaoUActionPerformed
+
+    private void pesquisarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarUActionPerformed
+        usuarioD.setText(JOptionPane.showInputDialog("Digite o Usuario:"));
+        Usuario user = new Usuario();
+        user.setUser(usuarioD.getText());
+        user.pesquisar();
+        codD.setText(Integer.toString(user.getCodigo()));
+        ativoD.setSelected(user.getAtivo());
+        nomeUsuarioD.setText(user.getNome());
+        usuarioD.setText(user.getUser());
+        senhaD.setText(user.getSenha());
+        telefoneD.setText(user.getTelefone());
+        emailD.setText(user.getEmail());
+        
+    }//GEN-LAST:event_pesquisarUActionPerformed
+
+    private void limparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparUActionPerformed
+        // TODO add your handling code here:
+        this.limpaCampus();
+    }//GEN-LAST:event_limparUActionPerformed
+    public void desabilitaCampos(){
+                nomeUsuarioD.setEnabled(false);
+                ativoD.setEnabled(false);
+                codD.setEnabled(false);
+                emailD.setEnabled(false);
+                salvarU.setEnabled(false);
+                senhaD.setEnabled(false);
+                telefoneD.setEnabled(false);
+                usuarioD.setEnabled(false);
+                limparU.setEnabled(false);
+                cancelarU.setEnabled(false);
+    }
+    public void habilitaCampos(){
         nomeUsuarioD.setEnabled(true);
         ativoD.setEnabled(true);
         emailD.setEnabled(true);
@@ -321,15 +395,28 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         senhaD.setEnabled(true);
         telefoneD.setEnabled(true);
         usuarioD.setEnabled(true);
-        aux_inclu = 1;
+        limparU.setEnabled(true);
+        cancelarU.setEnabled(true);
+    }
+    private void cancelarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inclusaoUActionPerformed
+        this.limpaCampus();
+        aux_inclu = 0;    
+        nomeUsuarioD.setEnabled(false);
+        ativoD.setEnabled(false);
+        codD.setEnabled(false);
+        emailD.setEnabled(false);
+        salvarU.setEnabled(false);
+        senhaD.setEnabled(false);
+        telefoneD.setEnabled(false);
+        usuarioD.setEnabled(false);
+        limparU.setEnabled(false);
+        cancelarU.setEnabled(false);
+    }//GEN-LAST:event_cancelarUActionPerformed
 
-    private void pesquisarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarUActionPerformed
-        nomeUsuarioD.setEnabled(true);
-        salvarU.setEnabled(true);
+    private void codDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pesquisarUActionPerformed
+    }//GEN-LAST:event_codDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,11 +463,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterarU;
     private javax.swing.JCheckBox ativoD;
-    private javax.swing.JTextField codU;
+    private javax.swing.JButton cancelarU;
+    private javax.swing.JTextField codD;
     private javax.swing.JTextField emailD;
     private javax.swing.JLabel emailL;
     private javax.swing.JButton excluirU;
     private javax.swing.JButton inclusaoU;
+    private javax.swing.JButton limparU;
     private javax.swing.JButton listarB;
     private javax.swing.JTextField nomeUsuarioD;
     private javax.swing.JLabel nomeUsuarioL;

@@ -66,6 +66,10 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="cancelarU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="limparU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="salvarU" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -79,7 +83,7 @@
                           <Group type="102" attributes="0">
                               <Component id="nomeUsuarioD" min="-2" pref="351" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codU" max="32767" attributes="0"/>
+                              <Component id="codD" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -113,7 +117,7 @@
                                   <Component id="nomeUsuarioL" alignment="0" max="32767" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="nomeUsuarioD" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="codU" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="codD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -155,6 +159,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="listarB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="salvarU" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="limparU" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cancelarU" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -244,7 +250,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="salvarU">
       <Properties>
-        <Property name="text" type="java.lang.String" value="salvar"/>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
             <BevelBorder/>
@@ -308,7 +314,36 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaD">
     </Component>
-    <Component class="javax.swing.JTextField" name="codU">
+    <Component class="javax.swing.JTextField" name="codD">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="limparU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparUActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelarU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarUActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
