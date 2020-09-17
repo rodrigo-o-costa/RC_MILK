@@ -9,8 +9,12 @@ import Controller.Conec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,6 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         trocarUsuarioM = new javax.swing.JMenuItem();
         BackupM = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +136,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BackupM.setText("Backup");
         utilitariosM.add(BackupM);
 
+        jMenuItem1.setText("Suporte");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        utilitariosM.add(jMenuItem1);
+
         menuBarra.add(utilitariosM);
 
         setJMenuBar(menuBarra);
@@ -140,16 +153,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(562, Short.MAX_VALUE)
+                .addContainerGap(553, Short.MAX_VALUE)
                 .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
+                .addContainerGap(348, Short.MAX_VALUE)
                 .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(799, 526));
@@ -189,6 +202,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaF.setTitle("RC MILK (CADASTRO FAZENDA)");
         telaF.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_fazendaMActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        String sql = "select nome_usuario,telefone,email from tb_usuario where id_usuario = 1";
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
+            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
+                                          "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
+                                          +rs.getString("email"), "RC_Milk - Suporte", JOptionPane.PLAIN_MESSAGE, figura); 
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +260,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cioM;
     private javax.swing.JMenu eventosM;
     private javax.swing.JMenuItem fazendaM;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel logoTelaPrincipal;
     private javax.swing.JMenuBar menuBarra;

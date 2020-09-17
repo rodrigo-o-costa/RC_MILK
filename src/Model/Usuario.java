@@ -96,7 +96,7 @@ public class Usuario {
     public void cadastrar(){
         Connection con =null;
         PreparedStatement pst = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);

@@ -304,8 +304,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 telefoneD.setText(user.getTelefone());
                 emailD.setText(user.getEmail());
                 this.habilitaCampos();
-                aux_altera = 1;
-                
+                aux_altera = 1; 
             }
         }while(!aux);
     }//GEN-LAST:event_alterarUActionPerformed
@@ -334,6 +333,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }else{
                 user.cadastrar();
                 this.desabilitaCampos();
+                this.limpaCampos();
                 aux_inclu = 0;
             }
         }if(aux_altera == 1){
@@ -378,9 +378,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 aux_altera = 0;
                 this.limpaCampos();
             }
-        
-        }
-       
+        } 
     }//GEN-LAST:event_salvarUActionPerformed
     public void limpaCampos(){
         ativoD.setHideActionText(false);
