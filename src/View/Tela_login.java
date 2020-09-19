@@ -6,6 +6,7 @@
 package View;
 
 import Controller.Conec;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,12 +35,13 @@ public class Tela_login extends javax.swing.JFrame {
    
     public Tela_login() {
         initComponents();
-        this.setTitle("RC MILK (LOGIN)");
+        this.setTitle("RC MILK - LOGIN");
          try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Tela_login.class.getName()).log(Level.SEVERE, null, e);
         }
+        setIcon();   
     }
       
     /**
@@ -51,14 +53,17 @@ public class Tela_login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JButton entrar = new javax.swing.JButton();
         sair = new javax.swing.JButton();
         usuarioD = new javax.swing.JTextField();
         usuarioL = new javax.swing.JLabel();
         senhaL = new javax.swing.JLabel();
         senhaD = new javax.swing.JPasswordField();
         logo_LoginL = new javax.swing.JLabel();
-        javax.swing.JButton Esqueceu = new javax.swing.JButton();
+        esqueceuD = new javax.swing.JToggleButton();
+        esqueceL = new javax.swing.JLabel();
+        ConfigD = new javax.swing.JToggleButton();
+        configL = new javax.swing.JLabel();
+        entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -71,27 +76,6 @@ public class Tela_login extends javax.swing.JFrame {
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 maximizar(evt);
-            }
-        });
-
-        entrar.setText("Entrar");
-        entrar.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                entrarAncestorRemoved(evt);
-            }
-        });
-        entrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrarActionPerformed(evt);
-            }
-        });
-        entrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                entrarKeyPressed(evt);
             }
         });
 
@@ -114,26 +98,45 @@ public class Tela_login extends javax.swing.JFrame {
         });
 
         usuarioL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        usuarioL.setText("Usuario");
+        usuarioL.setText("Login:");
 
         senhaL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        senhaL.setText("Senha");
+        senhaL.setText("Senha:");
+
+        senhaD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                senhaDKeyPressed(evt);
+            }
+        });
 
         logo_LoginL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_login.png"))); // NOI18N
 
-        Esqueceu.setText("Esqueci minha senha");
-        Esqueceu.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                EsqueceuAncestorRemoved(evt);
+        esqueceuD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/esqueci.png"))); // NOI18N
+        esqueceuD.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        esqueceuD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                esqueceuDActionPerformed(evt);
             }
         });
-        Esqueceu.addActionListener(new java.awt.event.ActionListener() {
+
+        esqueceL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        esqueceL.setText("Esqueceu a senha?");
+
+        ConfigD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/configuracao.png"))); // NOI18N
+        ConfigD.setBorder(null);
+
+        configL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        configL.setText("Configuração");
+
+        entrar.setText("Entrar");
+        entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EsqueceuActionPerformed(evt);
+                entrarActionPerformed(evt);
+            }
+        });
+        entrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entrarKeyPressed(evt);
             }
         });
 
@@ -143,54 +146,120 @@ public class Tela_login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logo_LoginL, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(logo_LoginL, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuarioL, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(senhaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(senhaL)
+                                        .addContainerGap(140, Short.MAX_VALUE))
+                                    .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(senhaD)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(usuarioD))
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(esqueceL, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(configL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(senhaD, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(usuarioD)))
-                    .addComponent(Esqueceu))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(ConfigD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(esqueceuD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usuarioD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(senhaL, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senhaD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(usuarioD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(senhaL, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(senhaD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(entrar)
-                            .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(Esqueceu)
-                        .addGap(13, 13, 13))
-                    .addComponent(logo_LoginL, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(esqueceL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(esqueceuD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(configL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ConfigD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(logo_LoginL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
    
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+            System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_sairActionPerformed
+
+    private void usuarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioDActionPerformed
+
+    private void formComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentRemoved
+
+    private void maximizar(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_maximizar
+           this.setResizable(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_maximizar
+
+    private void usuarioDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioDKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            senhaD.requestFocus(); 
+        }
+    }//GEN-LAST:event_usuarioDKeyPressed
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));
+  
+    }
+    private void esqueceuDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuDActionPerformed
+        String sql = "select nome_usuario,telefone,email from tb_usuario where id_usuario = 1";
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
+            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
+                                          "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
+                                          +rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura); 
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_esqueceuDActionPerformed
+
+    private void senhaDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_senhaDKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            entrar.requestFocus();
+        }
+        
+    }//GEN-LAST:event_senhaDKeyPressed
+
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-            // TODO add your handling code here:
         String sql = "select*from tb_usuario where usuario = ? and senha = ?";
         
         try{
@@ -208,55 +277,30 @@ public class Tela_login extends javax.swing.JFrame {
              }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
-        }
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_entrarActionPerformed
 
-    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-            System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_sairActionPerformed
-
-    private void usuarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioDActionPerformed
-
-    private void entrarAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_entrarAncestorRemoved
-                   // TODO add your handling code here:
-    }//GEN-LAST:event_entrarAncestorRemoved
-
-    private void formComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formComponentRemoved
-
-    private void maximizar(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_maximizar
-           this.setResizable(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_maximizar
-
-    private void EsqueceuAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_EsqueceuAncestorRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EsqueceuAncestorRemoved
-
-    private void EsqueceuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EsqueceuActionPerformed
-        String sql = "select nome_usuario,telefone,email from tb_usuario where id_usuario = 1";
+    private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
+        String sql = "select*from tb_usuario where usuario = ? and senha = ?";
+        
         try{
             pst = con.prepareStatement(sql);
+            pst.setString(1,usuarioD.getText());
+            pst.setString(2,senhaD.getText());
             rs = pst.executeQuery();
-            rs.next();
-            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
-            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
-                                          "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
-                                          +rs.getString("email"), "RC_Milk - Suporte", JOptionPane.PLAIN_MESSAGE, figura); 
+             if(rs.next()){
+                TelaPrincipal telaP = new TelaPrincipal();
+                telaP.setVisible(true);
+                telaP.setTitle("RC MILK");
+                this.dispose();
+             }else{
+                  JOptionPane.showMessageDialog(null, "Usuario ou senha inválidos");
+                  usuarioD.requestFocus();
+             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
-        }  
-    }//GEN-LAST:event_EsqueceuActionPerformed
-
-    private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
-        // TODO add your handling code here:
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_entrarKeyPressed
-
-    private void usuarioDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioDKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioDKeyPressed
 
     /**
      * @param args the command line arguments
@@ -298,6 +342,11 @@ public class Tela_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton ConfigD;
+    private javax.swing.JLabel configL;
+    private javax.swing.JButton entrar;
+    private javax.swing.JLabel esqueceL;
+    private javax.swing.JToggleButton esqueceuD;
     private javax.swing.JLabel logo_LoginL;
     private javax.swing.JButton sair;
     private javax.swing.JPasswordField senhaD;
@@ -305,4 +354,6 @@ public class Tela_login extends javax.swing.JFrame {
     private javax.swing.JTextField usuarioD;
     private javax.swing.JLabel usuarioL;
     // End of variables declaration//GEN-END:variables
+
+
 }

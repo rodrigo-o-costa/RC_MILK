@@ -6,6 +6,7 @@
 package View;
 
 import Controller.Conec;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -67,6 +68,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         logoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_TelaPrincipal.png"))); // NOI18N
 
+        menuBarra.setBackground(new java.awt.Color(102, 102, 102));
+
         cadastroM.setText("Cadastro");
         cadastroM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +96,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastroM.add(fazendaM);
 
         usuarioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        usuarioM.setText("Usuario");
+        usuarioM.setText("Usuário");
         usuarioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioMActionPerformed(evt);
@@ -125,7 +128,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         utilitariosM.add(jMenuItem2);
 
-        trocarUsuarioM.setText("Trocar Usuario");
+        trocarUsuarioM.setText("Trocar Usuário");
         trocarUsuarioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 trocarUsuarioMActionPerformed(evt);
@@ -168,7 +171,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(799, 526));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));  
+    }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0); // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -177,7 +182,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
          TelaCadastroUsuario telaU = new TelaCadastroUsuario();
          telaU.setVisible(true);
-         telaU.setTitle("RC MILK (CADASTRO USUARIOS)");
+         telaU.setTitle("RC MILK - CADASTRO USUARIOS");
     }//GEN-LAST:event_usuarioMActionPerformed
 
     private void trocarUsuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarUsuarioMActionPerformed
@@ -188,7 +193,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void bovinoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bovinoMActionPerformed
         TelaCadastroBovino telaB = new TelaCadastroBovino();
-        telaB.setTitle("RC MILK (CADASTRO BOVINOS)");
+        telaB.setTitle("RC MILK - CADASTRAR BOVINOS)");
         telaB.setVisible(true);    
         // TODO add your handling code here:
     }//GEN-LAST:event_bovinoMActionPerformed
@@ -199,7 +204,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void fazendaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazendaMActionPerformed
         TelaCadastroFazenda telaF = new TelaCadastroFazenda();
-        telaF.setTitle("RC MILK (CADASTRO FAZENDA)");
+        telaF.setTitle("RC MILK - CADASTRAR FAZENDA");
         telaF.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_fazendaMActionPerformed
 
@@ -212,7 +217,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
             JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
                                           "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
-                                          +rs.getString("email"), "RC_Milk - Suporte", JOptionPane.PLAIN_MESSAGE, figura); 
+                                          +rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura); 
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
         } 
