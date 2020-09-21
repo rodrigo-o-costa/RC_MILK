@@ -6,11 +6,14 @@
 package View;
 
 import Controller.Conec;
+import Controller.PostgresBackup;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -119,7 +122,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         utilitariosM.setText("Utiliarios");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem2.setText("Sair");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +131,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         utilitariosM.add(jMenuItem2);
 
+        trocarUsuarioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
         trocarUsuarioM.setText("Trocar Usuário");
         trocarUsuarioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,9 +140,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         utilitariosM.add(trocarUsuarioM);
 
+        BackupM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
         BackupM.setText("Backup");
+        BackupM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackupMActionPerformed(evt);
+            }
+        });
         utilitariosM.add(BackupM);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F12, 0));
         jMenuItem1.setText("Suporte");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +233,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, E);
         } 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void BackupMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackupMActionPerformed
+
+            try {
+            PostgresBackup.realizaBackup();
+            } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      
+    }//GEN-LAST:event_BackupMActionPerformed
 
     /**
      * @param args the command line arguments
