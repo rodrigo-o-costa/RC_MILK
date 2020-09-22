@@ -302,7 +302,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void alterarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarUActionPerformed
         boolean aux;
         do{
-            usuarioD.setText(JOptionPane.showInputDialog("Digite o Usuario:")); 
+            String imput;
+            imput=(JOptionPane.showInputDialog(null,"Digite o Usuario:")); 
+            usuarioD.setText(imput);
+            if(imput == null){
+                System.out.println("Cancel is pressed");
+                break;
+            }
             Usuario user = new Usuario();
             user.setUser(usuarioD.getText());
             aux = user.pesquisar();
@@ -321,7 +327,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-        TelaListagem telaLU = new TelaListagem();
+        TelaListagemUsuario telaLU = new TelaListagemUsuario();
         telaLU.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
     
@@ -467,7 +473,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void cancelarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarUActionPerformed
         // TODO add your handling code here:
         this.limpaCampos();
-        aux_inclu = 0;    
+        aux_inclu = 0;
+        aux_altera = 0;
+        aux_excluir = 0;
         nomeUsuarioD.setEnabled(false);
         ativoD.setEnabled(false);
         codD.setEnabled(false);
@@ -487,7 +495,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void excluirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUActionPerformed
         boolean aux;
         do{
-            usuarioD.setText(JOptionPane.showInputDialog("Digite o Usuario:")); 
+            String imput;
+            imput = (JOptionPane.showInputDialog("Digite o Usuario:")); 
+            usuarioD.setText(imput);
+            if(imput == null){
+                break;
+            }
             Usuario user = new Usuario();
             user.setUser(usuarioD.getText());
             aux = user.pesquisar();

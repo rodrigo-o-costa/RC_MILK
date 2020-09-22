@@ -20,5 +20,11 @@ CREATE TABLE tb_fazenda(
     cfp_prop varchar(20),
     insc_estadual varchar(20),
     telefone varchar(20),
+    celular varchar(20),
     email varchar(20)
 );
+
+select id_fazenda,ativo,nome_fazenda,nome_prop,cfp_prop,insc_estadual,telefone,celular,email from tb_fazenda where nome like ?
+INSERT INTO tb_fazenda 
+    (ativo,nome_fazenda,nome_prop,cfp_prop,insc_estadual,telefone,celular,email) 
+        values(true,'teste','proprietario teste','11316968677','00000000','3438512074','349999999','rodrigo@dsnet.com.br');

@@ -7,6 +7,7 @@ package View;
 
 import Controller.Conec;
 import Model.Usuario;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,13 +23,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author rodri
  */
-public class TelaListagem extends javax.swing.JFrame {
+public class TelaListagemUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroBovino
      */
-    public TelaListagem() {
+    public TelaListagemUsuario() {
         initComponents();
+        this.setTitle("RC MILK - LISTAGEM DE USUARIO");
         this.setResizable(false);
         Connection con =null;
         PreparedStatement pst = null;
@@ -57,25 +59,19 @@ public class TelaListagem extends javax.swing.JFrame {
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
-        }      
+        } 
+        
+        listaUsuarios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        UsuarioL = new javax.swing.JLabel();
-        jToolBar1 = new javax.swing.JToolBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaUsuarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        UsuarioL.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        UsuarioL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UsuarioL.setText("USUARIOS");
-
-        jToolBar1.setRollover(true);
 
         listaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,39 +96,36 @@ public class TelaListagem extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaUsuarios.setPreferredSize(new java.awt.Dimension(500, 329));
+        listaUsuarios.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(listaUsuarios);
         if (listaUsuarios.getColumnModel().getColumnCount() > 0) {
             listaUsuarios.getColumnModel().getColumn(0).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);
             listaUsuarios.getColumnModel().getColumn(1).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(1).setPreferredWidth(30);
             listaUsuarios.getColumnModel().getColumn(2).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(2).setPreferredWidth(180);
             listaUsuarios.getColumnModel().getColumn(3).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);
             listaUsuarios.getColumnModel().getColumn(4).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(4).setPreferredWidth(100);
             listaUsuarios.getColumnModel().getColumn(5).setResizable(false);
+            listaUsuarios.getColumnModel().getColumn(5).setPreferredWidth(180);
         }
-
-        jToolBar1.add(jScrollPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(UsuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(UsuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(650, 293));
+        setSize(new java.awt.Dimension(720, 393));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -153,14 +146,18 @@ public class TelaListagem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListagemUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListagemUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListagemUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListagemUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -169,15 +166,13 @@ public class TelaListagem extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListagem().setVisible(true);
+                new TelaListagemUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel UsuarioL;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable listaUsuarios;
     // End of variables declaration//GEN-END:variables
 }

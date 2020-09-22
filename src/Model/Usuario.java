@@ -199,7 +199,7 @@ public class Usuario {
                 JOptionPane.showMessageDialog(null, "Usuario Encontrado");
                 return true;
             }else{
-                JOptionPane.showMessageDialog(null, "Usuario Não Encontrad"); 
+                JOptionPane.showMessageDialog(null, "Usuario Não Encontrado"); 
                 return false;
             }
         }catch(SQLException E){

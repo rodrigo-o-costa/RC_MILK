@@ -98,7 +98,7 @@ public class Tela_login extends javax.swing.JFrame {
         });
 
         usuarioL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        usuarioL.setText("Login:");
+        usuarioL.setText("Usuário:");
 
         senhaL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         senhaL.setText("Senha:");
@@ -154,10 +154,9 @@ public class Tela_login extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(senhaL)
-                                        .addContainerGap(140, Short.MAX_VALUE))
-                                    .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(senhaL)
+                                    .addComponent(usuarioL))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(senhaD)
@@ -168,7 +167,7 @@ public class Tela_login extends javax.swing.JFrame {
                                     .addComponent(usuarioD))
                                 .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(esqueceL, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(configL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -273,7 +272,7 @@ public class Tela_login extends javax.swing.JFrame {
                 telaP.setTitle("RC MILK");
                 this.dispose();
              }else{
-                  JOptionPane.showMessageDialog(null, "Usuario ou senha inválidos");
+                  JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
              }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
@@ -294,7 +293,7 @@ public class Tela_login extends javax.swing.JFrame {
                 telaP.setTitle("RC MILK");
                 this.dispose();
              }else{
-                  JOptionPane.showMessageDialog(null, "Usuario ou senha inválidos");
+                  JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
                   usuarioD.requestFocus();
              }
         }catch(SQLException E){
