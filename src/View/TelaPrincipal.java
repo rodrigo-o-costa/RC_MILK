@@ -204,7 +204,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void bovinoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bovinoMActionPerformed
         TelaCadastroBovino telaB = new TelaCadastroBovino();
-        telaB.setTitle("RC MILK - CADASTRAR BOVINOS)");
+        telaB.setTitle("RC MILK - CADASTRAR BOVINOS");
         telaB.setVisible(true);    
         // TODO add your handling code here:
     }//GEN-LAST:event_bovinoMActionPerformed
