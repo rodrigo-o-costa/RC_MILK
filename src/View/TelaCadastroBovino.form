@@ -30,72 +30,70 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="jLabel11" min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="racaL" min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="BrincoL" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel1" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="nomeL" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="nomeMaeL" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomePaiL" min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField5" min="-2" pref="315" max="-2" attributes="0"/>
+                              <Component id="nomeMaeD" min="-2" pref="315" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codUsuarioL1" min="-2" max="-2" attributes="0"/>
+                              <Component id="codMaeL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codD" max="32767" attributes="0"/>
+                              <Component id="codMaeD" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField2" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="BrincoD" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataNascL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField1" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="dataNascD" min="-2" pref="95" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="idadeL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField3" max="32767" attributes="0"/>
+                              <Component id="idadeD" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ativoD" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="315" max="-2" attributes="0"/>
+                              <Component id="nomeD" min="-2" pref="315" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codUsuarioL3" min="-2" max="-2" attributes="0"/>
+                              <Component id="codBovinoL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codD4" max="32767" attributes="0"/>
+                              <Component id="codBovinoD" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jTextField6" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="racaD" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <Component id="corL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField4" max="32767" attributes="0"/>
+                              <Component id="corD" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="sexoL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" pref="67" max="-2" attributes="0"/>
+                              <Component id="sexoD" min="-2" pref="67" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <Component id="quantCriasL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField5" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="quantCriasD" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField1" min="-2" pref="315" max="-2" attributes="0"/>
+                              <Component id="nomePaiD" min="-2" pref="315" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codUsuarioL2" min="-2" max="-2" attributes="0"/>
+                              <Component id="codPaiL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codD3" max="32767" attributes="0"/>
+                              <Component id="codPaiD" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" pref="117" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="fotoD" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel7" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="inclusaoB" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -109,9 +107,20 @@
                           </Group>
                           <Component id="jScrollPane1" min="-2" pref="622" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="observacaoL" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="cancelarU" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="limparU" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="salvarU" min="-2" pref="65" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,62 +129,64 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codUsuarioL3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codD4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="codBovinoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="codBovinoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="BrincoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="BrincoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="ativoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="dataNascL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="idadeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="idadeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="dataNascD" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="racaL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="racaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="corL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="corD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="sexoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="quantCriasL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="quantCriasD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="sexoD" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomePaiD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="codD3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="codUsuarioL2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="nomePaiL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="codPaiD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="codPaiL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codUsuarioL1" alignment="3" max="32767" attributes="0"/>
+                          <Component id="nomeMaeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeMaeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="codMaeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="codMaeL" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabel8" min="-2" pref="125" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="fotoD" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="109" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="observacaoL" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="limparU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="salvarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="cancelarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="inclusaoB" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="alterarB" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -211,6 +222,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inclusaoBActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="excluirB">
       <Properties>
@@ -221,6 +235,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirBActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pesquisarB">
       <Properties>
@@ -231,6 +248,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisarBActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="listarB">
       <Properties>
@@ -242,7 +262,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="nomeL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -251,9 +271,9 @@
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="nomePaiD">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="BrincoL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -262,9 +282,9 @@
         <Property name="text" type="java.lang.String" value="Brinco:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="BrincoD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrincoDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="ativoD">
@@ -278,17 +298,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ativoDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="codD">
+    <Component class="javax.swing.JTextField" name="codMaeD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codDActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codMaeDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="dataNascL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -297,7 +312,7 @@
         <Property name="text" type="java.lang.String" value="Data Nasc.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="nomePaiL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -306,7 +321,7 @@
         <Property name="text" type="java.lang.String" value="Nome Pai:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="codUsuarioL1">
+    <Component class="javax.swing.JLabel" name="codMaeL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -314,12 +329,12 @@
         <Property name="text" type="java.lang.String" value="Cod.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="nomeD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="nomeMaeL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -328,7 +343,7 @@
         <Property name="text" type="java.lang.String" value="Nome M&#xe3;e:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="codUsuarioL2">
+    <Component class="javax.swing.JLabel" name="codPaiL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -336,7 +351,7 @@
         <Property name="text" type="java.lang.String" value="Cod.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="observacaoL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -345,9 +360,9 @@
         <Property name="text" type="java.lang.String" value="Obs.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="nomeMaeD">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="fotoD">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -356,7 +371,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="idadeL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -365,12 +380,12 @@
         <Property name="text" type="java.lang.String" value="Idade:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
+    <Component class="javax.swing.JFormattedTextField" name="idadeD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idadeDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="codUsuarioL3">
+    <Component class="javax.swing.JLabel" name="codBovinoL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -378,38 +393,39 @@
         <Property name="text" type="java.lang.String" value="Cod.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="codD3">
+    <Component class="javax.swing.JTextField" name="codPaiD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codD3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codPaiDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="codD4">
+    <Component class="javax.swing.JTextField" name="codBovinoD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codD4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codBovinoDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="sexoD">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Macho"/>
-            <StringItem index="1" value="F&#xea;mea"/>
+          <StringArray count="3">
+            <StringItem index="0" value="-"/>
+            <StringItem index="1" value="Macho"/>
+            <StringItem index="2" value="F&#xea;mea"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sexoDActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="sexoL">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sexo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="racaL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -418,12 +434,12 @@
         <Property name="text" type="java.lang.String" value="Ra&#xe7;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="racaD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="racaDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="corL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -432,9 +448,9 @@
         <Property name="text" type="java.lang.String" value="Cor:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField4">
+    <Component class="javax.swing.JFormattedTextField" name="corD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="corDActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -444,7 +460,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="observacaoD">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
@@ -453,7 +469,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="quantCriasL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -462,9 +478,58 @@
         <Property name="text" type="java.lang.String" value="Quant. Crias:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField5">
+    <Component class="javax.swing.JFormattedTextField" name="quantCriasD">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantCriasDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelarU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarUActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="limparU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparUActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="salvarU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarUActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="dataNascD">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##/##/####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataNascDActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

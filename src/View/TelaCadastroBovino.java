@@ -6,18 +6,24 @@
 package View;
 
 import Model.Bovino;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author rodri
  */
 public class TelaCadastroBovino extends javax.swing.JFrame {
+    int aux_inclu = 0;
+    int aux_altera = 0;
+    int aux_excluir = 0;
 
     /**
      * Creates new form TelaCadastroBovino
      */
     public TelaCadastroBovino() {
         initComponents();
+        this.desabilitaCampos();
+        this.limpaCampos();
     }
 
     /**
@@ -34,37 +40,40 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         excluirB = new javax.swing.JButton();
         pesquisarB = new javax.swing.JButton();
         listarB = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nomeL = new javax.swing.JLabel();
+        nomePaiD = new javax.swing.JTextField();
+        BrincoL = new javax.swing.JLabel();
+        BrincoD = new javax.swing.JTextField();
         ativoD = new javax.swing.JCheckBox();
-        codD = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        codUsuarioL1 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        codUsuarioL2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        codUsuarioL3 = new javax.swing.JLabel();
-        codD3 = new javax.swing.JTextField();
-        codD4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        codMaeD = new javax.swing.JTextField();
+        dataNascL = new javax.swing.JLabel();
+        nomePaiL = new javax.swing.JLabel();
+        codMaeL = new javax.swing.JLabel();
+        nomeD = new javax.swing.JTextField();
+        nomeMaeL = new javax.swing.JLabel();
+        codPaiL = new javax.swing.JLabel();
+        observacaoL = new javax.swing.JLabel();
+        nomeMaeD = new javax.swing.JTextField();
+        fotoD = new javax.swing.JLabel();
+        idadeL = new javax.swing.JLabel();
+        idadeD = new javax.swing.JFormattedTextField();
+        codBovinoL = new javax.swing.JLabel();
+        codPaiD = new javax.swing.JTextField();
+        codBovinoD = new javax.swing.JTextField();
+        sexoD = new javax.swing.JComboBox<>();
+        sexoL = new javax.swing.JLabel();
+        racaL = new javax.swing.JLabel();
+        racaD = new javax.swing.JTextField();
+        corL = new javax.swing.JLabel();
+        corD = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel13 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
+        observacaoD = new javax.swing.JTextArea();
+        quantCriasL = new javax.swing.JLabel();
+        quantCriasD = new javax.swing.JFormattedTextField();
+        cancelarU = new javax.swing.JButton();
+        limparU = new javax.swing.JButton();
+        salvarU = new javax.swing.JButton();
+        dataNascD = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -78,27 +87,42 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
         inclusaoB.setText("Incluir");
         inclusaoB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        inclusaoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inclusaoBActionPerformed(evt);
+            }
+        });
 
         excluirB.setText("Excluir");
         excluirB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        excluirB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirBActionPerformed(evt);
+            }
+        });
 
         pesquisarB.setText("Pesquisar");
         pesquisarB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pesquisarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisarBActionPerformed(evt);
+            }
+        });
 
         listarB.setText("Listar");
         listarB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Nome:");
+        nomeL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nomeL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nomeL.setText("Nome:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Brinco:");
+        BrincoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BrincoL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BrincoL.setText("Brinco:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        BrincoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                BrincoDActionPerformed(evt);
             }
         });
 
@@ -110,114 +134,143 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
             }
         });
 
-        codD.addActionListener(new java.awt.event.ActionListener() {
+        codMaeD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codDActionPerformed(evt);
+                codMaeDActionPerformed(evt);
             }
         });
 
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        dataNascL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        dataNascL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dataNascL.setText("Data Nasc.:");
+
+        nomePaiL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nomePaiL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nomePaiL.setText("Nome Pai:");
+
+        codMaeL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        codMaeL.setText("Cod.:");
+
+        nomeD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                nomeDActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("Data Nasc.:");
+        nomeMaeL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nomeMaeL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nomeMaeL.setText("Nome Mãe:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("Nome Pai:");
+        codPaiL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        codPaiL.setText("Cod.:");
 
-        codUsuarioL1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codUsuarioL1.setText("Cod.:");
+        observacaoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        observacaoL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        observacaoL.setText("Obs.:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        fotoD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        idadeL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        idadeL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        idadeL.setText("Idade:");
+
+        idadeD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                idadeDActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Nome Mãe:");
+        codBovinoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        codBovinoL.setText("Cod.:");
 
-        codUsuarioL2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codUsuarioL2.setText("Cod.:");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel7.setText("Obs.:");
-
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel9.setText("Idade:");
-
-        jFormattedTextField3.addActionListener(new java.awt.event.ActionListener() {
+        codPaiD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField3ActionPerformed(evt);
+                codPaiDActionPerformed(evt);
             }
         });
 
-        codUsuarioL3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codUsuarioL3.setText("Cod.:");
-
-        codD3.addActionListener(new java.awt.event.ActionListener() {
+        codBovinoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codD3ActionPerformed(evt);
+                codBovinoDActionPerformed(evt);
             }
         });
 
-        codD4.addActionListener(new java.awt.event.ActionListener() {
+        sexoD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Macho", "Fêmea" }));
+        sexoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codD4ActionPerformed(evt);
+                sexoDActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Fêmea" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        sexoL.setText("Sexo");
+
+        racaL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        racaL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        racaL.setText("Raça:");
+
+        racaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                racaDActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Sexo");
+        corL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        corL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        corL.setText("Cor:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel11.setText("Raça:");
-
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        corD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                corDActionPerformed(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel12.setText("Cor:");
+        observacaoD.setColumns(20);
+        observacaoD.setLineWrap(true);
+        observacaoD.setRows(5);
+        jScrollPane1.setViewportView(observacaoD);
 
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        quantCriasL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        quantCriasL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        quantCriasL.setText("Quant. Crias:");
+
+        quantCriasD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                quantCriasDActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel13.setText("Quant. Crias:");
-
-        jFormattedTextField5.addActionListener(new java.awt.event.ActionListener() {
+        cancelarU.setText("Cancelar");
+        cancelarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cancelarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField5ActionPerformed(evt);
+                cancelarUActionPerformed(evt);
+            }
+        });
+
+        limparU.setText("Limpar");
+        limparU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        limparU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparUActionPerformed(evt);
+            }
+        });
+
+        salvarU.setText("Salvar");
+        salvarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salvarU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarUActionPerformed(evt);
+            }
+        });
+
+        try {
+            dataNascD.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        dataNascD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataNascDActionPerformed(evt);
             }
         });
 
@@ -231,63 +284,61 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(racaL, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BrincoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nomeL, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeMaeL)
+                            .addComponent(nomePaiL, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomeMaeD, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codUsuarioL1)
+                                .addComponent(codMaeL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codD))
+                                .addComponent(codMaeD))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BrincoD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
+                                .addComponent(dataNascL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dataNascD, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(idadeL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField3)
+                                .addComponent(idadeD)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ativoD))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomeD, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codUsuarioL3)
+                                .addComponent(codBovinoL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codD4))
+                                .addComponent(codBovinoD))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(racaD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
+                                .addComponent(corL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField4)
+                                .addComponent(corD)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)
+                                .addComponent(sexoL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sexoD, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
+                                .addComponent(quantCriasL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(quantCriasD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomePaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codUsuarioL2)
+                                .addComponent(codPaiL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codD3)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11))
+                                .addComponent(codPaiD)))
+                        .addGap(19, 19, 19)
+                        .addComponent(fotoD, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(inclusaoB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -299,7 +350,17 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(listarB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(observacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,51 +369,53 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(codUsuarioL3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(codD4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nomeD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codBovinoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codBovinoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BrincoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BrincoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ativoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dataNascL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataNascD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(racaL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(racaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(corL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(corD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sexoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantCriasL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantCriasD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sexoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomePaiD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(codD3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(codUsuarioL2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nomePaiL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codPaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codPaiL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(codD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(codUsuarioL1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)))
+                            .addComponent(nomeMaeL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeMaeD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codMaeD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codMaeL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(fotoD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(observacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inclusaoB)
                     .addComponent(alterarB)
@@ -367,57 +430,317 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBActionPerformed
-        // TODO add your handling code here:
+        this.limpaCampos();
+        boolean aux;
+        do{
+            String imput;
+            imput=(JOptionPane.showInputDialog(null,"Digite o Nome do Bovino:")); 
+            nomeD.setText(imput);
+            if(imput == null){
+                System.out.println("Cancel is pressed");
+                break;
+            }
+            Bovino bov = new Bovino();
+            bov.setNome(nomeD.getText());
+            aux = bov.pesquisar();
+            if(aux){
+                codBovinoD.setText(Integer.toString(bov.getCod()));
+                ativoD.setSelected(bov.isAtivo());
+                nomeD.setText(bov.getNome());
+                BrincoD.setText(Integer.toString(bov.getBrinco()));
+                dataNascD.setText(bov.getData_nasc());
+                idadeD.setText(Integer.toString(bov.getIdade()));
+                sexoD.setSelectedIndex(2);
+                racaD.setText(bov.getRaca());
+                corD.setText(bov.getCor());
+                quantCriasD.setText(Integer.toString(bov.getQuantCria()));
+                observacaoD.setText(bov.getObservacao());
+                codPaiD.setText(Integer.toString(bov.getCodPai()));
+                nomePaiD.setText(bov.getNome_pai());
+                codMaeD.setText(Integer.toString(bov.getCodmae()));
+                nomeMaeD.setText(bov.getNome_mae());
+                this.habilitaCampos();
+                aux_altera = 1; 
+            }
+
+        }while(!aux);          // TODO add your handling code here:
     }//GEN-LAST:event_alterarBActionPerformed
 
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ativoDActionPerformed
 
-    private void codDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codDActionPerformed
+    private void codMaeDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codMaeDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codDActionPerformed
+    }//GEN-LAST:event_codMaeDActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void BrincoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrincoDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_BrincoDActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void idadeDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_idadeDActionPerformed
 
-    private void jFormattedTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField3ActionPerformed
+    private void codPaiDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codPaiDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField3ActionPerformed
+    }//GEN-LAST:event_codPaiDActionPerformed
 
-    private void codD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codD3ActionPerformed
+    private void codBovinoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codBovinoDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codD3ActionPerformed
+    }//GEN-LAST:event_codBovinoDActionPerformed
 
-    private void codD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codD4ActionPerformed
+    private void sexoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codD4ActionPerformed
+    }//GEN-LAST:event_sexoDActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void racaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_racaDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_racaDActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void corDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_corDActionPerformed
 
-    private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+    private void quantCriasDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantCriasDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField4ActionPerformed
+    }//GEN-LAST:event_quantCriasDActionPerformed
 
-    private void jFormattedTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField5ActionPerformed
+    private void nomeDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField5ActionPerformed
+    }//GEN-LAST:event_nomeDActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void inclusaoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+        this.habilitaCampos();
+        codBovinoD.setEnabled(false);
+        aux_inclu = 1;
+    }//GEN-LAST:event_inclusaoBActionPerformed
 
+    private void pesquisarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBActionPerformed
+        this.limpaCampos();
+        nomeD.setText(JOptionPane.showInputDialog("Digite o Nome do Bovino:"));
+        Bovino bov = new Bovino();
+        bov.setNome(nomeD.getText());
+        bov.pesquisar();
+        codBovinoD.setText(Integer.toString(bov.getCod()));
+        ativoD.setSelected(bov.isAtivo());
+        nomeD.setText(bov.getNome());
+        BrincoD.setText(Integer.toString(bov.getBrinco()));
+        dataNascD.setText(bov.getData_nasc());
+        idadeD.setText(Integer.toString(bov.getIdade()));
+        sexoD.setSelectedIndex(2);
+        racaD.setText(bov.getRaca());
+        corD.setText(bov.getCor());
+        quantCriasD.setText(Integer.toString(bov.getQuantCria()));
+        observacaoD.setText(bov.getObservacao());
+        codPaiD.setText(Integer.toString(bov.getCodPai()));
+        nomePaiD.setText(bov.getNome_pai());
+        codMaeD.setText(Integer.toString(bov.getCodmae()));
+        nomeMaeD.setText(bov.getNome_mae());
+        
+    }//GEN-LAST:event_pesquisarBActionPerformed
+
+    private void cancelarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarUActionPerformed
+        this.limpaCampos();
+        aux_inclu = 0;
+        aux_altera = 0;
+        aux_excluir = 0;
+        this.desabilitaCampos();
+    }//GEN-LAST:event_cancelarUActionPerformed
+
+    private void limparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparUActionPerformed
+        // TODO add your handling code here:
+        this.limpaCampos();
+    }//GEN-LAST:event_limparUActionPerformed
+
+    private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
+        // TODO add your handling code here:
+        if(aux_inclu == 1){
+            Bovino bov = new Bovino();
+            bov.setAtivo(ativoD.isSelected());
+            bov.setNome(nomeD.getText());
+            bov.setBrinco(Integer.parseInt(BrincoD.getText()));
+            bov.setData_nasc(dataNascD.getText());
+            bov.setIdade(Integer.parseInt(idadeD.getText()));
+            bov.setSexo("Macho");
+            bov.setRaca(racaD.getText());
+            bov.setCor(corD.getText());
+            bov.setQuantCria(Integer.parseInt(quantCriasD.getText()));
+            bov.setObservacao(observacaoD.getText());
+            bov.setCodPai(Integer.parseInt(codPaiD.getText()));
+            bov.setNome_pai(nomePaiD.getText());
+            bov.setCodmae(Integer.parseInt(codMaeD.getText()));
+            bov.setNome_mae(nomeMaeD.getText());
+            if(nomeD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }else{
+                bov.cadastrar();
+                this.desabilitaCampos();
+                aux_inclu = 0;
+                this.limpaCampos();
+            }
+        }if(aux_altera == 1){
+            Bovino bov = new Bovino();
+            bov.setCod(Integer.parseInt(codBovinoD.getText()));
+            bov.setAtivo(ativoD.isSelected());
+            bov.setNome(nomeD.getText());
+            bov.setBrinco(Integer.parseInt(BrincoD.getText()));
+            bov.setData_nasc(dataNascD.getText());
+            bov.setIdade(Integer.parseInt(idadeD.getText()));
+            bov.setSexo("Macho");
+            bov.setRaca(racaD.getText());
+            bov.setCor(corD.getText());
+            bov.setQuantCria(Integer.parseInt(quantCriasD.getText()));
+            bov.setObservacao(observacaoD.getText());
+            bov.setCodPai(Integer.parseInt(codPaiD.getText()));
+            bov.setNome_pai(nomePaiD.getText());
+            bov.setCodmae(Integer.parseInt(codMaeD.getText()));
+            bov.setNome_mae(nomeMaeD.getText());
+            if(nomeD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }else{
+                bov.alterar();
+                this.desabilitaCampos();
+                aux_altera = 0;
+                this.limpaCampos();
+            }
+        }if(aux_excluir  == 1){
+            Bovino bov = new Bovino();
+            bov.setCod(Integer.parseInt(codBovinoD.getText()));
+            bov.setAtivo(ativoD.isSelected());
+            bov.setNome(nomeD.getText());
+            bov.setBrinco(Integer.parseInt(BrincoD.getText()));
+            bov.setData_nasc(dataNascD.getText());
+            bov.setIdade(Integer.parseInt(idadeD.getText()));
+            bov.setSexo("Macho");
+            bov.setRaca(racaD.getText());
+            bov.setCor(corD.getText());
+            bov.setQuantCria(Integer.parseInt(quantCriasD.getText()));
+            bov.setObservacao(observacaoD.getText());
+            bov.setCodPai(Integer.parseInt(codPaiD.getText()));
+            bov.setNome_pai(nomePaiD.getText());
+            bov.setCodmae(Integer.parseInt(codMaeD.getText()));
+            bov.setNome_mae(nomeMaeD.getText());
+            if(nomeD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }if(corD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
+            }else{
+                bov.excluir();
+                this.desabilitaCampos();
+                aux_excluir = 0;
+                this.limpaCampos();
+            }
+        }
+    }//GEN-LAST:event_salvarUActionPerformed
+
+    private void dataNascDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNascDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNascDActionPerformed
+
+    private void excluirBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirBActionPerformed
+        this.limpaCampos();
+        boolean aux;
+        do{
+            String imput;
+            imput=(JOptionPane.showInputDialog(null,"Digite o Nome do Bovino:")); 
+            nomeD.setText(imput);
+            if(imput == null){
+                System.out.println("Cancel is pressed");
+                break;
+            }
+            Bovino bov = new Bovino();
+            bov.setNome(nomeD.getText());
+            aux = bov.pesquisar();
+            if(aux){
+                codBovinoD.setText(Integer.toString(bov.getCod()));
+                ativoD.setSelected(bov.isAtivo());
+                nomeD.setText(bov.getNome());
+                BrincoD.setText(Integer.toString(bov.getBrinco()));
+                dataNascD.setText(bov.getData_nasc());
+                idadeD.setText(Integer.toString(bov.getIdade()));
+                sexoD.setSelectedIndex(2);
+                racaD.setText(bov.getRaca());
+                corD.setText(bov.getCor());
+                quantCriasD.setText(Integer.toString(bov.getQuantCria()));
+                observacaoD.setText(bov.getObservacao());
+                codPaiD.setText(Integer.toString(bov.getCodPai()));
+                nomePaiD.setText(bov.getNome_pai());
+                codMaeD.setText(Integer.toString(bov.getCodmae()));
+                nomeMaeD.setText(bov.getNome_mae());
+                aux_excluir = 1; 
+            }
+
+        }while(!aux);        // TODO add your handling code here:
+    }//GEN-LAST:event_excluirBActionPerformed
+
+    public void habilitaCampos(){
+        
+        ativoD.setEnabled(true);
+        nomeD.setEnabled(true);
+        BrincoD.setEnabled(true);
+        dataNascD.setEnabled(true);
+        idadeD.setEnabled(true);
+        sexoD.setEnabled(true);
+        racaD.setEnabled(true);
+        corD.setEnabled(true);
+        quantCriasD.setEnabled(true);
+        observacaoD.setEnabled(true);
+        codPaiD.setEnabled(true);
+        nomePaiD.setEnabled(true);
+        codMaeD.setEnabled(true);
+        nomeMaeD.setEnabled(true);
+    }
+    
+    public void desabilitaCampos(){
+        
+        codBovinoD.setEnabled(false);
+        ativoD.setEnabled(false);
+        nomeD.setEnabled(false);
+        BrincoD.setEnabled(false);
+        dataNascD.setEnabled(false);
+        idadeD.setEnabled(false);
+        sexoD.setEnabled(false);
+        racaD.setEnabled(false);
+        corD.setEnabled(false);
+        quantCriasD.setEnabled(false);
+        observacaoD.setEnabled(false);
+        codPaiD.setEnabled(false);
+        nomePaiD.setEnabled(false);
+        codMaeD.setEnabled(false);
+        nomeMaeD.setEnabled(false);
+
+    }
+    
+    public void limpaCampos(){
+        
+        codBovinoD.setText("");
+        ativoD.setSelected(false);
+        nomeD.setText("");
+        BrincoD.setText("");
+        dataNascD.setText("");
+        idadeD.setText("");
+        sexoD.setSelectedIndex(2);
+        racaD.setText("");
+        corD.setText("");
+        quantCriasD.setText("");
+        observacaoD.setText("");
+        codPaiD.setText("");
+        nomePaiD.setText("");
+        codMaeD.setText("");
+        nomeMaeD.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -461,41 +784,44 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BrincoD;
+    private javax.swing.JLabel BrincoL;
     private javax.swing.JButton alterarB;
     private javax.swing.JCheckBox ativoD;
-    private javax.swing.JTextField codD;
-    private javax.swing.JTextField codD3;
-    private javax.swing.JTextField codD4;
-    private javax.swing.JLabel codUsuarioL1;
-    private javax.swing.JLabel codUsuarioL2;
-    private javax.swing.JLabel codUsuarioL3;
+    private javax.swing.JButton cancelarU;
+    private javax.swing.JTextField codBovinoD;
+    private javax.swing.JLabel codBovinoL;
+    private javax.swing.JTextField codMaeD;
+    private javax.swing.JLabel codMaeL;
+    private javax.swing.JTextField codPaiD;
+    private javax.swing.JLabel codPaiL;
+    private javax.swing.JFormattedTextField corD;
+    private javax.swing.JLabel corL;
+    private javax.swing.JFormattedTextField dataNascD;
+    private javax.swing.JLabel dataNascL;
     private javax.swing.JButton excluirB;
+    private javax.swing.JLabel fotoD;
+    private javax.swing.JFormattedTextField idadeD;
+    private javax.swing.JLabel idadeL;
     private javax.swing.JButton inclusaoB;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JButton limparU;
     private javax.swing.JButton listarB;
+    private javax.swing.JTextField nomeD;
+    private javax.swing.JLabel nomeL;
+    private javax.swing.JTextField nomeMaeD;
+    private javax.swing.JLabel nomeMaeL;
+    private javax.swing.JTextField nomePaiD;
+    private javax.swing.JLabel nomePaiL;
+    private javax.swing.JTextArea observacaoD;
+    private javax.swing.JLabel observacaoL;
     private javax.swing.JButton pesquisarB;
+    private javax.swing.JFormattedTextField quantCriasD;
+    private javax.swing.JLabel quantCriasL;
+    private javax.swing.JTextField racaD;
+    private javax.swing.JLabel racaL;
+    private javax.swing.JButton salvarU;
+    private javax.swing.JComboBox<String> sexoD;
+    private javax.swing.JLabel sexoL;
     // End of variables declaration//GEN-END:variables
 }

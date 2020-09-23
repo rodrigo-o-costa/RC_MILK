@@ -154,7 +154,7 @@ public class Fazenda {
          try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
   
         String sql = "DELETE FROM tb_fazenda WHERE id_fazenda = ?";
@@ -232,10 +232,10 @@ public class Fazenda {
                 this.setTelefone(rs.getString("telefone"));
                 this.setCelular(rs.getString("celular"));
                 this.setEmail(rs.getString("email"));
-                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+                JOptionPane.showMessageDialog(null, "Fazenda Encontrada");
                 return true;
             }else{
-                JOptionPane.showMessageDialog(null, "Usuario Não Encontrado"); 
+                JOptionPane.showMessageDialog(null, "Fazenda Não Encontrada"); 
                 return false;
             }
         }catch(SQLException E){

@@ -76,6 +76,7 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        listaFazenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         listaFazenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -103,23 +104,15 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
         listaFazenda.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(listaFazenda);
         if (listaFazenda.getColumnModel().getColumnCount() > 0) {
-            listaFazenda.getColumnModel().getColumn(0).setResizable(false);
             listaFazenda.getColumnModel().getColumn(0).setPreferredWidth(30);
-            listaFazenda.getColumnModel().getColumn(1).setResizable(false);
-            listaFazenda.getColumnModel().getColumn(1).setPreferredWidth(30);
-            listaFazenda.getColumnModel().getColumn(2).setResizable(false);
+            listaFazenda.getColumnModel().getColumn(1).setPreferredWidth(50);
             listaFazenda.getColumnModel().getColumn(2).setPreferredWidth(180);
-            listaFazenda.getColumnModel().getColumn(3).setResizable(false);
             listaFazenda.getColumnModel().getColumn(3).setPreferredWidth(180);
-            listaFazenda.getColumnModel().getColumn(4).setResizable(false);
-            listaFazenda.getColumnModel().getColumn(4).setPreferredWidth(50);
-            listaFazenda.getColumnModel().getColumn(5).setResizable(false);
-            listaFazenda.getColumnModel().getColumn(5).setPreferredWidth(50);
+            listaFazenda.getColumnModel().getColumn(4).setPreferredWidth(100);
+            listaFazenda.getColumnModel().getColumn(5).setPreferredWidth(100);
             listaFazenda.getColumnModel().getColumn(6).setResizable(false);
-            listaFazenda.getColumnModel().getColumn(6).setPreferredWidth(50);
-            listaFazenda.getColumnModel().getColumn(7).setResizable(false);
-            listaFazenda.getColumnModel().getColumn(7).setPreferredWidth(50);
-            listaFazenda.getColumnModel().getColumn(8).setResizable(false);
+            listaFazenda.getColumnModel().getColumn(6).setPreferredWidth(100);
+            listaFazenda.getColumnModel().getColumn(7).setPreferredWidth(100);
             listaFazenda.getColumnModel().getColumn(8).setPreferredWidth(200);
         }
 
