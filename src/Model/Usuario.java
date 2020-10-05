@@ -196,10 +196,8 @@ public class Usuario {
                 this.setSenha(rs.getString("senha"));
                 this.setTelefone(rs.getString("telefone"));
                 this.setEmail(rs.getString("email"));
-                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
                 return true;
             }else{
-                JOptionPane.showMessageDialog(null, "Usuario Não Encontrado"); 
                 return false;
             }
         }catch(SQLException E){

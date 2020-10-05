@@ -107,7 +107,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         });
 
         nomeFazendaL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        nomeFazendaL.setText("Nome Fazenda:");
+        nomeFazendaL.setText("Nome Fazenda:*");
 
         nomeProdL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nomeProdL.setText("Nome Prod.:");
@@ -188,16 +188,13 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ieL)
-                                .addComponent(telefoneL))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(cpfL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(47, 47, 47))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ieL)
+                                .addComponent(telefoneL)
                                 .addComponent(nomeFazendaL)
                                 .addComponent(nomeProdL))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -381,18 +378,19 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
             faz.setCelular(celularD.getText());
             faz.setTelefone(telefoneD.getText());
             faz.setEmail(emailD.getText());
-            
-            if(nomeFazendaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Fazenda não pode ser vazio");
-            }if(nomeProdD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Produtor não pode ser vazio");
-            }else{
-                faz.cadastrar();
-                this.desabilitaCampos();
-                aux_inclu = 0;
-                this.limpaCampos();
+            boolean aux_faz_inclu = faz.pesquisar();
+            if(aux_faz_inclu == true){
+                JOptionPane.showMessageDialog(null, "Fazenda ja cadastrada");
+            } else{
+                if(nomeFazendaD.getText().equals("")){
+                   JOptionPane.showMessageDialog(null, "Campo nome fazenda não pode ser vazio");
+                }else{
+                    faz.cadastrar();
+                    this.desabilitaCampos();
+                    aux_inclu = 0;
+                    this.limpaCampos();
+                }
             }
-           
         }if(aux_altera == 1){
             Fazenda faz = new Fazenda();
             faz.setCodigo(Integer.parseInt(codD.getText()));

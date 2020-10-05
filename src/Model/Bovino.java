@@ -6,12 +6,11 @@
 package Model;
 
 import Controller.Conec;
-import View.TelaPrincipal;
-import View.Tela_login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,41 +20,35 @@ import javax.swing.JOptionPane;
  * @author rodri
  */
 public class Bovino { 
-
+    
     private int cod;
     private boolean ativo;
     private String nome;
     private int brinco;
-    private String data_nasc;
-    private int idade;
+    private Date data_nasc;
     private String sexo;
     private String raca;
     private String cor;
     private int quantCria;
     private String observacao;
-    private int codPai;
     private String nome_pai;
-    private int codmae;
     private String nome_mae;
 
     public Bovino() {
     }
 
-    public Bovino(int cod, boolean ativo, String nome, int brinco, String data_nasc, int idade, String sexo, String raca, String cor, int quantCria, String observacao, int codPai, String nome_pai, int codmae, String nome_mae) {
+    public Bovino(int cod, boolean ativo, String nome, int brinco, Date data_nasc, int idade, String sexo, String raca, String cor, int quantCria, String observacao, String nome_pai, String nome_mae) {
         this.cod = cod;
         this.ativo = ativo;
         this.nome = nome;
         this.brinco = brinco;
         this.data_nasc = data_nasc;
-        this.idade = idade;
         this.sexo = sexo;
         this.raca = raca;
         this.cor = cor;
         this.quantCria = quantCria;
         this.observacao = observacao;
-        this.codPai = codPai;
         this.nome_pai = nome_pai;
-        this.codmae = codmae;
         this.nome_mae = nome_mae;
     }
     
@@ -91,20 +84,12 @@ public class Bovino {
         this.brinco = brinco;
     }
 
-    public String getData_nasc() {
+    public Date getData_nasc() {
         return data_nasc;
     }
 
-    public void setData_nasc(String data_nasc) {
+    public void setData_nasc(Date data_nasc) {
         this.data_nasc = data_nasc;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 
     public String getSexo() {
@@ -147,30 +132,10 @@ public class Bovino {
         this.observacao = observacao;
     }
 
-    public int getCodPai() {
-        return codPai;
-    }
-
-    public void setCodPai(int codPai) {
-        this.codPai = codPai;
-    }
-
-    public String getNome_pai() {
-        return nome_pai;
-    }
-
     public void setNome_pai(String nome_pai) {
         this.nome_pai = nome_pai;
     }
-
-    public int getCodmae() {
-        return codmae;
-    }
-
-    public void setCodmae(int codmae) {
-        this.codmae = codmae;
-    }
-
+    
     public String getNome_mae() {
         return nome_mae;
     }
@@ -212,24 +177,21 @@ public class Bovino {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = "UPDATE tb_bovino set ativo = ?, nome = ?, brinco = ?, data_nasc = ?, idade = ?, sexo = ?, raca = ?, cor = ?, quantCria = ?, observacao = ?, codPai = ?, nome_pai = ?, codmae = ?, nome_mae = ? where cod = ? ";
+        String sql = "UPDATE tb_bovino set ativo = ?, nome = ?, brinco = ?, data_nasc = ?, sexo = ?, raca = ?, cor = ?, quantCria = ?, observacao = ?, nome_pai = ?, nome_mae = ? where cod = ? ";
         try{
             pst = con.prepareStatement(sql);
             pst.setBoolean(1,this.isAtivo());
             pst.setString(2,this.getNome());
             pst.setInt(3,this.getBrinco());
-            pst.setString(4,this.getData_nasc());
-            pst.setInt(5,this.getIdade());
-            pst.setString(6,this.getSexo());
-            pst.setString(7,this.getRaca());
-            pst.setString(8,this.getCor());
-            pst.setInt(9,this.getQuantCria());
-            pst.setString(10,this.getObservacao());
-            pst.setInt(11,this.getCodPai());
-            pst.setString(12,this.getNome_pai());
-            pst.setInt(13,this.getCodmae());
-            pst.setString(14,this.getNome_mae());
-            pst.setInt(15,this.getCod());
+            pst.setDate(4,new java.sql.Date(this.getData_nasc().getTime()));
+            pst.setString(5,this.getSexo());
+            pst.setString(6,this.getRaca());
+            pst.setString(7,this.getCor());
+            pst.setInt(8,this.getQuantCria());
+            pst.setString(9,this.getObservacao());
+            pst.setString(10,this.getNome_pai());
+            pst.setString(11,this.getNome_mae());
+            pst.setInt(12,this.getCod());
 
             if(!pst.execute()){
                  JOptionPane.showMessageDialog(null, "Bovino Alterado com Sucesso");
@@ -252,7 +214,7 @@ public class Bovino {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = ("select cod, ativo, nome, brinco, data_nasc, idade, sexo, raca, cor, quantCria, observacao, codPai, nome_pai, codmae, nome_mae from tb_bovino where nome = ?;");
+        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where nome = ?;");
         try{
             pst = con.prepareStatement(sql);
             pst.setString(1,this.getNome());
@@ -262,16 +224,13 @@ public class Bovino {
                 this.setAtivo(rs.getBoolean("ativo"));
                 this.setNome(rs.getString("nome"));
                 this.setBrinco(rs.getInt("brinco"));
-                this.setData_nasc(rs.getString("data_nasc"));
-                this.setIdade(rs.getInt("idade"));
+                this.setData_nasc(rs.getDate("data_nasc"));
                 this.setSexo(rs.getString("sexo"));
                 this.setRaca(rs.getString("raca"));
                 this.setCor(rs.getString("cor"));
                 this.setQuantCria(rs.getInt("quantCria"));
                 this.setObservacao(rs.getString("observacao"));
-                this.setCodPai(rs.getInt("codPai"));
                 this.setNome_pai(rs.getString("nome_pai"));
-                this.setCodmae(rs.getInt("codmae"));
                 this.setNome_mae(rs.getString("nome_mae"));
                 JOptionPane.showMessageDialog(null, "Bovino Encontrada");
                 return true;
@@ -294,31 +253,32 @@ public class Bovino {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = "INSERT INTO  tb_bovino (ativo, nome, brinco, data_nasc, idade, sexo, raca,cor, quantCria, observacao, codPai, nome_pai, codmae, nome_mae)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO  tb_bovino (ativo, nome, brinco, data_nasc, sexo, raca,cor, quantCria, observacao, nome_pai, nome_mae)values (?,?,?,?,?,?,?,?,?,?,?);";
         try{
             pst = con.prepareStatement(sql);
             pst.setBoolean(1,this.isAtivo());
             pst.setString(2,this.getNome());
             pst.setInt(3,this.getBrinco());
-            pst.setString(4,this.getData_nasc());
-            pst.setInt(5,this.getIdade());
-            pst.setString(6,this.getSexo());
-            pst.setString(7,this.getRaca());
-            pst.setString(8,this.getCor());
-            pst.setInt(9,this.getQuantCria());
-            pst.setString(10,this.getObservacao());
-            pst.setInt(11,this.getCodPai());
-            pst.setString(12,this.getNome_pai());
-            pst.setInt(13,this.getCodmae());
-            pst.setString(14,this.getNome_mae());
+            pst.setDate(4,new java.sql.Date(this.getData_nasc().getTime()));
+            pst.setString(5,this.getSexo());
+            pst.setString(6,this.getRaca());
+            pst.setString(7,this.getCor());
+            pst.setInt(8,this.getQuantCria());
+            pst.setString(9,this.getObservacao());
+            pst.setString(10,this.getNome_pai());
+            pst.setString(11,this.getNome_mae());
             if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Fazenda cadastrado com sucesso");
+                 JOptionPane.showMessageDialog(null, "Bovino cadastrado com sucesso");
             }else{
-                 JOptionPane.showMessageDialog(null, "Fazenda Não Cadastrado");
+                 JOptionPane.showMessageDialog(null, "Bovino Não Cadastrado");
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
         }
+    }
+
+    public String getNome_pai() {
+        return nome_pai;
     }
 
 }

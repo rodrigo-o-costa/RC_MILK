@@ -6,6 +6,7 @@
 package View;
 
 import Controller.Conec;
+import Model.Usuario;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -259,46 +260,60 @@ public class Tela_login extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaDKeyPressed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        String sql = "select*from tb_usuario where usuario = ? and senha = ?";
-        
-        try{
-            pst = con.prepareStatement(sql);
-            pst.setString(1,usuarioD.getText());
-            pst.setString(2,senhaD.getText());
-            rs = pst.executeQuery();
-             if(rs.next()){
+
+        Usuario user = new Usuario();
+        user.setUser(usuarioD.getText());
+        boolean aux_user = user.pesquisar();
+        if(aux_user == true){
+            if(!user.getSenha().equals(senhaD.getText())){
+                JOptionPane.showMessageDialog(null, "Senha inválida"); 
+                senhaD.setText("");
+                senhaD.requestFocus();
+                return;
+            }if(user.getAtivo() == false){
+                JOptionPane.showMessageDialog(null, "Usuario: "+user.getUser()+" Inativo.");
+                usuarioD.requestFocus();
+                usuarioD.setText("");
+                senhaD.setText("");
+                return;
+            }else{
+                JOptionPane.showMessageDialog(null, "Bem Vindo,\n"+user.getNome()+".");
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
                 telaP.setTitle("RC MILK");
                 this.dispose();
-             }else{
-                  JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
-             }
-        }catch(SQLException E){
-            JOptionPane.showMessageDialog(null, E);
-        }        // TODO add your handling code here:
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario inválido"); 
+        }
     }//GEN-LAST:event_entrarActionPerformed
 
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
-        String sql = "select*from tb_usuario where usuario = ? and senha = ?";
-        
-        try{
-            pst = con.prepareStatement(sql);
-            pst.setString(1,usuarioD.getText());
-            pst.setString(2,senhaD.getText());
-            rs = pst.executeQuery();
-             if(rs.next()){
+        Usuario user = new Usuario();
+        user.setUser(usuarioD.getText());
+        boolean aux_user = user.pesquisar();
+        if(aux_user == true){
+            if(!user.getSenha().equals(senhaD.getText())){
+                JOptionPane.showMessageDialog(null, "Senha inválida"); 
+                senhaD.setText("");
+                senhaD.requestFocus();
+                return;
+            }if(user.getAtivo() == false){
+                JOptionPane.showMessageDialog(null, "Usuario: "+user.getUser()+" Inativo.");
+                usuarioD.requestFocus();
+                usuarioD.setText("");
+                senhaD.setText("");
+                return;
+            }else{
+                JOptionPane.showMessageDialog(null, "Bem Vindo,\n"+user.getNome()+".");
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
                 telaP.setTitle("RC MILK");
                 this.dispose();
-             }else{
-                  JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
-                  usuarioD.requestFocus();
-             }
-        }catch(SQLException E){
-            JOptionPane.showMessageDialog(null, E);
-        }        // TODO add your handling code here:
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario inválido"); 
+        }
     }//GEN-LAST:event_entrarKeyPressed
 
     /**

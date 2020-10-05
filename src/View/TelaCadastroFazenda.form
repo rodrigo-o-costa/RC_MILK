@@ -28,19 +28,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ieL" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="telefoneL" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="cpfL" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ieL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="telefoneL" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="nomeFazendaL" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="nomeProdL" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -251,7 +246,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nome Fazenda:"/>
+        <Property name="text" type="java.lang.String" value="Nome Fazenda:*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nomeProdL">

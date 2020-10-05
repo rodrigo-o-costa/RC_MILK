@@ -19,7 +19,7 @@ public class Conec {
         try{
             
         Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.1.54:5432/rc_milk","postgres" ,"root");
+        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/rc_milk","postgres" ,"root");
         return con;
         }
         

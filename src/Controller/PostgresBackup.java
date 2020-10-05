@@ -94,7 +94,7 @@ public class PostgresBackup {
                final Process process = pb.start();      
          
                final BufferedReader r = new BufferedReader(      
-                   new InputStreamReader(process.getErrorStream()));      
+               new InputStreamReader(process.getErrorStream()));      
                String line = r.readLine();      
                while (line != null) {      
                System.err.println(line);      

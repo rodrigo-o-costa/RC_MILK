@@ -138,9 +138,9 @@ public class Fazenda {
             pst.setString(7,this.getCelular());
             pst.setString(8,this.getEmail());
             if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Fazenda cadastrado com sucesso");
+                 JOptionPane.showMessageDialog(null, "Fazenda cadastrada com sucesso");
             }else{
-                 JOptionPane.showMessageDialog(null, "Fazenda Não Cadastrado");
+                 JOptionPane.showMessageDialog(null, "Fazenda não cadastrada");
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
@@ -163,9 +163,9 @@ public class Fazenda {
             pst.setInt(1,this.getCodigo());
             System.out.println(pst);
             if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Fazenda Excluido com Sucesso");
+                 JOptionPane.showMessageDialog(null, "Fazenda excluída com sucesso");
             }else{
-                 JOptionPane.showMessageDialog(null, "Fazenda Não Excluido");
+                 JOptionPane.showMessageDialog(null, "Fazenda não excluída");
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
@@ -196,9 +196,9 @@ public class Fazenda {
             pst.setInt(10,this.getCodigo());
             
             if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Fazenda Alterado com Sucesso");
+                 JOptionPane.showMessageDialog(null, "Fazenda alterada com sucesso");
             }else{
-                 JOptionPane.showMessageDialog(null, "Fazenda Não Alterado");
+                 JOptionPane.showMessageDialog(null, "Fazenda não alterada");
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
@@ -232,10 +232,10 @@ public class Fazenda {
                 this.setTelefone(rs.getString("telefone"));
                 this.setCelular(rs.getString("celular"));
                 this.setEmail(rs.getString("email"));
-                JOptionPane.showMessageDialog(null, "Fazenda Encontrada");
+                JOptionPane.showMessageDialog(null, "Fazenda encontrada");
                 return true;
             }else{
-                JOptionPane.showMessageDialog(null, "Fazenda Não Encontrada"); 
+                JOptionPane.showMessageDialog(null, "Fazenda não encontrada"); 
                 return false;
             }
         }catch(SQLException E){

@@ -40,6 +40,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, e);
         }
+        this.setIcon();
         
     }
 
@@ -68,8 +69,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_TelaPrincipal.png"))); // NOI18N
+        getContentPane().add(logoTelaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 211, 107));
 
         menuBarra.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -120,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relatorioM.setText("Relatorios");
         menuBarra.add(relatorioM);
 
-        utilitariosM.setText("Utiliarios");
+        utilitariosM.setText("Utilitário");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem2.setText("Sair");
@@ -161,23 +164,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuBarra.add(utilitariosM);
 
         setJMenuBar(menuBarra);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(553, Short.MAX_VALUE)
-                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(348, Short.MAX_VALUE)
-                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
 
         setSize(new java.awt.Dimension(799, 526));
         setLocationRelativeTo(null);

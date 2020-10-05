@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
@@ -24,179 +25,170 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="racaL" min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="BrincoL" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="nomeL" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
-                          <Component id="nomeMaeL" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomePaiL" min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="nomeMaeD" min="-2" pref="315" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="observacaoL" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codMaeL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codMaeD" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="BrincoD" min="-2" pref="86" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dataNascL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dataNascD" min="-2" pref="95" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="idadeL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="idadeD" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ativoD" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="nomeD" min="-2" pref="315" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codBovinoL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codBovinoD" max="32767" attributes="0"/>
+                              <Component id="observacaoD" min="-2" pref="466" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="racaD" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="nomePaiL" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="corL" min="-2" max="-2" attributes="0"/>
+                              <Component id="nomePaiD" min="-2" pref="187" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="corD" max="32767" attributes="0"/>
+                              <Component id="nomeMaeL" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sexoL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sexoD" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="quantCriasL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="quantCriasD" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="nomeMaeD" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="nomePaiD" min="-2" pref="315" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="codBovinoL" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="BrincoL" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="racaL" min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codPaiL" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="racaD" pref="80" max="32767" attributes="0"/>
+                                  <Component id="BrincoD" alignment="1" pref="80" max="32767" attributes="0"/>
+                                  <Component id="codBovinoD" alignment="1" pref="80" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codPaiD" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sexoL" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="corL" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="nomeL" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="corD" pref="100" max="32767" attributes="0"/>
+                                          <Component id="sexoD" pref="100" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="dataNascL" max="32767" attributes="0"/>
+                                          <Component id="quantCriasL" pref="75" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="quantCriasD" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="ativoD" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="dataNascD" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="nomeD" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="fotoD" min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="cancelarU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="limparU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="salvarU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="listarB" min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="inclusaoB" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="alterarB" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="pesquisarB" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="excluirB" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="listarB" min="-2" pref="90" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" min="-2" pref="622" max="-2" attributes="0"/>
-                          <Component id="observacaoL" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="alterarB" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="inclusaoB" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="excluirB" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="pesquisarB" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="cancelarU" min="-2" pref="65" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="limparU" min="-2" pref="65" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="salvarU" min="-2" pref="65" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="nomeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codBovinoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codBovinoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BrincoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="BrincoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="ativoD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="dataNascL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="idadeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="idadeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="dataNascD" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="codBovinoL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="codBovinoD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sexoD" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="racaL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="racaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="corL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="corD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="sexoL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="quantCriasL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="quantCriasD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="BrincoL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="BrincoD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="corL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="corD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="quantCriasL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="quantCriasD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="ativoD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="racaL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="racaD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="sexoL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="sexoD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="dataNascL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="dataNascD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nomeMaeD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="nomeMaeL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="nomePaiD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nomePaiL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="codPaiD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="codPaiL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="nomePaiL" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="observacaoL" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="observacaoD" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeMaeL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="nomeMaeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codMaeD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="codMaeL" alignment="3" max="32767" attributes="0"/>
+                          <Component id="salvarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="limparU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="cancelarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="fotoD" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                      <Component id="inclusaoB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="alterarB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="pesquisarB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="listarB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="excluirB" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="observacaoL" min="-2" pref="25" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="limparU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="salvarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="cancelarU" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="inclusaoB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="alterarB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="excluirB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pesquisarB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="listarB" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -285,6 +277,9 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Brinco:"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="BrincoD">
@@ -301,11 +296,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ativoDActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="codMaeD">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codMaeDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="dataNascL">
@@ -326,14 +316,6 @@
         <Property name="text" type="java.lang.String" value="Nome Pai:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="codMaeL">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Cod.:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="nomeD">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeDActionPerformed"/>
@@ -348,14 +330,6 @@
         <Property name="text" type="java.lang.String" value="Nome M&#xe3;e:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="codPaiL">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Cod.:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="observacaoL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -367,41 +341,16 @@
     </Component>
     <Component class="javax.swing.JTextField" name="nomeMaeD">
     </Component>
-    <Component class="javax.swing.JLabel" name="fotoD">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="idadeL">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Idade:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="idadeD">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idadeDActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="codBovinoL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cod.:"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="codPaiD">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codPaiDActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="codBovinoD">
       <Events>
@@ -427,6 +376,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="sexoL">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Sexo"/>
       </Properties>
     </Component>
@@ -437,6 +389,9 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Ra&#xe7;a:"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="racaD">
@@ -458,22 +413,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="corDActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="observacaoD">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JTextArea" name="observacaoD">
+      <Properties>
+        <Property name="columns" type="int" value="20"/>
+        <Property name="lineWrap" type="boolean" value="true"/>
+        <Property name="rows" type="int" value="5"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="quantCriasL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -527,15 +473,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarUActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="dataNascD">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="##/##/####" subtype="-1" type="5"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataNascDActionPerformed"/>
-      </Events>
+    <Component class="com.toedter.calendar.JDateChooser" name="dataNascD">
     </Component>
   </SubComponents>
 </Form>
