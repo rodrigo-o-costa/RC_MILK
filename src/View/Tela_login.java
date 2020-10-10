@@ -281,6 +281,7 @@ public class Tela_login extends javax.swing.JFrame {
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
                 telaP.setTitle("RC MILK");
+                telaP.usuarioLogadoInfo.setText(user.getUser());
                 this.dispose();
             }
         }else{
@@ -308,6 +309,7 @@ public class Tela_login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bem Vindo,\n"+user.getNome()+".");
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
+                telaP.usuarioLogadoInfo.setText(user.getUser());
                 telaP.setTitle("RC MILK");
                 this.dispose();
             }
