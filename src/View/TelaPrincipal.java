@@ -60,6 +60,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AT_fazenda = new javax.swing.JButton();
         AT_sair = new javax.swing.JButton();
         AT_backup = new javax.swing.JButton();
+        AT_Cio = new javax.swing.JButton();
         painelInfo = new javax.swing.JPanel();
         usuarioLogadoInfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -119,6 +120,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        AT_Cio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_bovino.png"))); // NOI18N
+        AT_Cio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_CioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelATLayout = new javax.swing.GroupLayout(painelAT);
         painelAT.setLayout(painelATLayout);
         painelATLayout.setHorizontalGroup(
@@ -130,6 +138,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(AT_fazenda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AT_Bovino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,6 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(painelATLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(painelATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Bovino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,6 +228,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         cioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         cioM.setText("Cio");
+        cioM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cioMActionPerformed(evt);
+            }
+        });
         eventosM.add(cioM);
 
         menuBarra.add(eventosM);
@@ -386,6 +402,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaU.setTitle("RC MILK - CADASTRO USUARIOS");        // TODO add your handling code here:
     }//GEN-LAST:event_AT_USUARIO1ActionPerformed
 
+    private void AT_CioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_CioActionPerformed
+        TelaCio telaC = new  TelaCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - CIOS");        // TODO add your handling code here:
+    }//GEN-LAST:event_AT_CioActionPerformed
+
+    private void cioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioMActionPerformed
+        TelaCio telaC = new  TelaCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - CIOS"); 
+    }//GEN-LAST:event_cioMActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +451,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AT_Bovino;
+    private javax.swing.JButton AT_Cio;
     private javax.swing.JButton AT_USUARIO1;
     private javax.swing.JButton AT_backup;
     private javax.swing.JButton AT_fazenda;

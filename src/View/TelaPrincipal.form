@@ -64,6 +64,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cio"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cioMActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -197,6 +200,8 @@
                   <Component id="AT_fazenda" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="AT_Bovino" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="AT_Cio" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="AT_backup" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -208,8 +213,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="AT_Cio" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_sair" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_backup" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_Bovino" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
@@ -273,6 +279,16 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_backupActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="AT_Cio">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/icones/at_bovino.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_CioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
