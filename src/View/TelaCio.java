@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
  * @author rodri
  */
 
+
 public class TelaCio extends javax.swing.JFrame {
     int aux_inclu = 0;
     int aux_altera = 0;
     int aux_excluir = 0;
+
     /**
      * Creates new form TelaCadastroBovino
      */
@@ -357,15 +359,20 @@ public class TelaCio extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_confirmadoSActionPerformed
-
+    public void retornaValorVaca(int cod,String nome){
+        this.codVacaD.setText(Integer.toString(cod));
+        this.nomeVacaD.setText(nome);
+    }
+    public void retornaValorTouro(int cod,String nome){
+        this.codTouroD.setText(Integer.toString(cod));
+        this.nomeTouroD.setText(nome);
+    }
     private void pesquisaVacaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVacaBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
         telaPB.setVisible(true); 
-        int codaux = telaPB.getCodVariavel();
-        String nomeaux = telaPB.getNomeVariavel();
-        this.codVacaD.setText(String.valueOf(codaux));
-        this.nomeVacaD.setText(nomeaux);
+        telaPB.sexoval.setText("Fêmea");
+        telaPB.enviavaloresVaca(this,0);
         
     }//GEN-LAST:event_pesquisaVacaBActionPerformed
 
@@ -373,6 +380,9 @@ public class TelaCio extends javax.swing.JFrame {
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
         telaPB.setVisible(true);
+        telaPB.sexoval.setText("Macho");
+        telaPB.enviavaloresTouro(this,1);
+
     }//GEN-LAST:event_pesquisaTouroBActionPerformed
 
     /**
