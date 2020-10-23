@@ -58,3 +58,22 @@ select cod, ativo, nome, brinco, data_nasc, idade, sexo, raca,
 
 
 UPDATE tb_bovino set ativo = ?, nome = ?, brinco = ?, data_nasc = ?, idade = ?, sexo = ?, raca = ?, cor = ?, quantCria = ?, observacao = ?, codPai = ?, nome_pai = ?, codmae = ?, nome_mae = ? where cod = ? 
+
+CREATE TABLE tb_cio(
+    codCio serial;
+    dataCio date;
+    codVaca int;
+    nomeVaca varchar(50);
+    codTouro int;
+    nomeTouro varchar(50);
+    confirmado boolean;
+    dataConfirmacao date;
+    repetiuCio boolean;
+    obs varchar(400);
+);
+
+select codCio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio;
+
+update tb_cio set codCio = ?, dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ?;
+
+INSERT INTO tb_cio insert into (codCio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs) values (?,?,?,?,?,?,?,?,?,?);

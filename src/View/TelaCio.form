@@ -118,13 +118,15 @@
                   <Component id="alterarU" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="codCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="codCioD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="dataCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="listarB" min="-2" max="-2" attributes="0"/>
                       <Component id="dataCioD" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="codCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="codCioD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="dataCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -144,10 +146,12 @@
                   <Component id="excluirU" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="limparU" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cancelarU" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="salvarU" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="limparU" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="salvarU" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>

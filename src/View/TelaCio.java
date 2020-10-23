@@ -5,15 +5,15 @@
  */
 package View;
 
+import Model.Cio;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author rodri
  */
-
-
 public class TelaCio extends javax.swing.JFrame {
+
     int aux_inclu = 0;
     int aux_altera = 0;
     int aux_excluir = 0;
@@ -283,13 +283,14 @@ public class TelaCio extends javax.swing.JFrame {
                     .addComponent(pesquisaTouroB)
                     .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(listarB)
-                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,10 +305,11 @@ public class TelaCio extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(excluirU))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(limparU)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cancelarU)
-                    .addComponent(salvarU))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(limparU)
+                        .addComponent(salvarU)))
                 .addContainerGap())
         );
 
@@ -318,19 +320,161 @@ public class TelaCio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarUActionPerformed
+        this.limpaCampos();
+        boolean aux;
+        do {
+            String imput;
+            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Vaca:"));
+            this.nomeVacaD.setText(imput);
+            if (imput == null) {
+                System.out.println("Cancel is pressed");
+                break;
+            }
+            Cio cio = new Cio();
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            aux = cio.pesquisar();
+            if (aux) {
+                this.codCioD.setText(Integer.toString(cio.getCodCio()));
+                this.dataCioD.setDate(cio.getDataCio());
+                this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
+                this.nomeVacaD.setText(cio.getNomeVaca());
+                this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
+                this.nomeTouroD.setText(cio.getNomeTouro());
+                this.confirmadoS.setSelected(cio.isConfirmado());
+                this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
+                this.repetiuCioS.setSelected(cio.getRepetiuCio());
+                this.obsD.setText(cio.getObs());
+                this.habilitaCampos();
+                aux_altera = 1;
+            }
 
+        } while (!aux);
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-       // TODO add your handling code here:
+        TelaListagemCios telaLC = new TelaListagemCios();
+        telaLC.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
-    
+
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
-        // TODO add your handling code here:
-       
+        if (aux_inclu == 1) {
+            Cio cio = new Cio();
+            cio.setCodCio(-1);
+            if (this.dataCioD.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
+                aux_inclu = 0;
+            } 
+            cio.setDataCio(this.dataCioD.getDate());
+            if (this.codVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
+                aux_inclu = 0;
+                
+            }
+            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
+            if (this.nomeVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            if (this.codTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
+            if (this.codTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setNomeTouro(this.nomeTouroD.getText());
+            if (this.nomeTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setConfirmado(this.confirmadoS.isSelected());
+            if (this.dataConfirmacaoD.getDate() == null) {
+                cio.setDataConfirmacao(null);
+            }else{
+                cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());           
+            } 
+            cio.setRepetiuCio(this.repetiuCioS.isSelected());
+            cio.setObs(this.obsD.getText());
+            if(aux_inclu == 1){
+                cio.cadastrar();
+                this.desabilitaCampos();
+                aux_inclu = 0;
+                this.limpaCampos();
+            }
+        }
+        if (aux_altera == 1) {
+            Cio cio = new Cio();
+            cio.setCodCio(Integer.parseInt(this.codCioD.getText()));
+            cio.setDataCio(this.dataCioD.getDate());
+            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
+            cio.setNomeTouro(this.nomeTouroD.getText());
+            cio.setConfirmado(this.confirmadoS.isSelected());
+            cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());
+            cio.setRepetiuCio(this.repetiuCioS.isSelected());
+            cio.setObs(this.obsD.getText());
+            if (this.codVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
+            }
+            if (this.nomeVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
+            }
+            if (this.codTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
+            }
+            if (this.nomeTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
+            }
+            if (this.dataCioD.getDate().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
+            } else {
+                cio.alterar();
+                this.desabilitaCampos();
+                aux_altera = 0;
+                this.limpaCampos();
+            }
+
+        }
+        if (aux_excluir == 1) {
+            Cio cio = new Cio();
+            cio.setCodCio(Integer.parseInt(this.codCioD.getText()));
+            cio.setDataCio(this.dataCioD.getDate());
+            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
+            cio.setNomeTouro(this.nomeTouroD.getText());
+            cio.setConfirmado(this.confirmadoS.isSelected());
+            cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());
+            cio.setRepetiuCio(this.repetiuCioS.isSelected());
+            cio.setObs(this.obsD.getText());
+            if (this.codVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
+            }
+            if (this.nomeVacaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
+            }
+            if (this.codTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
+            }
+            if (this.nomeTouroD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
+            }
+            if (this.dataCioD.getDate().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
+            } else {
+                cio.excluir();
+                this.desabilitaCampos();
+                aux_excluir = 0;
+                this.limpaCampos();
+            }
+        }
     }//GEN-LAST:event_salvarUActionPerformed
-    public void limpaCampos(){
-        
+    public void limpaCampos() {
+
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
@@ -342,7 +486,8 @@ public class TelaCio extends javax.swing.JFrame {
         this.repetiuCioS.setSelected(false);
         this.obsD.setText("");
     }
-    public void desabilitaCampos(){
+
+    public void desabilitaCampos() {
         this.codVacaD.setEnabled(false);
         this.pesquisaVacaB.setEnabled(false);
         this.pesquisaTouroB.setEnabled(false);
@@ -355,11 +500,12 @@ public class TelaCio extends javax.swing.JFrame {
         this.nomeVacaD.setEnabled(false);
         this.repetiuCioS.setEnabled(false);
         this.obsD.setEnabled(false);
-        this.limparU.setEnabled(false); 
-        this.cancelarU.setEnabled(false); 
+        this.limparU.setEnabled(false);
+        this.cancelarU.setEnabled(false);
         this.salvarU.setEnabled(false);
     }
-    public void habilitaCampos(){
+
+    public void habilitaCampos() {
         this.codVacaD.setEnabled(true);
         this.pesquisaVacaB.setEnabled(true);
         this.pesquisaTouroB.setEnabled(true);
@@ -372,8 +518,8 @@ public class TelaCio extends javax.swing.JFrame {
         this.nomeVacaD.setEnabled(true);
         this.repetiuCioS.setEnabled(true);
         this.obsD.setEnabled(true);
-        this.limparU.setEnabled(true); 
-        this.cancelarU.setEnabled(true); 
+        this.limparU.setEnabled(true);
+        this.cancelarU.setEnabled(true);
         this.salvarU.setEnabled(true);
     }
     private void inclusaoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoUActionPerformed
@@ -383,6 +529,21 @@ public class TelaCio extends javax.swing.JFrame {
     }//GEN-LAST:event_inclusaoUActionPerformed
 
     private void pesquisarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarUActionPerformed
+        this.limpaCampos();
+        this.nomeVacaD.setText(JOptionPane.showInputDialog("Digite o Nome do Vaca:"));
+        Cio cio = new Cio();
+        cio.setNomeVaca(this.nomeVacaD.getText());
+        cio.pesquisar();
+        this.codCioD.setText(Integer.toString(cio.getCodCio()));
+        this.dataCioD.setDate(cio.getDataCio());
+        this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
+        this.nomeVacaD.setText(cio.getNomeVaca());
+        this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
+        this.nomeTouroD.setText(cio.getNomeTouro());
+        this.confirmadoS.setSelected(cio.isConfirmado());
+        this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
+        this.repetiuCioS.setSelected(cio.getRepetiuCio());
+        this.obsD.setText(cio.getObs());
 
     }//GEN-LAST:event_pesquisarUActionPerformed
 
@@ -397,7 +558,35 @@ public class TelaCio extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarUActionPerformed
 
     private void excluirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUActionPerformed
-              // TODO add your handling code here:
+        this.limpaCampos();
+        boolean aux;
+        do {
+            String imput;
+            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Vaca:"));
+            this.nomeVacaD.setText(imput);
+            if (imput == null) {
+                System.out.println("Cancel is pressed");
+                break;
+            }
+            Cio cio = new Cio();
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            aux = cio.pesquisar();
+            if (aux) {
+                this.codCioD.setText(Integer.toString(cio.getCodCio()));
+                this.dataCioD.setDate(cio.getDataCio());
+                this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
+                this.nomeVacaD.setText(cio.getNomeVaca());
+                this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
+                this.nomeTouroD.setText(cio.getNomeTouro());
+                this.confirmadoS.setSelected(cio.isConfirmado());
+                this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
+                this.repetiuCioS.setSelected(cio.getRepetiuCio());
+                this.obsD.setText(cio.getObs());
+                this.habilitaCampos();
+                aux_excluir = 1;
+            }
+
+        } while (!aux);              // TODO add your handling code here:
     }//GEN-LAST:event_excluirUActionPerformed
 
     private void nomeVacaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeVacaDActionPerformed
@@ -416,27 +605,28 @@ public class TelaCio extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_confirmadoSActionPerformed
-    public void retornaValorVaca(int cod,String nome){
+    public void retornaValorVaca(int cod, String nome) {
         this.codVacaD.setText(Integer.toString(cod));
         this.nomeVacaD.setText(nome);
     }
-    public void retornaValorTouro(int cod,String nome){
+
+    public void retornaValorTouro(int cod, String nome) {
         this.codTouroD.setText(Integer.toString(cod));
         this.nomeTouroD.setText(nome);
     }
     private void pesquisaVacaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVacaBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.enviavaloresVaca(this,0);
+        telaPB.enviavaloresVaca(this, 0);
         telaPB.IniciaTabela();
-        telaPB.setVisible(true); 
-        
+        telaPB.setVisible(true);
+
     }//GEN-LAST:event_pesquisaVacaBActionPerformed
 
     private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.enviavaloresTouro(this,1);
+        telaPB.enviavaloresTouro(this, 1);
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 

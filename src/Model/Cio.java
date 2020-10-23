@@ -96,9 +96,6 @@ public class Cio {
         this.nomeVaca = nomeVaca;
     }
 
-    public Boolean getConfirmado() {
-        return confirmado;
-    }
 
     public void setConfirmado(Boolean confirmado) {
         this.confirmado = confirmado;
@@ -116,6 +113,9 @@ public class Cio {
         return repetiuCio;
     }
 
+    public boolean isConfirmado() {
+        return confirmado;
+    }
     public void setRepetiuCio(Boolean repetiuCio) {
         this.repetiuCio = repetiuCio;
     }
@@ -129,19 +129,135 @@ public class Cio {
     }
     
     public void cadastrar(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+        System.out.println("etsgfgte");
+        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs) values (?,?,?,?,?,?,?,?,?);";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
+            pst.setInt(2,this.getCodVaca());
+            pst.setString(3,this.getNomeVaca());
+            pst.setInt(4,this.getCodTouro());
+            pst.setString(5,this.getNomeTouro());
+            pst.setBoolean(6,this.isConfirmado());
+            pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            pst.setBoolean(8,this.getRepetiuCio());
+            pst.setString(9,this.getObs());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Cio cadastrado com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Cio Não Cadastrado");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
     
     }
     
     public void excluir(){
+        Connection con = null;
+        PreparedStatement pst = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "DELETE FROM tb_cio WHERE codCio = ?";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setInt(1,this.getCodCio());
+            System.out.println(pst);
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Registro de Cio Excluido com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Registro de Cio Não Excluido");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
 
     }
     
     public void alterar(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "update tb_cio set dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ? where codCio = ?;" +
+"";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
+            pst.setInt(2,this.getCodVaca());
+            pst.setString(3,this.getNomeVaca());
+            pst.setInt(4,this.getCodTouro());
+            pst.setString(5,this.getNomeTouro());
+            pst.setBoolean(6,this.isConfirmado());
+            pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            pst.setBoolean(8,this.getRepetiuCio());
+            pst.setString(9,this.getObs());
+            pst.setInt(10,this.getCodCio());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Cio Alterado com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Cio Não Cadastrado");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
 
     }
-    public boolean pesquisar(){
-        return true;
+    public boolean pesquisar(){       
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+         try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca = ?;");
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setString(1,this.getNomeVaca());
+            System.out.println(sql);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                this.setCodCio(rs.getInt("codcio"));
+                this.setDataCio(rs.getDate("dataCio"));
+                this.setCodVaca(rs.getInt("codVaca"));
+                this.setNomeVaca(rs.getString("nomeVaca"));
+                this.setCodTouro(rs.getInt("codTouro"));
+                this.setNomeTouro(rs.getString("nomeTouro"));
+                this.setConfirmado(rs.getBoolean("confirmado"));
+                this.setDataConfirmacao(rs.getDate("dataConfirmacao"));
+                this.setRepetiuCio(rs.getBoolean("repetiuCio"));
+                this.setObs(rs.getString("obs"));
+                JOptionPane.showMessageDialog(null, "Registro de Cio Encontrado");
+                return true;
+            }else{
+                JOptionPane.showMessageDialog(null, "Registro de Cio Não Encontrado"); 
+                return false;
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+        return false;
     }
+
+ 
 
     
 }
