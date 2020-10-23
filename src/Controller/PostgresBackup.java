@@ -25,7 +25,7 @@ public class PostgresBackup {
     public static void realizaBackup() throws IOException, InterruptedException{      
            final List<String> comandos = new ArrayList<String>();      
 
-           comandos.add("C:\\Program Files\\PostgreSQL\\12\\bin\\pg_dump.exe");    // esse é meu caminho  
+           comandos.add("C:\\Program Files\\PostgreSQL\\13\\bin\\pg_dump.exe");    // esse é meu caminho  
            //comandos.add("-i");   //usar se for caminho de rede;   
            comandos.add("-h");      
            comandos.add("localhost");     //ou  comandos.add("192.168.0.1"); 
