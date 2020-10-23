@@ -34,27 +34,33 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
     public TelaPesquisaBovinos() {
         initComponents();
         this.setResizable(false);
+    }
+    public void IniciaTabela(){
         Connection con =null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Bovino bov = new Bovino();
-        
+        String sexo;
+        if(idsexo==0){
+            sexo = "Fêmea";
+        }else {
+            sexo = "Macho";
+        }
         try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
         
-        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where sexo = ?");
+        
+        
+        
+        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where sexo = ? ");
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
         try{
-            System.out.println(sexoV);
             pst = con.prepareStatement(sql);
-            if(sexoV.equals("Macho")){
-               pst.setString(1,"Macho");
-            }else{
-               pst.setString(1,"Fêmea");
-            }
+            System.out.println(sexo);
+            pst.setString(1,sexo);
             rs = pst.executeQuery();
             while(rs.next()){
                 bov.setCod(rs.getInt("cod"));
@@ -76,8 +82,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         } 
         
         listaBovinos.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));  
-    }
-    
+           }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,7 +92,6 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         valorPesquisaD = new javax.swing.JTextField();
         PesquisaB = new javax.swing.JButton();
         selecionarB = new javax.swing.JButton();
-        sexoval = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -160,9 +164,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sexoval, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(108, 108, 108)
                 .addComponent(valorPesquisaD, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PesquisaB, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,8 +180,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valorPesquisaD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PesquisaB)
-                    .addComponent(sexoval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PesquisaB))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -206,8 +207,13 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
-  
-        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where sexo = ? and nome like ? ;");
+        String sexo;
+        if(idsexo==0){
+            sexo = "Fêmea";
+        }else {
+            sexo = "Macho";
+        }
+        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where nome like ? and sexo = ? ;");
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
         
         for(int i = table.getRowCount(); i > 0;i--){
@@ -215,8 +221,8 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         }
         try{
             pst = con.prepareStatement(sql);
-            pst.setString(1,sexoV);
-            pst.setString(2,valorPesquisaD.getText());
+            pst.setString(1,valorPesquisaD.getText());
+            pst.setString(2,sexo);
             rs = pst.executeQuery();
             while(rs.next()){
                 bov.setCod(rs.getInt("cod"));
@@ -242,28 +248,16 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisaBActionPerformed
     private TelaCio TcioAux;
-    private String sexoV;    
-
-    public void enviavaloresVaca(TelaCio cio1,int idsexo){
+    private int idsexo;
+    public void enviavaloresVaca(TelaCio cio1,int idsexoC){
         this.TcioAux = cio1;
-        if(idsexo==1){
-            sexoV = "Macho";
-        }else{
-             sexoV = "Fêmea";
-             System.out.println(sexoV);
-        }
-       
+        this.idsexo = idsexoC;
     }
-    public void enviavaloresTouro(TelaCio cio1,int idsexo){
-        this.TcioAux = cio1;
-        if(idsexo==1){
-            sexoV = "Macho";
-        }else{
-             sexoV = "Fêmea";
-        }
-           
+    public void enviavaloresTouro(TelaCio cio1,int idsexoC){
+        this.TcioAux = cio1; 
+        this.idsexo = idsexoC;
     }
-    
+   
     private void selecionarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarBActionPerformed
         int linhaSelecionada = listaBovinos.getSelectedRow();
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
@@ -273,12 +267,13 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         auxnome = (String) (table.getValueAt(linhaSelecionada, 2));      
         System.out.println(auxcod);
         System.out.println(auxnome);
-        if(sexoV.equals("Fêmea")){
-            TcioAux.retornaValorVaca(auxcod,auxnome);
-        }else{
-            TcioAux.retornaValorTouro(auxcod,auxnome);
+        if(idsexo==0){
+           TcioAux.retornaValorVaca(auxcod,auxnome);
+        }else {
+           TcioAux.retornaValorTouro(auxcod,auxnome);
         }
-        
+
+
         this.dispose();
      
     }//GEN-LAST:event_selecionarBActionPerformed
@@ -287,7 +282,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -309,6 +304,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPesquisaBovinos().setVisible(true);
+                
             }
         });
     }
@@ -319,7 +315,6 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaBovinos;
     private javax.swing.JButton selecionarB;
-    public javax.swing.JTextField sexoval;
     private javax.swing.JTextField valorPesquisaD;
     // End of variables declaration//GEN-END:variables
 }

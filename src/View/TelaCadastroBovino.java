@@ -628,6 +628,10 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         observacaoD.setEnabled(true);
         nomePaiD.setEnabled(true);
         nomeMaeD.setEnabled(true);
+        limparU.setEnabled(true); 
+        cancelarU.setEnabled(true); 
+        salvarU.setEnabled(true);
+
     }
     
     public void desabilitaCampos(){
@@ -644,6 +648,9 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         observacaoD.setEnabled(false);
         nomePaiD.setEnabled(false);
         nomeMaeD.setEnabled(false);
+        limparU.setEnabled(false); 
+        cancelarU.setEnabled(false); 
+        salvarU.setEnabled(false);
 
     }
     

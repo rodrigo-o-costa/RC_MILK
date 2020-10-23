@@ -24,46 +24,67 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="codVacaL" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="obsL" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="dataConfirmacaoL" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="codCioL" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="codTouroL" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="codVacaL" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dataCioL" min="-2" pref="75" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="codTouroL" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="obsL" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="dataCioD" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="dataConfirmacaoL" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="cancelarU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="limparU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="salvarU" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="codCioD" pref="83" max="32767" attributes="0"/>
+                                  <Component id="codTouroD" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="codVacaD" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dataConfirmacaoD" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nomeVacaD" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Component id="nomeTouroD" min="-2" pref="201" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="pesquisaTouroB" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pesquisaVacaB" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="dataCioL" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="dataCioD" min="-2" pref="201" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="codTouroD" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="dataConfirmacaoD" min="-2" pref="164" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nomeTouroD" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Component id="pesquisaTouroB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="confirmadoS" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="369" max="-2" attributes="0"/>
+                              <Component id="repetiuCioS" min="-2" pref="98" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="alterarU" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="inclusaoU" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
@@ -73,89 +94,62 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="codVacaD" min="-2" pref="64" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nomeVacaD" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="pesquisaVacaB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="confirmadoS" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="cancelarU" min="-2" pref="90" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="limparU" min="-2" pref="90" max="-2" attributes="0"/>
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-              <Component id="salvarU" min="-2" pref="90" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="codVacaL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="codVacaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="nomeVacaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="pesquisaVacaB" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="confirmadoS" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="codTouroL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="codTouroD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="pesquisaTouroB" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="nomeTouroD" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="dataCioD" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="dataConfirmacaoL" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="dataConfirmacaoD" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="dataCioL" linkSize="1" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="obsL" linkSize="1" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="inclusaoU" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="alterarU" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="codVacaL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="codVacaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="nomeVacaD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="pesquisaVacaB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inclusaoU" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="codTouroD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="nomeTouroD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="codTouroL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="pesquisaTouroB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="alterarU" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="codCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="codCioD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="dataCioL" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="listarB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                      <Component id="pesquisarU" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                      <Component id="excluirU" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataCioD" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="dataConfirmacaoD" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="dataConfirmacaoL" min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="limparU" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cancelarU" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmadoS" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="repetiuCioS" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="pesquisarU" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="salvarU" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="obsL" linkSize="1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="excluirU" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="limparU" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelarU" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="salvarU" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -298,7 +292,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Data de Confima&#xe7;&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Data de Con.:"/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dataConfirmacaoD">
@@ -313,12 +307,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codTouroDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="codVacaL">
+    <Component class="javax.swing.JLabel" name="codCioL">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cod. Vaca"/>
+        <Property name="text" type="java.lang.String" value="Cod. Cio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="codTouroL">
@@ -326,7 +320,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cod. Touro"/>
+        <Property name="text" type="java.lang.String" value="Cod. Touro:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="obsL">
@@ -362,6 +356,30 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaTouroBActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="codCioD">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codCioDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="codVacaL">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cod. Vaca:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="repetiuCioS">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Repeti Cio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repetiuCioSActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

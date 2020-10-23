@@ -447,6 +447,9 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         nomeFazendaD.setEnabled(true);
         nomeProdD.setEnabled(true);
         telefoneD.setEnabled(true);
+        limparU.setEnabled(true); 
+        cancelarU.setEnabled(true); 
+        salvarU.setEnabled(true);
     }
     
     public void desabilitaCampos(){
@@ -459,6 +462,9 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         nomeFazendaD.setEnabled(false);
         nomeProdD.setEnabled(false);
         telefoneD.setEnabled(false);
+        limparU.setEnabled(false); 
+        cancelarU.setEnabled(false); 
+        salvarU.setEnabled(false);
     }
     
     public void limpaCampos(){

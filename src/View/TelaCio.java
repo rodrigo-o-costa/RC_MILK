@@ -24,6 +24,8 @@ public class TelaCio extends javax.swing.JFrame {
     public TelaCio() {
         initComponents();
         this.desabilitaCampos();
+        this.limpaCampos();
+        this.desabilitaCampos();
     }
 
     /**
@@ -53,12 +55,15 @@ public class TelaCio extends javax.swing.JFrame {
         dataConfirmacaoD = new com.toedter.calendar.JDateChooser();
         codVacaD = new javax.swing.JTextField();
         codTouroD = new javax.swing.JTextField();
-        codVacaL = new javax.swing.JLabel();
+        codCioL = new javax.swing.JLabel();
         codTouroL = new javax.swing.JLabel();
         obsL = new javax.swing.JLabel();
         confirmadoS = new javax.swing.JCheckBox();
         pesquisaVacaB = new javax.swing.JButton();
         pesquisaTouroB = new javax.swing.JButton();
+        codCioD = new javax.swing.JTextField();
+        codVacaL = new javax.swing.JLabel();
+        repetiuCioS = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -138,7 +143,7 @@ public class TelaCio extends javax.swing.JFrame {
         dataCioL.setText("Data Do Cio");
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Confimação");
+        dataConfirmacaoL.setText("Data de Con.:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,11 +157,11 @@ public class TelaCio extends javax.swing.JFrame {
             }
         });
 
-        codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca");
+        codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        codCioL.setText("Cod. Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro");
+        codTouroL.setText("Cod. Touro:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
@@ -183,118 +188,130 @@ public class TelaCio extends javax.swing.JFrame {
             }
         });
 
+        codCioD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codCioDActionPerformed(evt);
+            }
+        });
+
+        codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        codVacaL.setText("Cod. Vaca:");
+
+        repetiuCioS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        repetiuCioS.setText("Repeti Cio");
+        repetiuCioS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repetiuCioSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(28, 28, 28)
-                            .addComponent(codVacaL))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(obsL)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(dataConfirmacaoL)
+                        .addComponent(codCioL, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(obsL, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dataConfirmacaoL)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeTouroD)
-                                .addGap(2, 2, 2)
-                                .addComponent(pesquisaTouroB)
-                                .addGap(99, 99, 99)))
+                        .addGap(78, 78, 78)
+                        .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(codCioD, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(codTouroD)
+                                    .addComponent(codVacaD))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nomeVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(pesquisaTouroB)
+                                            .addComponent(pesquisaVacaB)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirmadoS))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(repetiuCioS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(excluirU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pesquisarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(listarB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomeVacaD)
-                        .addGap(2, 2, 2)
-                        .addComponent(pesquisaVacaB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(confirmadoS)
-                        .addGap(102, 102, 102))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(codVacaL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nomeVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pesquisaVacaB)
-                                    .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(codTouroL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(pesquisaTouroB))
-                                    .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(inclusaoU)
-                        .addGap(11, 11, 11)
-                        .addComponent(alterarU)
-                        .addGap(11, 11, 11)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codVacaL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisaVacaB)
+                    .addComponent(inclusaoU))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codTouroL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisaTouroB)
+                    .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(listarB)
-                        .addGap(11, 11, 11)
-                        .addComponent(pesquisarU)
-                        .addGap(11, 11, 11)
-                        .addComponent(excluirU)))
+                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(repetiuCioS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pesquisarU)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(limparU)
-                        .addComponent(cancelarU))
+                    .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excluirU))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limparU)
+                    .addComponent(cancelarU)
                     .addComponent(salvarU))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {codTouroL, codVacaL, dataCioL, obsL});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {codCioL, codTouroL, dataCioL, obsL});
 
         pack();
         setLocationRelativeTo(null);
@@ -313,7 +330,51 @@ public class TelaCio extends javax.swing.JFrame {
        
     }//GEN-LAST:event_salvarUActionPerformed
     public void limpaCampos(){
-
+        
+        this.codCioD.setText("");
+        this.codVacaD.setText("");
+        this.codTouroD.setText("");
+        this.confirmadoS.setSelected(false);
+        this.dataCioD.setDate(null);
+        this.dataConfirmacaoD.setDate(null);
+        this.nomeTouroD.setText("");
+        this.nomeVacaD.setText("");
+        this.repetiuCioS.setSelected(false);
+        this.obsD.setText("");
+    }
+    public void desabilitaCampos(){
+        this.codVacaD.setEnabled(false);
+        this.pesquisaVacaB.setEnabled(false);
+        this.pesquisaTouroB.setEnabled(false);
+        this.codCioD.setEnabled(false);
+        this.codTouroD.setEnabled(false);
+        this.confirmadoS.setEnabled(false);
+        this.dataCioD.setEnabled(false);
+        this.dataConfirmacaoD.setEnabled(false);
+        this.nomeTouroD.setEnabled(false);
+        this.nomeVacaD.setEnabled(false);
+        this.repetiuCioS.setEnabled(false);
+        this.obsD.setEnabled(false);
+        this.limparU.setEnabled(false); 
+        this.cancelarU.setEnabled(false); 
+        this.salvarU.setEnabled(false);
+    }
+    public void habilitaCampos(){
+        this.codVacaD.setEnabled(true);
+        this.pesquisaVacaB.setEnabled(true);
+        this.pesquisaTouroB.setEnabled(true);
+        this.codCioD.setEnabled(true);
+        this.codTouroD.setEnabled(true);
+        this.confirmadoS.setEnabled(true);
+        this.dataCioD.setEnabled(true);
+        this.dataConfirmacaoD.setEnabled(true);
+        this.nomeTouroD.setEnabled(true);
+        this.nomeVacaD.setEnabled(true);
+        this.repetiuCioS.setEnabled(true);
+        this.obsD.setEnabled(true);
+        this.limparU.setEnabled(true); 
+        this.cancelarU.setEnabled(true); 
+        this.salvarU.setEnabled(true);
     }
     private void inclusaoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoUActionPerformed
         this.habilitaCampos();
@@ -329,14 +390,10 @@ public class TelaCio extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.limpaCampos();
     }//GEN-LAST:event_limparUActionPerformed
-    public void desabilitaCampos(){
 
-    }
-    public void habilitaCampos(){
-
-    }
     private void cancelarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarUActionPerformed
-
+        this.limpaCampos();
+        this.desabilitaCampos();
     }//GEN-LAST:event_cancelarUActionPerformed
 
     private void excluirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUActionPerformed
@@ -370,20 +427,29 @@ public class TelaCio extends javax.swing.JFrame {
     private void pesquisaVacaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVacaBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.setVisible(true); 
-        telaPB.sexoval.setText("Fêmea");
         telaPB.enviavaloresVaca(this,0);
+        telaPB.IniciaTabela();
+        telaPB.setVisible(true); 
         
     }//GEN-LAST:event_pesquisaVacaBActionPerformed
 
     private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.setVisible(true);
-        telaPB.sexoval.setText("Macho");
         telaPB.enviavaloresTouro(this,1);
+        telaPB.IniciaTabela();
+        telaPB.setVisible(true);
+
 
     }//GEN-LAST:event_pesquisaTouroBActionPerformed
+
+    private void codCioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codCioDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codCioDActionPerformed
+
+    private void repetiuCioSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repetiuCioSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_repetiuCioSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +504,8 @@ public class TelaCio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterarU;
     private javax.swing.JButton cancelarU;
+    private javax.swing.JTextField codCioD;
+    private javax.swing.JLabel codCioL;
     private javax.swing.JTextField codTouroD;
     private javax.swing.JLabel codTouroL;
     private javax.swing.JTextField codVacaD;
@@ -459,6 +527,7 @@ public class TelaCio extends javax.swing.JFrame {
     private javax.swing.JButton pesquisaTouroB;
     private javax.swing.JButton pesquisaVacaB;
     private javax.swing.JButton pesquisarU;
+    private javax.swing.JCheckBox repetiuCioS;
     private javax.swing.JButton salvarU;
     // End of variables declaration//GEN-END:variables
 }
