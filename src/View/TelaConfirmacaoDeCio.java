@@ -625,7 +625,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     private void pesquisaVacaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVacaBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.enviavaloresVaca(this, 0);
+       //telaPB.enviavaloresVaca(this, 0);
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 
@@ -634,7 +634,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        telaPB.enviavaloresTouro(this, 1);
+        //telaPB.enviavaloresTouro(this, 1);
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 
