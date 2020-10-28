@@ -247,13 +247,13 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         listaBovinos.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12)); 
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisaBActionPerformed
-    private TelaCio TcioAux;
+    private TelaCadastroCio TcioAux;
     private int idsexo;
-    public void enviavaloresVaca(TelaCio cio1,int idsexoC){
+    public void enviavaloresVaca(TelaCadastroCio cio1,int idsexoC){
         this.TcioAux = cio1;
         this.idsexo = idsexoC;
     }
-    public void enviavaloresTouro(TelaCio cio1,int idsexoC){
+    public void enviavaloresTouro(TelaCadastroCio cio1,int idsexoC){
         this.TcioAux = cio1; 
         this.idsexo = idsexoC;
     }

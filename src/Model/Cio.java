@@ -136,7 +136,7 @@ public class Cio {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-        System.out.println("etsgfgte");
+        System.out.println();
         String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs) values (?,?,?,?,?,?,?,?,?);";
         try{
             pst = con.prepareStatement(sql);
@@ -146,7 +146,11 @@ public class Cio {
             pst.setInt(4,this.getCodTouro());
             pst.setString(5,this.getNomeTouro());
             pst.setBoolean(6,this.isConfirmado());
-            pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            if(this.getDataConfirmacao() != null){
+               pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            }else{
+               pst.setNull(7,java.sql.Types.DATE);
+            }
             pst.setBoolean(8,this.getRepetiuCio());
             pst.setString(9,this.getObs());
             if(!pst.execute()){
@@ -194,8 +198,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = "update tb_cio set dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ? where codCio = ?;" +
-"";
+        String sql = "update tb_cio set dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ? where codCio = ?;";
         try{
             pst = con.prepareStatement(sql);
             pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
@@ -204,7 +207,11 @@ public class Cio {
             pst.setInt(4,this.getCodTouro());
             pst.setString(5,this.getNomeTouro());
             pst.setBoolean(6,this.isConfirmado());
-            pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            if(this.getDataConfirmacao() != null){
+               pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            }else{
+               pst.setNull(7,java.sql.Types.DATE);
+            }
             pst.setBoolean(8,this.getRepetiuCio());
             pst.setString(9,this.getObs());
             pst.setInt(10,this.getCodCio());

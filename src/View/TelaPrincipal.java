@@ -70,8 +70,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fazendaM = new javax.swing.JMenuItem();
         usuarioM = new javax.swing.JMenuItem();
         eventosM = new javax.swing.JMenu();
-        cioM = new javax.swing.JMenuItem();
+        reproducaoM = new javax.swing.JMenu();
+        cadastroCioM = new javax.swing.JMenuItem();
+        cioRepetidoM = new javax.swing.JMenuItem();
+        confirmaCioM = new javax.swing.JMenuItem();
+        prePartoM = new javax.swing.JMenuItem();
+        perdaCriaM = new javax.swing.JMenuItem();
+        partoM = new javax.swing.JMenuItem();
+        producaoM = new javax.swing.JMenu();
         relatorioM = new javax.swing.JMenu();
+        relcadastro = new javax.swing.JMenu();
+        usuarioRel = new javax.swing.JMenuItem();
+        relreproducao = new javax.swing.JMenu();
+        relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         trocarUsuarioM = new javax.swing.JMenuItem();
@@ -138,7 +149,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(AT_fazenda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AT_Bovino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +188,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
         painelInfoLayout.setVerticalGroup(
             painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,18 +237,59 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         eventosM.setText("Eventos");
 
-        cioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        cioM.setText("Cio");
-        cioM.addActionListener(new java.awt.event.ActionListener() {
+        reproducaoM.setText("Reprodução");
+
+        cadastroCioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        cadastroCioM.setText("Cadastro de Cio");
+        cadastroCioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cioMActionPerformed(evt);
+                cadastroCioMActionPerformed(evt);
             }
         });
-        eventosM.add(cioM);
+        reproducaoM.add(cadastroCioM);
+
+        cioRepetidoM.setText("Cio Repetido");
+        cioRepetidoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cioRepetidoMActionPerformed(evt);
+            }
+        });
+        reproducaoM.add(cioRepetidoM);
+
+        confirmaCioM.setText("Confirmaçao de Cio");
+        reproducaoM.add(confirmaCioM);
+
+        prePartoM.setText("Pre-Parto");
+        reproducaoM.add(prePartoM);
+
+        perdaCriaM.setText("Perda de Cria");
+        reproducaoM.add(perdaCriaM);
+
+        partoM.setText("Parto");
+        reproducaoM.add(partoM);
+
+        eventosM.add(reproducaoM);
+
+        producaoM.setText("Produção");
+        eventosM.add(producaoM);
 
         menuBarra.add(eventosM);
 
         relatorioM.setText("Relatorios");
+
+        relcadastro.setText("Cadastro");
+
+        usuarioRel.setText("Relatorio Usuario");
+        relcadastro.add(usuarioRel);
+
+        relatorioM.add(relcadastro);
+
+        relreproducao.setText("Reproducao");
+        relatorioM.add(relreproducao);
+
+        relproducao.setText("Produção");
+        relatorioM.add(relproducao);
+
         menuBarra.add(relatorioM);
 
         utilitariosM.setText("Utilitário");
@@ -403,16 +455,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_AT_USUARIO1ActionPerformed
 
     private void AT_CioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_CioActionPerformed
-        TelaCio telaC = new  TelaCio();
+        TelaCadastroCio telaC = new  TelaCadastroCio();
         telaC.setVisible(true);
         telaC.setTitle("RC MILK - CIOS");        // TODO add your handling code here:
     }//GEN-LAST:event_AT_CioActionPerformed
 
-    private void cioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioMActionPerformed
-        TelaCio telaC = new  TelaCio();
+    private void cadastroCioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCioMActionPerformed
+        TelaCadastroCio telaC = new  TelaCadastroCio();
         telaC.setVisible(true);
         telaC.setTitle("RC MILK - CIOS"); 
-    }//GEN-LAST:event_cioMActionPerformed
+    }//GEN-LAST:event_cadastroCioMActionPerformed
+
+    private void cioRepetidoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioRepetidoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cioRepetidoMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,8 +514,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton AT_sair;
     private javax.swing.JMenuItem BackupM;
     private javax.swing.JMenuItem bovinoM;
+    private javax.swing.JMenuItem cadastroCioM;
     private javax.swing.JMenu cadastroM;
-    private javax.swing.JMenuItem cioM;
+    private javax.swing.JMenuItem cioRepetidoM;
+    private javax.swing.JMenuItem confirmaCioM;
     private javax.swing.JMenu eventosM;
     private javax.swing.JMenuItem fazendaM;
     private javax.swing.JLabel jLabel1;
@@ -469,10 +527,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBarra;
     private javax.swing.JPanel painelAT;
     private javax.swing.JPanel painelInfo;
+    private javax.swing.JMenuItem partoM;
+    private javax.swing.JMenuItem perdaCriaM;
+    private javax.swing.JMenuItem prePartoM;
+    private javax.swing.JMenu producaoM;
     private javax.swing.JMenu relatorioM;
+    private javax.swing.JMenu relcadastro;
+    private javax.swing.JMenu relproducao;
+    private javax.swing.JMenu relreproducao;
+    private javax.swing.JMenu reproducaoM;
     private javax.swing.JMenuItem trocarUsuarioM;
     public javax.swing.JLabel usuarioLogadoInfo;
     private javax.swing.JMenuItem usuarioM;
+    private javax.swing.JMenuItem usuarioRel;
     private javax.swing.JMenu utilitariosM;
     // End of variables declaration//GEN-END:variables
 }

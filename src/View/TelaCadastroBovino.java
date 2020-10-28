@@ -497,11 +497,11 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
             bov.setAtivo(ativoD.isSelected());
             bov.setNome(nomeD.getText());
             bov.setBrinco(Integer.parseInt(BrincoD.getText()));
+            String vazia = ("");
             bov.setData_nasc(dataNascD.getDate());
             bov.setSexo((String) this.sexoD.getSelectedItem());
             bov.setRaca(racaD.getText());
             bov.setCor(corD.getText());
-            String vazia = ("");
             if(quantCriasD.getText().equals(vazia)){
                 bov.setQuantCria(0);
             }else{
