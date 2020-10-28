@@ -257,6 +257,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         reproducaoM.add(cioRepetidoM);
 
         confirmaCioM.setText("Confirmaçao de Cio");
+        confirmaCioM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmaCioMActionPerformed(evt);
+            }
+        });
         reproducaoM.add(confirmaCioM);
 
         prePartoM.setText("Pre-Parto");
@@ -469,6 +474,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void cioRepetidoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioRepetidoMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cioRepetidoMActionPerformed
+
+    private void confirmaCioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaCioMActionPerformed
+        TelaConfirmacaoDeCio telaC = new  TelaConfirmacaoDeCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - CONFIRMACAO DE CIOS"); 
+    }//GEN-LAST:event_confirmaCioMActionPerformed
 
     /**
      * @param args the command line arguments

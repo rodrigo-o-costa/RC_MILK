@@ -6,6 +6,7 @@
 package View;
 
 import Model.Cio;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,11 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.desabilitaCampos();
         this.limpaCampos();
         this.desabilitaCampos();
+        this.codVacaD.setEditable(false);
+        this.nomeVacaD.setEditable(false);
+        this.codTouroD.setEditable(false);
+        this.nomeTouroD.setEditable(false);
+        this.dataCioD.setEnabled(false);
     }
 
     /**
@@ -39,33 +45,30 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
 
         alterarU = new javax.swing.JButton();
         inclusaoU = new javax.swing.JButton();
-        excluirU = new javax.swing.JButton();
-        pesquisarU = new javax.swing.JButton();
-        listarB = new javax.swing.JButton();
         salvarU = new javax.swing.JButton();
         limparU = new javax.swing.JButton();
         cancelarU = new javax.swing.JButton();
-        nomeVacaD = new javax.swing.JTextField();
-        nomeTouroD = new javax.swing.JTextField();
-        dataCioD = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         obsD = new javax.swing.JTextPane();
-        dataCioL = new javax.swing.JLabel();
         dataConfirmacaoL = new javax.swing.JLabel();
         dataConfirmacaoD = new com.toedter.calendar.JDateChooser();
-        codVacaD = new javax.swing.JTextField();
-        codTouroD = new javax.swing.JTextField();
         codCioL = new javax.swing.JLabel();
-        codTouroL = new javax.swing.JLabel();
         obsL = new javax.swing.JLabel();
         confirmadoS = new javax.swing.JCheckBox();
-        pesquisaVacaB = new javax.swing.JButton();
-        pesquisaTouroB = new javax.swing.JButton();
+        pesquisaCio = new javax.swing.JButton();
         codCioD = new javax.swing.JTextField();
+        PainelExebicaodeCio = new javax.swing.JPanel();
+        dataCioD = new com.toedter.calendar.JDateChooser();
+        dataCioL = new javax.swing.JLabel();
+        nomeTouroD = new javax.swing.JTextField();
+        codTouroL = new javax.swing.JLabel();
+        codVacaD = new javax.swing.JTextField();
         codVacaL = new javax.swing.JLabel();
-        repetiuCioS = new javax.swing.JCheckBox();
+        codTouroD = new javax.swing.JTextField();
+        nomeVacaD = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         alterarU.setText("Alterar");
         alterarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -74,6 +77,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 alterarUActionPerformed(evt);
             }
         });
+        getContentPane().add(alterarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 90, 21));
 
         inclusaoU.setText("Incluir");
         inclusaoU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -82,30 +86,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 inclusaoUActionPerformed(evt);
             }
         });
-
-        excluirU.setText("Excluir");
-        excluirU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        excluirU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirUActionPerformed(evt);
-            }
-        });
-
-        pesquisarU.setText("Pesquisar");
-        pesquisarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        pesquisarU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisarUActionPerformed(evt);
-            }
-        });
-
-        listarB.setText("Listar");
-        listarB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        listarB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarBActionPerformed(evt);
-            }
-        });
+        getContentPane().add(inclusaoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 90, -1));
 
         salvarU.setText("Salvar");
         salvarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -114,6 +95,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 salvarUActionPerformed(evt);
             }
         });
+        getContentPane().add(salvarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 90, -1));
 
         limparU.setText("Limpar");
         limparU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -122,12 +104,78 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 limparUActionPerformed(evt);
             }
         });
+        getContentPane().add(limparU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 90, -1));
 
         cancelarU.setText("Cancelar");
         cancelarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarUActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cancelarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 90, -1));
+
+        jScrollPane1.setViewportView(obsD);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 216, 290, 40));
+
+        dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dataConfirmacaoL.setText("Data de Con.:");
+        getContentPane().add(dataConfirmacaoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 177, -1, 25));
+        getContentPane().add(dataConfirmacaoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 177, 190, 25));
+
+        codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        codCioL.setText("Cod. Cio:");
+        getContentPane().add(codCioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 25));
+
+        obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        obsL.setText("Obs.:");
+        getContentPane().add(obsL, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 216, -1, 25));
+
+        confirmadoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        confirmadoS.setText("Confirmado");
+        confirmadoS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmadoSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(confirmadoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, 25));
+
+        pesquisaCio.setText("pesquisa");
+        pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaCioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pesquisaCio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 210, -1));
+
+        codCioD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codCioDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(codCioD, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 83, 25));
+
+        PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
+
+        dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dataCioL.setText("Data Do Cio");
+
+        codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        codTouroL.setText("Cod. Touro:");
+
+        codVacaD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codVacaDActionPerformed(evt);
+            }
+        });
+
+        codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        codVacaL.setText("Cod. Vaca:");
+
+        codTouroD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codTouroDActionPerformed(evt);
             }
         });
 
@@ -137,191 +185,50 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(obsD);
-
-        dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
-
-        dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Con.:");
-
-        codVacaD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codVacaDActionPerformed(evt);
-            }
-        });
-
-        codTouroD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codTouroDActionPerformed(evt);
-            }
-        });
-
-        codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
-
-        codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
-
-        obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        obsL.setText("Obs.:");
-
-        confirmadoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        confirmadoS.setText("Confirmado");
-        confirmadoS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmadoSActionPerformed(evt);
-            }
-        });
-
-        pesquisaVacaB.setText("pesquisa");
-        pesquisaVacaB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisaVacaBActionPerformed(evt);
-            }
-        });
-
-        pesquisaTouroB.setText("pesquisa");
-        pesquisaTouroB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisaTouroBActionPerformed(evt);
-            }
-        });
-
-        codCioD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codCioDActionPerformed(evt);
-            }
-        });
-
-        codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
-
-        repetiuCioS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        repetiuCioS.setText("Repeti Cio");
-        repetiuCioS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repetiuCioSActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout PainelExebicaodeCioLayout = new javax.swing.GroupLayout(PainelExebicaodeCio);
+        PainelExebicaodeCio.setLayout(PainelExebicaodeCioLayout);
+        PainelExebicaodeCioLayout.setHorizontalGroup(
+            PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dataConfirmacaoL)
-                        .addComponent(codCioL, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(obsL, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(codCioD, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                                    .addComponent(codTouroD)
-                                    .addComponent(codVacaD))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nomeVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pesquisaTouroB)
-                                            .addComponent(pesquisaVacaB)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(271, 271, 271)
-                                .addComponent(repetiuCioS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(excluirU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisarU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listarB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confirmadoS)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codVacaL)
+                    .addComponent(codTouroL)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
+                        .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nomeVacaD, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(nomeTouroD)))
+                    .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        PainelExebicaodeCioLayout.setVerticalGroup(
+            PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codVacaL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisaVacaB)
-                    .addComponent(inclusaoU))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codVacaL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codTouroL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisaTouroB)
-                    .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(listarB)
-                        .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(repetiuCioS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pesquisarU)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(excluirU)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancelarU)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(limparU)
-                                .addComponent(salvarU))))
-                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {codCioL, codTouroL, dataCioL, obsL});
+        getContentPane().add(PainelExebicaodeCio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 400, 110));
 
         pack();
         setLocationRelativeTo(null);
@@ -329,157 +236,12 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
 
     private void alterarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarUActionPerformed
         this.limpaCampos();
-        boolean aux;
-        do {
-            String imput;
-            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Vaca:"));
-            this.nomeVacaD.setText(imput);
-            if (imput == null) {
-                System.out.println("Cancel is pressed");
-                break;
-            }
-            Cio cio = new Cio();
-            cio.setNomeVaca(this.nomeVacaD.getText());
-            aux = cio.pesquisar();
-            if (aux) {
-                this.codCioD.setText(Integer.toString(cio.getCodCio()));
-                this.dataCioD.setDate(cio.getDataCio());
-                this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
-                this.nomeVacaD.setText(cio.getNomeVaca());
-                this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
-                this.nomeTouroD.setText(cio.getNomeTouro());
-                this.confirmadoS.setSelected(cio.isConfirmado());
-                this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
-                this.repetiuCioS.setSelected(cio.getRepetiuCio());
-                this.obsD.setText(cio.getObs());
-                this.habilitaCampos();
-                aux_altera = 1;
-            }
-
-        } while (!aux);
+      
     }//GEN-LAST:event_alterarUActionPerformed
 
-    private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-        TelaListagemCios telaLC = new TelaListagemCios();
-        telaLC.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_listarBActionPerformed
-
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
-        if (aux_inclu == 1) {
-            Cio cio = new Cio();
-            cio.setCodCio(-1);
-            if (this.dataCioD.getDate() == null) {
-                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
-                aux_inclu = 0;
-            } 
-            cio.setDataCio(this.dataCioD.getDate());
-            if (this.codVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
-                aux_inclu = 0;
-                
-            }
-            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
-            if (this.nomeVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
-                aux_inclu = 0;
-            }
-            cio.setNomeVaca(this.nomeVacaD.getText());
-            if (this.codTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
-                aux_inclu = 0;
-            }
-            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
-            if (this.codTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
-                aux_inclu = 0;
-            }
-            cio.setNomeTouro(this.nomeTouroD.getText());
-            if (this.nomeTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
-                aux_inclu = 0;
-            }
-            cio.setConfirmado(this.confirmadoS.isSelected());
-            if (this.dataConfirmacaoD.getDate() == null) {
-                cio.setDataConfirmacao(null);
-            }else{
-                cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());           
-            } 
-            cio.setRepetiuCio(this.repetiuCioS.isSelected());
-            cio.setObs(this.obsD.getText());
-            if(aux_inclu == 1){
-                cio.cadastrar();
-                this.desabilitaCampos();
-                aux_inclu = 0;
-                this.limpaCampos();
-            }
-        }
-        if (aux_altera == 1) {
-            Cio cio = new Cio();
-            cio.setCodCio(Integer.parseInt(this.codCioD.getText()));
-            cio.setDataCio(this.dataCioD.getDate());
-            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
-            cio.setNomeVaca(this.nomeVacaD.getText());
-            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
-            cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setConfirmado(this.confirmadoS.isSelected());
-            cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());
-            cio.setRepetiuCio(this.repetiuCioS.isSelected());
-            cio.setObs(this.obsD.getText());
-            if (this.codVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
-            }
-            if (this.nomeVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
-            }
-            if (this.codTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
-            }
-            if (this.nomeTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
-            }
-            if (this.dataCioD.getDate().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
-            } else {
-                cio.alterar();
-                this.desabilitaCampos();
-                aux_altera = 0;
-                this.limpaCampos();
-            }
-
-        }
-        if (aux_excluir == 1) {
-            Cio cio = new Cio();
-            cio.setCodCio(Integer.parseInt(this.codCioD.getText()));
-            cio.setDataCio(this.dataCioD.getDate());
-            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
-            cio.setNomeVaca(this.nomeVacaD.getText());
-            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
-            cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setConfirmado(this.confirmadoS.isSelected());
-            cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());
-            cio.setRepetiuCio(this.repetiuCioS.isSelected());
-            cio.setObs(this.obsD.getText());
-            if (this.codVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
-            }
-            if (this.nomeVacaD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Vaca nao pode ser Vazio");
-            }
-            if (this.codTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo cod Touro nao pode ser Vazio");
-            }
-            if (this.nomeTouroD.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo nome Touro nao pode ser Vazio");
-            }
-            if (this.dataCioD.getDate().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
-            } else {
-                cio.excluir();
-                this.desabilitaCampos();
-                aux_excluir = 0;
-                this.limpaCampos();
-            }
-        }
+     
+        
     }//GEN-LAST:event_salvarUActionPerformed
     public void limpaCampos() {
 
@@ -491,14 +253,12 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.dataConfirmacaoD.setDate(null);
         this.nomeTouroD.setText("");
         this.nomeVacaD.setText("");
-        this.repetiuCioS.setSelected(false);
         this.obsD.setText("");
     }
 
     public void desabilitaCampos() {
         this.codVacaD.setEnabled(false);
-        this.pesquisaVacaB.setEnabled(false);
-        this.pesquisaTouroB.setEnabled(false);
+        this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
         this.confirmadoS.setEnabled(false);
@@ -506,7 +266,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.dataConfirmacaoD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
         this.nomeVacaD.setEnabled(false);
-        this.repetiuCioS.setEnabled(false);
         this.obsD.setEnabled(false);
         this.limparU.setEnabled(false);
         this.cancelarU.setEnabled(false);
@@ -515,16 +274,13 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
 
     public void habilitaCampos() {
         this.codVacaD.setEnabled(true);
-        this.pesquisaVacaB.setEnabled(true);
-        this.pesquisaTouroB.setEnabled(true);
+        this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
         this.confirmadoS.setEnabled(true);
-        this.dataCioD.setEnabled(true);
         this.dataConfirmacaoD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
-        this.repetiuCioS.setEnabled(true);
         this.obsD.setEnabled(true);
         this.limparU.setEnabled(true);
         this.cancelarU.setEnabled(true);
@@ -536,25 +292,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inclusaoUActionPerformed
 
-    private void pesquisarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarUActionPerformed
-        this.limpaCampos();
-        this.nomeVacaD.setText(JOptionPane.showInputDialog("Digite o Nome do Vaca:"));
-        Cio cio = new Cio();
-        cio.setNomeVaca(this.nomeVacaD.getText());
-        cio.pesquisar();
-        this.codCioD.setText(Integer.toString(cio.getCodCio()));
-        this.dataCioD.setDate(cio.getDataCio());
-        this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
-        this.nomeVacaD.setText(cio.getNomeVaca());
-        this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
-        this.nomeTouroD.setText(cio.getNomeTouro());
-        this.confirmadoS.setSelected(cio.isConfirmado());
-        this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
-        this.repetiuCioS.setSelected(cio.getRepetiuCio());
-        this.obsD.setText(cio.getObs());
-
-    }//GEN-LAST:event_pesquisarUActionPerformed
-
     private void limparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparUActionPerformed
         // TODO add your handling code here:
         this.limpaCampos();
@@ -564,38 +301,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.limpaCampos();
         this.desabilitaCampos();
     }//GEN-LAST:event_cancelarUActionPerformed
-
-    private void excluirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUActionPerformed
-        this.limpaCampos();
-        boolean aux;
-        do {
-            String imput;
-            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Vaca:"));
-            this.nomeVacaD.setText(imput);
-            if (imput == null) {
-                System.out.println("Cancel is pressed");
-                break;
-            }
-            Cio cio = new Cio();
-            cio.setNomeVaca(this.nomeVacaD.getText());
-            aux = cio.pesquisar();
-            if (aux) {
-                this.codCioD.setText(Integer.toString(cio.getCodCio()));
-                this.dataCioD.setDate(cio.getDataCio());
-                this.codVacaD.setText(Integer.toString(cio.getCodVaca()));
-                this.nomeVacaD.setText(cio.getNomeVaca());
-                this.codTouroD.setText(Integer.toString(cio.getCodTouro()));
-                this.nomeTouroD.setText(cio.getNomeTouro());
-                this.confirmadoS.setSelected(cio.isConfirmado());
-                this.dataConfirmacaoD.setDate(cio.getDataConfirmacao());
-                this.repetiuCioS.setSelected(cio.getRepetiuCio());
-                this.obsD.setText(cio.getObs());
-                this.habilitaCampos();
-                aux_excluir = 1;
-            }
-
-        } while (!aux);              // TODO add your handling code here:
-    }//GEN-LAST:event_excluirUActionPerformed
 
     private void nomeVacaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeVacaDActionPerformed
         // TODO add your handling code here:
@@ -613,41 +318,26 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_confirmadoSActionPerformed
-    public void retornaValorVaca(int cod, String nome) {
-        this.codVacaD.setText(Integer.toString(cod));
-        this.nomeVacaD.setText(nome);
+    public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro) {
+        this.codCioD.setText(Integer.toString(codCio));
+        this.codVacaD.setText(Integer.toString(codvaca));
+        this.nomeVacaD.setText(nomevaca);
+        this.codTouroD.setText(Integer.toString(codTouro));
+        this.nomeTouroD.setText(nomeTouro);
+        this.dataCioD.setDate(dataCio);
     }
-
-    public void retornaValorTouro(int cod, String nome) {
-        this.codTouroD.setText(Integer.toString(cod));
-        this.nomeTouroD.setText(nome);
-    }
-    private void pesquisaVacaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVacaBActionPerformed
-        TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
-        telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-       //telaPB.enviavaloresVaca(this, 0);
+    private void pesquisaCioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaCioActionPerformed
+        TelaPesquisaCios telaPB = new TelaPesquisaCios();
+        telaPB.setTitle("RC MILK - PESQUISA DE CIOS");
+        telaPB.enviavaloresCio(this);
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 
-    }//GEN-LAST:event_pesquisaVacaBActionPerformed
-
-    private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
-        TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
-        telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
-        //telaPB.enviavaloresTouro(this, 1);
-        telaPB.IniciaTabela();
-        telaPB.setVisible(true);
-
-
-    }//GEN-LAST:event_pesquisaTouroBActionPerformed
+    }//GEN-LAST:event_pesquisaCioActionPerformed
 
     private void codCioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codCioDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codCioDActionPerformed
-
-    private void repetiuCioSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repetiuCioSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_repetiuCioSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -675,69 +365,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaConfirmacaoDeCio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -748,6 +375,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PainelExebicaodeCio;
     private javax.swing.JButton alterarU;
     private javax.swing.JButton cancelarU;
     private javax.swing.JTextField codCioD;
@@ -761,19 +389,14 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     private javax.swing.JLabel dataCioL;
     private com.toedter.calendar.JDateChooser dataConfirmacaoD;
     private javax.swing.JLabel dataConfirmacaoL;
-    private javax.swing.JButton excluirU;
     private javax.swing.JButton inclusaoU;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limparU;
-    private javax.swing.JButton listarB;
     private javax.swing.JTextField nomeTouroD;
     private javax.swing.JTextField nomeVacaD;
     private javax.swing.JTextPane obsD;
     private javax.swing.JLabel obsL;
-    private javax.swing.JButton pesquisaTouroB;
-    private javax.swing.JButton pesquisaVacaB;
-    private javax.swing.JButton pesquisarU;
-    private javax.swing.JCheckBox repetiuCioS;
+    private javax.swing.JButton pesquisaCio;
     private javax.swing.JButton salvarU;
     // End of variables declaration//GEN-END:variables
 }

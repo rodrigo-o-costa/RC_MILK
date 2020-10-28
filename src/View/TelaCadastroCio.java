@@ -26,6 +26,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         this.desabilitaCampos();
         this.limpaCampos();
         this.desabilitaCampos();
+        this.codCioD.setEditable(false);
     }
 
     /**
