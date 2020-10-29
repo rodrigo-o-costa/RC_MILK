@@ -289,6 +289,30 @@ public class Cio {
         }
 
     }
+    public void repetiu(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "update tb_cio set  repetiuCio = ? where codCio = ?;";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setBoolean(1,this.getRepetiuCio());
+            pst.setInt(2,this.getCodCio());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Cio Confirmado com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Cio Confirmado Não Cadastrado");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+
+    }
 
  
 

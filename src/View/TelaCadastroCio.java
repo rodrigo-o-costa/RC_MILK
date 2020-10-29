@@ -6,6 +6,7 @@
 package View;
 
 import Model.Cio;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,8 +24,6 @@ public class TelaCadastroCio extends javax.swing.JFrame {
      */
     public TelaCadastroCio() {
         initComponents();
-        this.desabilitaCampos();
-        this.limpaCampos();
         this.desabilitaCampos();
         this.codCioD.setEditable(false);
     }
@@ -623,7 +622,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         telaPB.setVisible(true);
 
     }//GEN-LAST:event_pesquisaVacaBActionPerformed
-
+    
     private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
@@ -633,7 +632,14 @@ public class TelaCadastroCio extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_pesquisaTouroBActionPerformed
-
+    public void cadastraCioRepetido(String cod,String nome,Date dataC){
+        this.habilitaCampos();
+        aux_inclu = 1;
+        this.codVacaD.setText(cod);
+        this.dataCioD.setDate(dataC);
+        this.nomeVacaD.setText(nome);
+        System.out.println(codVacaD.getText()+nomeVacaD.getText()+dataCioD.getDate());
+    }
     private void codCioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codCioDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codCioDActionPerformed
@@ -715,10 +721,10 @@ public class TelaCadastroCio extends javax.swing.JFrame {
     private javax.swing.JLabel codCioL;
     private javax.swing.JTextField codTouroD;
     private javax.swing.JLabel codTouroL;
-    private javax.swing.JTextField codVacaD;
+    public javax.swing.JTextField codVacaD;
     private javax.swing.JLabel codVacaL;
     private javax.swing.JCheckBox confirmadoS;
-    private com.toedter.calendar.JDateChooser dataCioD;
+    public com.toedter.calendar.JDateChooser dataCioD;
     private javax.swing.JLabel dataCioL;
     private com.toedter.calendar.JDateChooser dataConfirmacaoD;
     private javax.swing.JLabel dataConfirmacaoL;
@@ -728,7 +734,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
     private javax.swing.JButton limparU;
     private javax.swing.JButton listarB;
     private javax.swing.JTextField nomeTouroD;
-    private javax.swing.JTextField nomeVacaD;
+    public javax.swing.JTextField nomeVacaD;
     private javax.swing.JTextPane obsD;
     private javax.swing.JLabel obsL;
     private javax.swing.JButton pesquisaTouroB;

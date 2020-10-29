@@ -24,12 +24,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author rodri
  */
-public class TelaPesquisaCios extends javax.swing.JFrame {
+public class TelaPesquisaCiosRepetidos extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroBovino
      */
-    public TelaPesquisaCios() {
+    public TelaPesquisaCiosRepetidos() {
         initComponents();
         this.setTitle("RC MILK - PESQUISA DE CIOS");
         this.setResizable(false);
@@ -47,7 +47,7 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where repetiuCio = false and confirmado = false;");
+        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where confirmado = false and repetiuCio = false;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
         try{
             pst = con.prepareStatement(sql);
@@ -206,7 +206,7 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca like ? and repetiuCio = false and confirmado = false;");
+        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca like ? and confirmado = false and repetiuCio = false;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
         for(int i = table.getRowCount(); i > 0;i--){
             table.removeRow(i-1);
@@ -236,8 +236,8 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
         listaCios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisaBActionPerformed
-    private TelaConfirmacaoDeCio TcioAux;
-    public void enviavaloresCio(TelaConfirmacaoDeCio cio1){
+    private TelaRepetiuCio TcioAux;
+    public void enviavaloresCio(TelaRepetiuCio cio1){
         this.TcioAux = cio1;
     }
     private void valorPesquisaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPesquisaDActionPerformed
@@ -249,20 +249,24 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();  
         int auxcodc,auxcodv,auxcodt;
         String auxnomev,auxnomet;
-        Date dateC = null;
+        Date dateC = null,confirmaDate = null;
+        Boolean confirmaC;
+      
         auxcodc = ((int) table.getValueAt(linhaSelecionada, 0));
         dateC = (Date)(table.getValueAt(linhaSelecionada, 1));
         auxcodv = ((int) table.getValueAt(linhaSelecionada, 2));
         auxnomev = (String) (table.getValueAt(linhaSelecionada, 3));
         auxcodt = ((int) table.getValueAt(linhaSelecionada, 4));
         auxnomet = (String) (table.getValueAt(linhaSelecionada, 5));
+        confirmaDate = (Date)(table.getValueAt(linhaSelecionada, 7));
+        confirmaC = (Boolean)(table.getValueAt(linhaSelecionada, 6));
         System.out.println(auxcodc);
         System.out.println(auxcodv);
         System.out.println(auxnomev);
         System.out.println(auxcodt);
         System.out.println(auxnomet);
         System.out.println(dateC);
-        TcioAux.retornaValorCio(auxcodc,dateC,auxcodv,auxnomev,auxcodt,auxnomet);
+        TcioAux.retornaValorCio(auxcodc,dateC,auxcodv,auxnomev,auxcodt,auxnomet,confirmaDate,confirmaC);
         this.dispose();
     }//GEN-LAST:event_selecionarB1ActionPerformed
 
@@ -283,83 +287,20 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaCios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaCiosRepetidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaCios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaCiosRepetidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaCios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaCiosRepetidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaCios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaCiosRepetidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+           /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPesquisaCios().setVisible(true);
+                new TelaPesquisaCiosRepetidos().setVisible(true);
             }
         });
     }

@@ -77,7 +77,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         prePartoM = new javax.swing.JMenuItem();
         perdaCriaM = new javax.swing.JMenuItem();
         partoM = new javax.swing.JMenuItem();
-        producaoM = new javax.swing.JMenu();
         relatorioM = new javax.swing.JMenu();
         relcadastro = new javax.swing.JMenu();
         usuarioRel = new javax.swing.JMenuItem();
@@ -275,9 +274,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         eventosM.add(reproducaoM);
 
-        producaoM.setText("Produção");
-        eventosM.add(producaoM);
-
         menuBarra.add(eventosM);
 
         relatorioM.setText("Relatorios");
@@ -472,7 +468,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroCioMActionPerformed
 
     private void cioRepetidoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioRepetidoMActionPerformed
-        // TODO add your handling code here:
+        TelaRepetiuCio telaC = new  TelaRepetiuCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - REPETIU DE CIO"); 
     }//GEN-LAST:event_cioRepetidoMActionPerformed
 
     private void confirmaCioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaCioMActionPerformed
@@ -541,7 +539,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem partoM;
     private javax.swing.JMenuItem perdaCriaM;
     private javax.swing.JMenuItem prePartoM;
-    private javax.swing.JMenu producaoM;
     private javax.swing.JMenu relatorioM;
     private javax.swing.JMenu relcadastro;
     private javax.swing.JMenu relproducao;
