@@ -206,10 +206,14 @@ public class TelaPesquisaCios extends javax.swing.JFrame {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio;");
+        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca like ?;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
+        for(int i = table.getRowCount(); i > 0;i--){
+            table.removeRow(i-1);
+        }
         try{
             pst = con.prepareStatement(sql);
+            pst.setString(1,valorPesquisaD.getText());
             rs = pst.executeQuery();
             while(rs.next()){
                 cio.setCodCio(rs.getInt("codcio"));

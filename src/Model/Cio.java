@@ -263,6 +263,32 @@ public class Cio {
         }
         return false;
     }
+    public void confirmaCio(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+  
+        String sql = "update tb_cio set  dataConfirmacao = ?, confirmado = ?,obs = ? where codCio = ?;";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setDate(1,new java.sql.Date((this.getDataConfirmacao()).getTime()));
+            pst.setBoolean(2,this.isConfirmado());
+            pst.setString(3,this.getObs());
+            pst.setInt(4,this.getCodCio());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Cio Confirmado com sucesso");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Cio Confirmado Não Cadastrado");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+
+    }
 
  
 

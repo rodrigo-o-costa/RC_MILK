@@ -17,7 +17,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
 
     int aux_inclu = 0;
     int aux_altera = 0;
-    int aux_excluir = 0;
 
     /**
      * Creates new form TelaCadastroBovino
@@ -68,7 +67,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         nomeVacaD = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         alterarU.setText("Alterar");
         alterarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -77,7 +75,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 alterarUActionPerformed(evt);
             }
         });
-        getContentPane().add(alterarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 90, 21));
 
         inclusaoU.setText("Incluir");
         inclusaoU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -86,7 +83,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 inclusaoUActionPerformed(evt);
             }
         });
-        getContentPane().add(inclusaoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 90, -1));
 
         salvarU.setText("Salvar");
         salvarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -95,7 +91,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 salvarUActionPerformed(evt);
             }
         });
-        getContentPane().add(salvarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 90, -1));
 
         limparU.setText("Limpar");
         limparU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -104,7 +99,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 limparUActionPerformed(evt);
             }
         });
-        getContentPane().add(limparU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 90, -1));
 
         cancelarU.setText("Cancelar");
         cancelarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -113,24 +107,17 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 cancelarUActionPerformed(evt);
             }
         });
-        getContentPane().add(cancelarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 90, -1));
 
         jScrollPane1.setViewportView(obsD);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 216, 290, 40));
-
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         dataConfirmacaoL.setText("Data de Con.:");
-        getContentPane().add(dataConfirmacaoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 177, -1, 25));
-        getContentPane().add(dataConfirmacaoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 177, 190, 25));
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         codCioL.setText("Cod. Cio:");
-        getContentPane().add(codCioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 25));
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
-        getContentPane().add(obsL, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 216, -1, 25));
 
         confirmadoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         confirmadoS.setText("Confirmado");
@@ -139,7 +126,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 confirmadoSActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmadoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, 25));
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -147,14 +133,12 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 pesquisaCioActionPerformed(evt);
             }
         });
-        getContentPane().add(pesquisaCio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 210, -1));
 
         codCioD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codCioDActionPerformed(evt);
             }
         });
-        getContentPane().add(codCioD, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 83, 25));
 
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -190,12 +174,12 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(codVacaL)
-                    .addComponent(codTouroL)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                    .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
                         .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +212,79 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PainelExebicaodeCio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 400, 110));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(dataConfirmacaoL)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(8, 8, 8)
+                            .addComponent(confirmadoS))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(codCioL)
+                            .addGap(26, 26, 26)
+                            .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(7, 7, 7)
+                            .addComponent(pesquisaCio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(alterarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(obsL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pesquisaCio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(codCioD)
+                        .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarU)
+                    .addComponent(limparU)
+                    .addComponent(salvarU)
+                    .addComponent(alterarU)
+                    .addComponent(inclusaoU))
+                .addContainerGap())
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -240,11 +296,39 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
-     
+        if(aux_inclu==1){
+            Cio cio = new Cio();
+            if (this.codCioD.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Campo Cod Cio nao pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setCodCio(Integer.parseInt(this.codCioD.getText())); 
+            cio.setDataCio(this.dataCioD.getDate());
+            cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
+            cio.setNomeVaca(this.nomeVacaD.getText());
+            cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
+            cio.setNomeTouro(this.nomeTouroD.getText());
+            cio.setConfirmado(this.confirmadoS.isSelected());
+            if (this.dataConfirmacaoD.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Campo Data de Confirmação não pode ser Vazio");
+                aux_inclu = 0;
+            }
+            cio.setDataConfirmacao(this.dataConfirmacaoD.getDate());      
+            cio.setObs(this.obsD.getText());
+            if(aux_inclu == 1){
+                cio.confirmaCio();
+                this.desabilitaCampos();
+                aux_inclu = 0;
+                this.limpaCampos();
+            }
+        }
+        if(aux_altera==1){
+            
+           aux_altera = 0;
+        }
         
     }//GEN-LAST:event_salvarUActionPerformed
     public void limpaCampos() {
-
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
