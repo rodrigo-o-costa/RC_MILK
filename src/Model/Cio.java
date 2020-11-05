@@ -137,7 +137,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
         System.out.println();
-        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs) values (?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio) values (?,?,?,?,?,?,false,false);";
         try{
             pst = con.prepareStatement(sql);
             pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
@@ -145,14 +145,7 @@ public class Cio {
             pst.setString(3,this.getNomeVaca());
             pst.setInt(4,this.getCodTouro());
             pst.setString(5,this.getNomeTouro());
-            pst.setBoolean(6,this.isConfirmado());
-            if(this.getDataConfirmacao() != null){
-               pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
-            }else{
-               pst.setNull(7,java.sql.Types.DATE);
-            }
-            pst.setBoolean(8,this.getRepetiuCio());
-            pst.setString(9,this.getObs());
+            pst.setString(6,this.getObs());
             if(!pst.execute()){
                  JOptionPane.showMessageDialog(null, "Cio cadastrado com sucesso");
             }else{
@@ -198,7 +191,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = "update tb_cio set dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ? where codCio = ?;";
+        String sql = "update tb_cio set dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?,obs = ? where codCio = ?;";
         try{
             pst = con.prepareStatement(sql);
             pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
@@ -206,15 +199,8 @@ public class Cio {
             pst.setString(3,this.getNomeVaca());
             pst.setInt(4,this.getCodTouro());
             pst.setString(5,this.getNomeTouro());
-            pst.setBoolean(6,this.isConfirmado());
-            if(this.getDataConfirmacao() != null){
-               pst.setDate(7,new java.sql.Date((this.getDataConfirmacao()).getTime()));
-            }else{
-               pst.setNull(7,java.sql.Types.DATE);
-            }
-            pst.setBoolean(8,this.getRepetiuCio());
-            pst.setString(9,this.getObs());
-            pst.setInt(10,this.getCodCio());
+            pst.setString(6,this.getObs());
+            pst.setInt(7,this.getCodCio());
             if(!pst.execute()){
                  JOptionPane.showMessageDialog(null, "Cio Alterado com sucesso");
             }else{
@@ -235,7 +221,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
   
-        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca = ?;");
+        String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs from tb_cio where nomeVaca = ?;");
         try{
             pst = con.prepareStatement(sql);
             pst.setString(1,this.getNomeVaca());
@@ -248,9 +234,6 @@ public class Cio {
                 this.setNomeVaca(rs.getString("nomeVaca"));
                 this.setCodTouro(rs.getInt("codTouro"));
                 this.setNomeTouro(rs.getString("nomeTouro"));
-                this.setConfirmado(rs.getBoolean("confirmado"));
-                this.setDataConfirmacao(rs.getDate("dataConfirmacao"));
-                this.setRepetiuCio(rs.getBoolean("repetiuCio"));
                 this.setObs(rs.getString("obs"));
                 JOptionPane.showMessageDialog(null, "Registro de Cio Encontrado");
                 return true;
@@ -271,7 +254,7 @@ public class Cio {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "update tb_cio set  dataConfirmacao = ?, confirmado = ?,obs = ? where codCio = ?;";
         try{
             pst = con.prepareStatement(sql);

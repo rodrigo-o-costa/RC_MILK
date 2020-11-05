@@ -58,9 +58,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         codVacaL = new javax.swing.JLabel();
         codTouroD = new javax.swing.JTextField();
         nomeVacaD = new javax.swing.JTextField();
-        dataConfirmacaoD = new com.toedter.calendar.JDateChooser();
-        confirmadoS = new javax.swing.JCheckBox();
-        dataConfirmacaoL1 = new javax.swing.JLabel();
         dataRepetiu = new com.toedter.calendar.JDateChooser();
         dataConfirmacaoL = new javax.swing.JLabel();
 
@@ -143,17 +140,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
             }
         });
 
-        confirmadoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        confirmadoS.setText("Confirmado");
-        confirmadoS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmadoSActionPerformed(evt);
-            }
-        });
-
-        dataConfirmacaoL1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL1.setText("Data de Con.:");
-
         javax.swing.GroupLayout PainelExebicaodeCioLayout = new javax.swing.GroupLayout(PainelExebicaodeCio);
         PainelExebicaodeCio.setLayout(PainelExebicaodeCioLayout);
         PainelExebicaodeCioLayout.setHorizontalGroup(
@@ -167,10 +153,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
-                        .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(confirmadoS))
-                    .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
                         .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(codVacaD, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,11 +162,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                             .addComponent(nomeTouroD)))
                     .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(dataConfirmacaoL1)
-                    .addContainerGap(296, Short.MAX_VALUE)))
         );
         PainelExebicaodeCioLayout.setVerticalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,16 +180,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                    .addContainerGap(121, Short.MAX_VALUE)
-                    .addComponent(dataConfirmacaoL1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(1, 1, 1)))
         );
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -232,23 +200,24 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addComponent(pesquisaCio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataRepetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dataRepetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,8 +229,8 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                         .addComponent(codCioD)
                         .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dataRepetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -291,7 +260,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
             cio.setNomeVaca(this.nomeVacaD.getText());
             cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
             cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setConfirmado(this.confirmadoS.isSelected());
             cio.setRepetiuCio(true);
             if (this.dataRepetiu.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Campo Data do novo Cio não pode ser Vazio");
@@ -325,9 +293,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
-        this.confirmadoS.setSelected(false);
         this.dataCioD.setDate(null);
-        this.dataConfirmacaoD.setDate(null);
         this.nomeTouroD.setText("");
         this.nomeVacaD.setText("");
     }
@@ -338,9 +304,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
-        this.confirmadoS.setEnabled(false);
         this.dataCioD.setEnabled(false);
-        this.dataConfirmacaoD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
         this.nomeVacaD.setEnabled(false);
         this.limparU.setEnabled(false);
@@ -354,8 +318,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
-        this.confirmadoS.setEnabled(true);
-        this.dataConfirmacaoD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
         this.limparU.setEnabled(true);
@@ -390,11 +352,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
-
-    private void confirmadoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmadoSActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_confirmadoSActionPerformed
     public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro,Date dtConfirmado,Boolean confirmaC) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
@@ -402,8 +359,6 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         this.codTouroD.setText(Integer.toString(codTouro));
         this.nomeTouroD.setText(nomeTouro);
         this.dataCioD.setDate(dataCio);
-        this.dataConfirmacaoD.setDate(dtConfirmado);
-        this.confirmadoS.setSelected(confirmaC);
     }
     private void pesquisaCioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaCioActionPerformed
         TelaPesquisaCiosRepetidos telaPB = new TelaPesquisaCiosRepetidos();
@@ -463,12 +418,9 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
     private javax.swing.JLabel codTouroL;
     private javax.swing.JTextField codVacaD;
     private javax.swing.JLabel codVacaL;
-    private javax.swing.JCheckBox confirmadoS;
     private com.toedter.calendar.JDateChooser dataCioD;
     private javax.swing.JLabel dataCioL;
-    private com.toedter.calendar.JDateChooser dataConfirmacaoD;
     private javax.swing.JLabel dataConfirmacaoL;
-    private javax.swing.JLabel dataConfirmacaoL1;
     private com.toedter.calendar.JDateChooser dataRepetiu;
     private javax.swing.JButton inclusaoU;
     private javax.swing.JButton limparU;
