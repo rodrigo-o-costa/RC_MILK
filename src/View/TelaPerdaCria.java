@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author rodri
  */
-public class TelaRepetiuCio extends javax.swing.JFrame {
+public class TelaPerdaCria extends javax.swing.JFrame {
 
     int aux_inclu = 0;
     int aux_altera = 0;
@@ -21,7 +21,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroBovino
      */
-    public TelaRepetiuCio() {
+    public TelaPerdaCria() {
         initComponents();
         this.desabilitaCampos();
         this.limpaCampos();
@@ -217,7 +217,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                                 .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +363,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
     private void pesquisaCioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaCioActionPerformed
         TelaPesquisaCiosRepetidos telaPB = new TelaPesquisaCiosRepetidos();
         telaPB.setTitle("RC MILK - PESQUISA DE CIOS");
-        telaPB.enviavaloresCio(this);
+
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 
@@ -390,21 +390,27 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRepetiuCio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerdaCria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRepetiuCio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerdaCria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRepetiuCio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerdaCria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRepetiuCio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerdaCria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRepetiuCio().setVisible(true);
+                new TelaPerdaCria().setVisible(true);
             }
         });
     }

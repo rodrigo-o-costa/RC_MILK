@@ -75,6 +75,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="cioRepetidoM">
                   <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Shift+R"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Cio Repetido"/>
                   </Properties>
                   <Events>
@@ -83,6 +86,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="confirmaCioM">
                   <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Shift+C"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Confirma&#xe7;ao de Cio"/>
                   </Properties>
                   <Events>
@@ -91,18 +97,36 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="prePartoM">
                   <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Shift+P"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Pre-Parto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prePartoMActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="perdaCriaM">
                   <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Alt+P"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Perda de Cria"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="perdaCriaMActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="partoM">
                   <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+P"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Parto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partoMActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

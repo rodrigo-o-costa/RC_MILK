@@ -247,6 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         reproducaoM.add(cadastroCioM);
 
+        cioRepetidoM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK));
         cioRepetidoM.setText("Cio Repetido");
         cioRepetidoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,6 +256,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         reproducaoM.add(cioRepetidoM);
 
+        confirmaCioM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
         confirmaCioM.setText("Confirmaçao de Cio");
         confirmaCioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,13 +265,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         reproducaoM.add(confirmaCioM);
 
+        prePartoM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
         prePartoM.setText("Pre-Parto");
+        prePartoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prePartoMActionPerformed(evt);
+            }
+        });
         reproducaoM.add(prePartoM);
 
+        perdaCriaM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
         perdaCriaM.setText("Perda de Cria");
+        perdaCriaM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perdaCriaMActionPerformed(evt);
+            }
+        });
         reproducaoM.add(perdaCriaM);
 
+        partoM.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         partoM.setText("Parto");
+        partoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partoMActionPerformed(evt);
+            }
+        });
         reproducaoM.add(partoM);
 
         eventosM.add(reproducaoM);
@@ -478,6 +498,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaC.setVisible(true);
         telaC.setTitle("RC MILK - CONFIRMACAO DE CIOS"); 
     }//GEN-LAST:event_confirmaCioMActionPerformed
+
+    private void prePartoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prePartoMActionPerformed
+        TelaPreParto telaC = new  TelaPreParto();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Pre-Parto"); 
+    }//GEN-LAST:event_prePartoMActionPerformed
+
+    private void perdaCriaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perdaCriaMActionPerformed
+        TelaPerdaCria telaC = new  TelaPerdaCria();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Perda de Cria"); 
+    }//GEN-LAST:event_perdaCriaMActionPerformed
+
+    private void partoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partoMActionPerformed
+        TelaParto telaC = new  TelaParto();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Parto"); 
+    }//GEN-LAST:event_partoMActionPerformed
 
     /**
      * @param args the command line arguments
