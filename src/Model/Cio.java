@@ -30,12 +30,13 @@ public class Cio {
     private Date dataConfirmacao;
     private Boolean repetiuCio;
     private String obs;
+    private Date dataperda;
+    private Boolean perda;
     
     public Cio() {
         
     }
-    
-    public Cio(int codCio, Date dataCio, int codVaca, String nomeTouro, int codTouro, String nomeVaca, Boolean confirmado, Date dataConfirmacao, Boolean repetiuCio, String obs) {
+    public Cio(int codCio, Date dataCio, int codVaca, String nomeTouro, int codTouro, String nomeVaca, Boolean confirmado, Date dataConfirmacao, Boolean repetiuCio, String obs, Date dataperda, Boolean perda) {
         this.codCio = codCio;
         this.dataCio = dataCio;
         this.codVaca = codVaca;
@@ -46,7 +47,10 @@ public class Cio {
         this.dataConfirmacao = dataConfirmacao;
         this.repetiuCio = repetiuCio;
         this.obs = obs;
+        this.dataperda = dataperda;
+        this.perda = perda;
     }
+    
 
     public int getCodCio() {
         return codCio;
@@ -127,7 +131,21 @@ public class Cio {
     public void setObs(String obs) {
         this.obs = obs;
     }
-    
+    public Date getDataperda() {
+        return dataperda;
+    }
+
+    public void setDataperda(Date dataperda) {
+        this.dataperda = dataperda;
+    }
+
+    public Boolean getPerda() {
+        return perda;
+    }
+
+    public void setPerda(Boolean perda) {
+        this.perda = perda;
+    }
     public void cadastrar(){
         Connection con =null;
         PreparedStatement pst = null;
@@ -137,7 +155,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
         System.out.println();
-        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio) values (?,?,?,?,?,?,false,false);";
+        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio,perdeu,parto) values (?,?,?,?,?,?,false,false,false,false);";
         try{
             pst = con.prepareStatement(sql);
             pst.setDate(1,new java.sql.Date((this.getDataCio()).getTime()));
@@ -296,6 +314,34 @@ public class Cio {
         }
 
     }
+        public void perdeu(){
+        Connection con =null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        String sql = "update tb_cio set  dataperda = ?, perdeu = ?,obs = ? where codCio = ?;";
+        try{
+            pst = con.prepareStatement(sql);
+            pst.setDate(1,new java.sql.Date((this.getDataperda()).getTime()));
+            pst.setBoolean(2,this.getPerda());
+            pst.setString(3,this.getObs());
+            pst.setInt(4,this.getCodCio());
+            if(!pst.execute()){
+                 JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+            }else{
+                 JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+            }
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        }
+
+    }
+
+
 
  
 
