@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  * @author rodri
  */
 public class TelaCadastroBovino extends javax.swing.JFrame {
+
     int aux_inclu = 0;
     int aux_altera = 0;
     int aux_excluir = 0;
@@ -27,11 +28,13 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         this.desabilitaCampos();
         this.limpaCampos();
         this.setIcon();
-        
+
     }
-    public void setIcon(){
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));  
+
+    public void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -385,18 +388,18 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
     private void alterarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBActionPerformed
         this.limpaCampos();
         boolean aux;
-        do{
+        do {
             String imput;
-            imput=(JOptionPane.showInputDialog(null,"Digite o Nome do Bovino:")); 
+            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Bovino:"));
             nomeD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 System.out.println("Cancel is pressed");
                 break;
             }
             Bovino bov = new Bovino();
             bov.setNome(nomeD.getText());
             aux = bov.pesquisar();
-            if(aux){
+            if (aux) {
                 codBovinoD.setText(Integer.toString(bov.getCod()));
                 ativoD.setSelected(bov.isAtivo());
                 nomeD.setText(bov.getNome());
@@ -410,10 +413,10 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                 nomePaiD.setText(bov.getNome_pai());
                 nomeMaeD.setText(bov.getNome_mae());
                 this.habilitaCampos();
-                aux_altera = 1; 
+                aux_altera = 1;
             }
 
-        }while(!aux);          // TODO add your handling code here:
+        } while (!aux);          // TODO add your handling code here:
     }//GEN-LAST:event_alterarBActionPerformed
 
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
@@ -454,7 +457,15 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         codBovinoD.setEnabled(false);
         aux_inclu = 1;
     }//GEN-LAST:event_inclusaoBActionPerformed
+    public void cadastroBezerro(String nomeMae, String NomePai, Date dtNasc, String ObsParto) {
+        this.habilitaCampos();
+        aux_inclu = 1;
+        this.dataNascD.setDate(dtNasc);
+        this.observacaoD.setText(ObsParto);
+        this.nomePaiD.setText(NomePai);
+        this.nomeMaeD.setText(nomeMae);
 
+    }
     private void pesquisarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBActionPerformed
         this.limpaCampos();
         nomeD.setText(JOptionPane.showInputDialog("Digite o Nome do Bovino:"));
@@ -474,7 +485,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         observacaoD.setText(bov.getObservacao());
         nomePaiD.setText(bov.getNome_pai());
         nomeMaeD.setText(bov.getNome_mae());
-        
+
     }//GEN-LAST:event_pesquisarBActionPerformed
 
     private void cancelarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarUActionPerformed
@@ -492,7 +503,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
         // TODO add your handling code here:
-        if(aux_inclu == 1){
+        if (aux_inclu == 1) {
             Bovino bov = new Bovino();
             bov.setAtivo(ativoD.isSelected());
             bov.setNome(nomeD.getText());
@@ -502,27 +513,30 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
             bov.setSexo((String) this.sexoD.getSelectedItem());
             bov.setRaca(racaD.getText());
             bov.setCor(corD.getText());
-            if(quantCriasD.getText().equals(vazia)){
+            if (quantCriasD.getText().equals(vazia)) {
                 bov.setQuantCria(0);
-            }else{
+            } else {
                 bov.setQuantCria(Integer.parseInt(quantCriasD.getText()));
             }
             bov.setObservacao(observacaoD.getText());
             bov.setNome_pai(nomePaiD.getText());
             bov.setNome_mae(nomeMaeD.getText());
-            if(nomeD.getText().equals("")){
+            if (nomeD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }else{
+            } else {
                 bov.cadastrar();
                 this.desabilitaCampos();
                 aux_inclu = 0;
                 this.limpaCampos();
             }
-        }if(aux_altera == 1){
+        }
+        if (aux_altera == 1) {
             Bovino bov = new Bovino();
             bov.setCod(Integer.parseInt(codBovinoD.getText()));
             bov.setAtivo(ativoD.isSelected());
@@ -536,19 +550,22 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
             bov.setObservacao(observacaoD.getText());
             bov.setNome_pai(nomePaiD.getText());
             bov.setNome_mae(nomeMaeD.getText());
-            if(nomeD.getText().equals("")){
+            if (nomeD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }else{
+            } else {
                 bov.alterar();
                 this.desabilitaCampos();
                 aux_altera = 0;
                 this.limpaCampos();
             }
-        }if(aux_excluir  == 1){
+        }
+        if (aux_excluir == 1) {
             Bovino bov = new Bovino();
             bov.setCod(Integer.parseInt(codBovinoD.getText()));
             bov.setAtivo(ativoD.isSelected());
@@ -562,13 +579,15 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
             bov.setObservacao(observacaoD.getText());
             bov.setNome_pai(nomePaiD.getText());
             bov.setNome_mae(nomeMaeD.getText());
-            if(nomeD.getText().equals("")){
+            if (nomeD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Nome Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }if(corD.getText().equals("")){
+            }
+            if (corD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cor Bovino não pode ser vazio");
-            }else{
+            } else {
                 bov.excluir();
                 this.desabilitaCampos();
                 aux_excluir = 0;
@@ -580,18 +599,18 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
     private void excluirBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirBActionPerformed
         this.limpaCampos();
         boolean aux;
-        do{
+        do {
             String imput;
-            imput=(JOptionPane.showInputDialog(null,"Digite o Nome do Bovino:")); 
+            imput = (JOptionPane.showInputDialog(null, "Digite o Nome do Bovino:"));
             nomeD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 System.out.println("Cancel is pressed");
                 break;
             }
             Bovino bov = new Bovino();
             bov.setNome(nomeD.getText());
             aux = bov.pesquisar();
-            if(aux){
+            if (aux) {
                 codBovinoD.setText(Integer.toString(bov.getCod()));
                 ativoD.setSelected(bov.isAtivo());
                 nomeD.setText(bov.getNome());
@@ -604,10 +623,10 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                 observacaoD.setText(bov.getObservacao());
                 nomePaiD.setText(bov.getNome_pai());
                 nomeMaeD.setText(bov.getNome_mae());
-                aux_excluir = 1; 
+                aux_excluir = 1;
             }
 
-        }while(!aux);        // TODO add your handling code here:
+        } while (!aux);        // TODO add your handling code here:
     }//GEN-LAST:event_excluirBActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
@@ -615,8 +634,8 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         telaLB.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
 
-    public void habilitaCampos(){
-        
+    public void habilitaCampos() {
+
         ativoD.setEnabled(true);
         nomeD.setEnabled(true);
         BrincoD.setEnabled(true);
@@ -628,14 +647,14 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         observacaoD.setEnabled(true);
         nomePaiD.setEnabled(true);
         nomeMaeD.setEnabled(true);
-        limparU.setEnabled(true); 
-        cancelarU.setEnabled(true); 
+        limparU.setEnabled(true);
+        cancelarU.setEnabled(true);
         salvarU.setEnabled(true);
 
     }
-    
-    public void desabilitaCampos(){
-        
+
+    public void desabilitaCampos() {
+
         codBovinoD.setEnabled(false);
         ativoD.setEnabled(false);
         nomeD.setEnabled(false);
@@ -648,14 +667,14 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         observacaoD.setEnabled(false);
         nomePaiD.setEnabled(false);
         nomeMaeD.setEnabled(false);
-        limparU.setEnabled(false); 
-        cancelarU.setEnabled(false); 
+        limparU.setEnabled(false);
+        cancelarU.setEnabled(false);
         salvarU.setEnabled(false);
 
     }
-    
-    public void limpaCampos(){
-        
+
+    public void limpaCampos() {
+
         codBovinoD.setText("");
         ativoD.setSelected(false);
         nomeD.setText("");
@@ -668,6 +687,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         nomePaiD.setText("");
         nomeMaeD.setText("");
     }
+
     /**
      * @param args the command line arguments
      */

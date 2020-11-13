@@ -46,7 +46,13 @@ public class TelaParto extends javax.swing.JFrame {
         salvarU = new javax.swing.JButton();
         limparU = new javax.swing.JButton();
         cancelarU = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        obsD = new javax.swing.JTextPane();
+        dataPartoL = new javax.swing.JLabel();
+        dataPartoD = new com.toedter.calendar.JDateChooser();
         codCioL = new javax.swing.JLabel();
+        obsL = new javax.swing.JLabel();
+        partoS = new javax.swing.JCheckBox();
         pesquisaCio = new javax.swing.JButton();
         codCioD = new javax.swing.JTextField();
         PainelExebicaodeCio = new javax.swing.JPanel();
@@ -58,8 +64,6 @@ public class TelaParto extends javax.swing.JFrame {
         codVacaL = new javax.swing.JLabel();
         codTouroD = new javax.swing.JTextField();
         nomeVacaD = new javax.swing.JTextField();
-        dataParto = new com.toedter.calendar.JDateChooser();
-        dataConfirmacaoL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,8 +99,24 @@ public class TelaParto extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(obsD);
+
+        dataPartoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dataPartoL.setText("Data do Parto:");
+
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         codCioL.setText("Cod. Cio:");
+
+        obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        obsL.setText("Obs.:");
+
+        partoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        partoS.setText("Parto");
+        partoS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partoSActionPerformed(evt);
+            }
+        });
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +164,7 @@ public class TelaParto extends javax.swing.JFrame {
         PainelExebicaodeCio.setLayout(PainelExebicaodeCioLayout);
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -183,9 +203,6 @@ public class TelaParto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data Parto:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,21 +220,27 @@ public class TelaParto extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(obsL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataParto, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(cancelarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(limparU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(118, Short.MAX_VALUE))
+                        .addComponent(dataPartoL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataPartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(partoS)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,11 +252,16 @@ public class TelaParto extends javax.swing.JFrame {
                         .addComponent(codCioD)
                         .addComponent(codCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataParto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataPartoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataPartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(partoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarU)
@@ -260,57 +288,66 @@ public class TelaParto extends javax.swing.JFrame {
             cio.setNomeVaca(this.nomeVacaD.getText());
             cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
             cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setRepetiuCio(true);
-            if (this.dataParto.getDate() == null) {
-                JOptionPane.showMessageDialog(null, "Campo Data do novo Cio não pode ser Vazio");
+            cio.setParto(this.partoS.isSelected());
+            if (this.dataPartoD.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Campo Data do Parto  não pode ser Vazio");
                 aux_inclu = 0;
             }
-            if(aux_inclu == 1){
-                
+            cio.setDataparto(this.dataPartoD.getDate());      
+            cio.setObs(this.obsD.getText());
+            if(aux_inclu == 1){ 
                 int resposta;
-                    resposta = JOptionPane.showConfirmDialog( null,"Confirma a que a vaca:  " +this.nomeVacaD.getText()+" repetiu o Cio no dia: " + dataParto.getDate(), "Confirmacao de Cio Repetido",JOptionPane.YES_NO_OPTION);
+                    resposta = JOptionPane.showConfirmDialog( null,"Confirma a que a vaca:  " +this.nomeVacaD.getText()+" teve parto na data: " + dataPartoD.getDate(), "Parto",JOptionPane.YES_NO_OPTION);
                     System.out.println(resposta);
                 if(resposta == 0){
-                    cio.repetiu();
+                    cio.parto();
                     this.desabilitaCampos();
                     aux_inclu = 0;
                     this.limpaCampos();
-                    TelaCadastroCio telaC = new  TelaCadastroCio();
+                    TelaCadastroBovino telaC = new  TelaCadastroBovino();
                     telaC.setVisible(true);
-                    telaC.setTitle("RC MILK - CIOS");
+                    telaC.setTitle("RC MILK - Cadastro de Bezerro Cria");
                     String cod,nome;
                     cod =this.codVacaD.getText();
                     nome=this.nomeVacaD.getText();
-                    telaC.cadastraCioRepetido(Integer.toString(cio.getCodCio()),cio.getNomeVaca(),dataParto.getDate());
+                    String obsParto = ("Nascimento ref. ao Cio"+cio.getCodCio());
+                    telaC.cadastroBezerro(cio.getNomeVaca(),cio.getNomeTouro(),dataPartoD.getDate(),obsParto);
  
                 }
-
             }
         }
-        
+        if(aux_altera==1){
+            
+           aux_altera = 0;
+        }
+
     }//GEN-LAST:event_salvarUActionPerformed
     public void limpaCampos() {
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
+        this.partoS.setSelected(false);
         this.dataCioD.setDate(null);
+        this.dataPartoD.setDate(null);
         this.nomeTouroD.setText("");
         this.nomeVacaD.setText("");
+        this.obsD.setText("");
     }
 
-    
     public void desabilitaCampos() {
         this.codVacaD.setEnabled(false);
         this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
+        this.partoS.setEnabled(false);
         this.dataCioD.setEnabled(false);
+        this.dataPartoD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
         this.nomeVacaD.setEnabled(false);
+        this.obsD.setEnabled(false);
         this.limparU.setEnabled(false);
         this.cancelarU.setEnabled(false);
         this.salvarU.setEnabled(false);
-        this.dataParto.setEnabled(false);
     }
 
     public void habilitaCampos() {
@@ -318,12 +355,14 @@ public class TelaParto extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
+        this.partoS.setEnabled(true);
+        this.dataPartoD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
+        this.obsD.setEnabled(true);
         this.limparU.setEnabled(true);
         this.cancelarU.setEnabled(true);
         this.salvarU.setEnabled(true);
-        this.dataParto.setEnabled(true);
     }
     private void inclusaoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoUActionPerformed
         this.habilitaCampos();
@@ -352,6 +391,11 @@ public class TelaParto extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
+
+    private void partoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partoSActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_partoSActionPerformed
     public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro,Date dtConfirmado,Boolean confirmaC) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
@@ -361,10 +405,11 @@ public class TelaParto extends javax.swing.JFrame {
         this.dataCioD.setDate(dataCio);
     }
     private void pesquisaCioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaCioActionPerformed
-        TelaPesquisaCiosConfirmados telaPB = new TelaPesquisaCiosConfirmados();
-        telaPB.setTitle("RC MILK - PESQUISA DE CIOS");
-        telaPB.IniciaTabela();
-        telaPB.setVisible(true);
+        TelaPesquisaCiosParaParto telaPesquisaCioParto = new TelaPesquisaCiosParaParto();
+        telaPesquisaCioParto.setTitle("RC MILK - PESQUISA DE CIOS");
+        telaPesquisaCioParto.enviavaloresCio(this);
+        telaPesquisaCioParto.IniciaTabela();
+        telaPesquisaCioParto.setVisible(true);
 
     }//GEN-LAST:event_pesquisaCioActionPerformed
 
@@ -401,18 +446,6 @@ public class TelaParto extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -433,12 +466,16 @@ public class TelaParto extends javax.swing.JFrame {
     private javax.swing.JLabel codVacaL;
     private com.toedter.calendar.JDateChooser dataCioD;
     private javax.swing.JLabel dataCioL;
-    private javax.swing.JLabel dataConfirmacaoL;
-    private com.toedter.calendar.JDateChooser dataParto;
+    private com.toedter.calendar.JDateChooser dataPartoD;
+    private javax.swing.JLabel dataPartoL;
     private javax.swing.JButton inclusaoU;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limparU;
     private javax.swing.JTextField nomeTouroD;
     private javax.swing.JTextField nomeVacaD;
+    private javax.swing.JTextPane obsD;
+    private javax.swing.JLabel obsL;
+    private javax.swing.JCheckBox partoS;
     private javax.swing.JButton pesquisaCio;
     private javax.swing.JButton salvarU;
     // End of variables declaration//GEN-END:variables
