@@ -29,7 +29,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
-    Connection con =null;
+    Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
@@ -41,7 +41,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, e);
         }
         this.setIcon();
-        
+
     }
 
     /**
@@ -61,9 +61,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AT_sair = new javax.swing.JButton();
         AT_backup = new javax.swing.JButton();
         AT_Cio = new javax.swing.JButton();
+        AT_Confirmacao = new javax.swing.JButton();
+        AT_Repetiu = new javax.swing.JButton();
+        AT_Pre_parto = new javax.swing.JButton();
+        AT_Perdeu = new javax.swing.JButton();
+        AT_Parto = new javax.swing.JButton();
+        painelInfo1 = new javax.swing.JPanel();
+        usuarioLogadoInfo1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         painelInfo = new javax.swing.JPanel();
         usuarioLogadoInfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        painelInfo4 = new javax.swing.JPanel();
+        usuarioLogadoInfo4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         menuBarra = new javax.swing.JMenuBar();
         cadastroM = new javax.swing.JMenu();
         bovinoM = new javax.swing.JMenuItem();
@@ -137,6 +148,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        AT_Confirmacao.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Confirmacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_ConfirmacaoActionPerformed(evt);
+            }
+        });
+
+        AT_Repetiu.setBackground(new java.awt.Color(102, 102, 102));
+        AT_Repetiu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_RepetiuActionPerformed(evt);
+            }
+        });
+
+        AT_Pre_parto.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Pre_parto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_Pre_partoActionPerformed(evt);
+            }
+        });
+
+        AT_Perdeu.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Perdeu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_PerdeuActionPerformed(evt);
+            }
+        });
+
+        AT_Parto.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Parto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AT_PartoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelATLayout = new javax.swing.GroupLayout(painelAT);
         painelAT.setLayout(painelATLayout);
         painelATLayout.setHorizontalGroup(
@@ -150,6 +196,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(AT_Bovino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AT_Repetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AT_Confirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AT_Pre_parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AT_Perdeu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AT_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -161,6 +217,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(painelATLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(painelATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AT_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AT_Perdeu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AT_Pre_parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AT_Repetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AT_Confirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,12 +231,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        painelInfo.setBackground(new java.awt.Color(255, 255, 255));
+        painelInfo1.setBackground(new java.awt.Color(255, 255, 255));
+        painelInfo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        usuarioLogadoInfo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        usuarioLogadoInfo1.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
+        usuarioLogadoInfo1.setText("jLabel1");
+
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jLabel2.setText("Fazenda:");
+
+        javax.swing.GroupLayout painelInfo1Layout = new javax.swing.GroupLayout(painelInfo1);
+        painelInfo1.setLayout(painelInfo1Layout);
+        painelInfo1Layout.setHorizontalGroup(
+            painelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelInfo1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(usuarioLogadoInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+        );
+        painelInfo1Layout.setVerticalGroup(
+            painelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(usuarioLogadoInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        painelInfo.setBackground(new java.awt.Color(255, 255, 255));
+        painelInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        usuarioLogadoInfo.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
         usuarioLogadoInfo.setText("jLabel1");
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jLabel1.setText("Usuario:");
 
         javax.swing.GroupLayout painelInfoLayout = new javax.swing.GroupLayout(painelInfo);
@@ -183,17 +272,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelInfoLayout.setHorizontalGroup(
             painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelInfoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(467, Short.MAX_VALUE))
+                .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         painelInfoLayout.setVerticalGroup(
             painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        painelInfo4.setBackground(new java.awt.Color(255, 255, 255));
+        painelInfo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        usuarioLogadoInfo4.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
+        usuarioLogadoInfo4.setText("jLabel1");
+
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jLabel5.setText("Proprietario:");
+
+        javax.swing.GroupLayout painelInfo4Layout = new javax.swing.GroupLayout(painelInfo4);
+        painelInfo4.setLayout(painelInfo4Layout);
+        painelInfo4Layout.setHorizontalGroup(
+            painelInfo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelInfo4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(usuarioLogadoInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+        painelInfo4Layout.setVerticalGroup(
+            painelInfo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(usuarioLogadoInfo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         menuBarra.setBackground(new java.awt.Color(102, 102, 102));
@@ -359,28 +474,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(painelAT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(490, 490, 490)
+                .addComponent(painelInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(painelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(painelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
                 .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(painelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painelInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        setSize(new java.awt.Dimension(799, 524));
+        setSize(new java.awt.Dimension(799, 536));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    public void setIcon(){
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));  
+    public void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));
     }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0); // TODO add your handling code here:
@@ -388,21 +512,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void usuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioMActionPerformed
         // TODO add your handling code here:
-         TelaCadastroUsuario telaU = new TelaCadastroUsuario();
-         telaU.setVisible(true);
-         telaU.setTitle("RC MILK - CADASTRO USUARIOS");
+        TelaCadastroUsuario telaU = new TelaCadastroUsuario();
+        telaU.setVisible(true);
+        telaU.setTitle("RC MILK - CADASTRO USUARIOS");
     }//GEN-LAST:event_usuarioMActionPerformed
 
     private void trocarUsuarioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarUsuarioMActionPerformed
-         Tela_login telaL = new Tela_login();
-         this.dispose();
-         telaL.setVisible(true);// TODO add your handling code here:
+        Tela_login telaL = new Tela_login();
+        this.dispose();
+        telaL.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_trocarUsuarioMActionPerformed
 
     private void bovinoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bovinoMActionPerformed
         TelaCadastroBovino telaB = new TelaCadastroBovino();
         telaB.setTitle("RC MILK - CADASTRAR BOVINOS");
-        telaB.setVisible(true);    
+        telaB.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_bovinoMActionPerformed
 
@@ -418,29 +542,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         String sql = "select nome_usuario,telefone,email from tb_usuario where id_usuario = 1";
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             rs.next();
-            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
-            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
-                                          "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
-                                          +rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura); 
-        }catch(SQLException E){
+            Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/Imagens/suporte.png")));
+            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: " + rs.getString("nome_usuario")
+                    + "\nTelefone: " + rs.getString("telefone") + "\nE-mail: "
+                    + rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura);
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BackupMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackupMActionPerformed
 
-            try {
+        try {
             PostgresBackup.realizaBackup();
-            } catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
+        } catch (InterruptedException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-      
+        }
+
     }//GEN-LAST:event_BackupMActionPerformed
 
     private void AT_BovinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_BovinoActionPerformed
@@ -476,46 +600,76 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_AT_USUARIO1ActionPerformed
 
     private void AT_CioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_CioActionPerformed
-        TelaCadastroCio telaC = new  TelaCadastroCio();
+        TelaCadastroCio telaC = new TelaCadastroCio();
         telaC.setVisible(true);
         telaC.setTitle("RC MILK - CIOS");        // TODO add your handling code here:
     }//GEN-LAST:event_AT_CioActionPerformed
 
     private void cadastroCioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCioMActionPerformed
-        TelaCadastroCio telaC = new  TelaCadastroCio();
+        TelaCadastroCio telaC = new TelaCadastroCio();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - CIOS"); 
+        telaC.setTitle("RC MILK - CIOS");
     }//GEN-LAST:event_cadastroCioMActionPerformed
 
     private void cioRepetidoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cioRepetidoMActionPerformed
-        TelaRepetiuCio telaC = new  TelaRepetiuCio();
+        TelaRepetiuCio telaC = new TelaRepetiuCio();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - REPETIU DE CIO"); 
+        telaC.setTitle("RC MILK - REPETIU DE CIO");
     }//GEN-LAST:event_cioRepetidoMActionPerformed
 
     private void confirmaCioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaCioMActionPerformed
-        TelaConfirmacaoDeCio telaC = new  TelaConfirmacaoDeCio();
+        TelaConfirmacaoDeCio telaC = new TelaConfirmacaoDeCio();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - CONFIRMACAO DE CIOS"); 
+        telaC.setTitle("RC MILK - CONFIRMACAO DE CIOS");
     }//GEN-LAST:event_confirmaCioMActionPerformed
 
     private void prePartoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prePartoMActionPerformed
-        TelaPreParto telaC = new  TelaPreParto();
+        TelaPreParto telaC = new TelaPreParto();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - Pre-Parto"); 
+        telaC.setTitle("RC MILK - Pre-Parto");
     }//GEN-LAST:event_prePartoMActionPerformed
 
     private void perdaCriaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perdaCriaMActionPerformed
-        TelaPerdaCria telaC = new  TelaPerdaCria();
+        TelaPerdaCria telaC = new TelaPerdaCria();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - Perda de Cria"); 
+        telaC.setTitle("RC MILK - Perda de Cria");
     }//GEN-LAST:event_perdaCriaMActionPerformed
 
     private void partoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partoMActionPerformed
-        TelaParto telaC = new  TelaParto();
+        TelaParto telaC = new TelaParto();
         telaC.setVisible(true);
-        telaC.setTitle("RC MILK - Parto"); 
+        telaC.setTitle("RC MILK - Parto");
     }//GEN-LAST:event_partoMActionPerformed
+
+    private void AT_ConfirmacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_ConfirmacaoActionPerformed
+        TelaConfirmacaoDeCio telaC = new TelaConfirmacaoDeCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - CONFIRMACAO DE CIOS");
+    }//GEN-LAST:event_AT_ConfirmacaoActionPerformed
+
+    private void AT_RepetiuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_RepetiuActionPerformed
+        TelaRepetiuCio telaC = new TelaRepetiuCio();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - REPETIU DE CIO");
+    }//GEN-LAST:event_AT_RepetiuActionPerformed
+
+    private void AT_Pre_partoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_Pre_partoActionPerformed
+        TelaPreParto telaC = new TelaPreParto();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Pre-Parto");
+    }//GEN-LAST:event_AT_Pre_partoActionPerformed
+
+    private void AT_PerdeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_PerdeuActionPerformed
+        TelaPerdaCria telaC = new TelaPerdaCria();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Perda de Cria");
+    }//GEN-LAST:event_AT_PerdeuActionPerformed
+
+    private void AT_PartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_PartoActionPerformed
+        TelaParto telaC = new TelaParto();
+        telaC.setVisible(true);
+        telaC.setTitle("RC MILK - Parto");
+    }//GEN-LAST:event_AT_PartoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -555,6 +709,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AT_Bovino;
     private javax.swing.JButton AT_Cio;
+    private javax.swing.JButton AT_Confirmacao;
+    private javax.swing.JButton AT_Parto;
+    private javax.swing.JButton AT_Perdeu;
+    private javax.swing.JButton AT_Pre_parto;
+    private javax.swing.JButton AT_Repetiu;
     private javax.swing.JButton AT_USUARIO1;
     private javax.swing.JButton AT_backup;
     private javax.swing.JButton AT_fazenda;
@@ -568,12 +727,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu eventosM;
     private javax.swing.JMenuItem fazendaM;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel logoTelaPrincipal;
     private javax.swing.JMenuBar menuBarra;
     private javax.swing.JPanel painelAT;
     private javax.swing.JPanel painelInfo;
+    private javax.swing.JPanel painelInfo1;
+    private javax.swing.JPanel painelInfo2;
+    private javax.swing.JPanel painelInfo3;
+    private javax.swing.JPanel painelInfo4;
     private javax.swing.JMenuItem partoM;
     private javax.swing.JMenuItem perdaCriaM;
     private javax.swing.JMenuItem prePartoM;
@@ -584,6 +751,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu reproducaoM;
     private javax.swing.JMenuItem trocarUsuarioM;
     public javax.swing.JLabel usuarioLogadoInfo;
+    public javax.swing.JLabel usuarioLogadoInfo1;
+    public javax.swing.JLabel usuarioLogadoInfo2;
+    public javax.swing.JLabel usuarioLogadoInfo3;
+    public javax.swing.JLabel usuarioLogadoInfo4;
     private javax.swing.JMenuItem usuarioM;
     private javax.swing.JMenuItem usuarioRel;
     private javax.swing.JMenu utilitariosM;
