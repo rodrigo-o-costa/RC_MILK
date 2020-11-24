@@ -27,24 +27,21 @@ public class Tela_login extends javax.swing.JFrame {
     /**
      * Creates new form Tela_login
      */
-    Connection con =null;
+    Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
-
-       
-   
     public Tela_login() {
         initComponents();
         this.setTitle("RC MILK - LOGIN");
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Tela_login.class.getName()).log(Level.SEVERE, null, e);
         }
-        setIcon();   
+        setIcon();
     }
-      
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -210,9 +207,9 @@ public class Tela_login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-   
+
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-            System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 
     private void usuarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioDActionPerformed
@@ -224,39 +221,39 @@ public class Tela_login extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentRemoved
 
     private void maximizar(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_maximizar
-           this.setResizable(false);        // TODO add your handling code here:
+        this.setResizable(false);        // TODO add your handling code here:
     }//GEN-LAST:event_maximizar
 
     private void usuarioDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioDKeyPressed
-        if(evt.getKeyCode() == evt.VK_ENTER){
-            senhaD.requestFocus(); 
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+            senhaD.requestFocus();
         }
     }//GEN-LAST:event_usuarioDKeyPressed
-    private void setIcon(){
+    private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/4.png")));
-  
+
     }
     private void esqueceuDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuDActionPerformed
         String sql = "select nome_usuario,telefone,email from tb_usuario where id_usuario = 1";
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             rs.next();
-            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/Imagens/suporte.png"))); 
-            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: "+rs.getString("nome_usuario")+
-                                          "\nTelefone: "+rs.getString("telefone")+"\nE-mail: "
-                                          +rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura); 
-        }catch(SQLException E){
+            Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/Imagens/suporte.png")));
+            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: " + rs.getString("nome_usuario")
+                    + "\nTelefone: " + rs.getString("telefone") + "\nE-mail: "
+                    + rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura);
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }           // TODO add your handling code here:
     }//GEN-LAST:event_esqueceuDActionPerformed
 
     private void senhaDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_senhaDKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == evt.VK_ENTER){
+        if (evt.getKeyCode() == evt.VK_ENTER) {
             entrar.requestFocus();
         }
-        
+
     }//GEN-LAST:event_senhaDKeyPressed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
@@ -264,28 +261,45 @@ public class Tela_login extends javax.swing.JFrame {
         Usuario user = new Usuario();
         user.setUser(usuarioD.getText());
         boolean aux_user = user.pesquisar();
-        if(aux_user == true){
-            if(!user.getSenha().equals(senhaD.getText())){
-                JOptionPane.showMessageDialog(null, "Senha inválida"); 
+        if (aux_user == true) {
+            if (!user.getSenha().equals(senhaD.getText())) {
+                JOptionPane.showMessageDialog(null, "Senha inválida");
                 senhaD.setText("");
                 senhaD.requestFocus();
                 return;
-            }if(user.getAtivo() == false){
-                JOptionPane.showMessageDialog(null, "Usuario: "+user.getUser()+" Inativo.");
+            }
+            if (user.getAtivo() == false) {
+                JOptionPane.showMessageDialog(null, "Usuario: " + user.getUser() + " Inativo.");
                 usuarioD.requestFocus();
                 usuarioD.setText("");
                 senhaD.setText("");
                 return;
-            }else{
-                JOptionPane.showMessageDialog(null, "Bem Vindo,\n"+user.getNome()+".");
+            } else {
+                String fazenda = "";
+                String prop = "";
+                String sql = "SELECT nome_fazenda, nome_prop FROM tb_fazenda where id_fazenda = 1";
+                try {
+                    pst = con.prepareStatement(sql);
+                    rs = pst.executeQuery();
+                    rs.next();
+                    fazenda = rs.getString("nome_fazenda");
+                    prop = rs.getString("nome_prop");
+                } catch (SQLException E) {
+                    JOptionPane.showMessageDialog(null, E);
+                }
+                System.out.println("aqui ante");
+                System.out.println(fazenda + prop);
+                JOptionPane.showMessageDialog(null, "Bem Vindo,\n" + user.getNome() + ".");
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
                 telaP.setTitle("RC MILK");
                 telaP.usuarioLogadoInfo.setText(user.getUser());
+                telaP.fazendaLogada1.setText(fazenda);
+                telaP.propLogado.setText(prop);
                 this.dispose();
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario inválido"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario inválido");
         }
     }//GEN-LAST:event_entrarActionPerformed
 
@@ -293,30 +307,50 @@ public class Tela_login extends javax.swing.JFrame {
         Usuario user = new Usuario();
         user.setUser(usuarioD.getText());
         boolean aux_user = user.pesquisar();
-        if(aux_user == true){
-            if(!user.getSenha().equals(senhaD.getText())){
-                JOptionPane.showMessageDialog(null, "Senha inválida"); 
+        if (aux_user == true) {
+            if (!user.getSenha().equals(senhaD.getText())) {
+                JOptionPane.showMessageDialog(null, "Senha inválida");
                 senhaD.setText("");
                 senhaD.requestFocus();
                 return;
-            }if(user.getAtivo() == false){
-                JOptionPane.showMessageDialog(null, "Usuario: "+user.getUser()+" Inativo.");
+            }
+            if (user.getAtivo() == false) {
+                JOptionPane.showMessageDialog(null, "Usuario: " + user.getUser() + " Inativo.");
                 usuarioD.requestFocus();
                 usuarioD.setText("");
                 senhaD.setText("");
                 return;
-            }else{
-                JOptionPane.showMessageDialog(null, "Bem Vindo,\n"+user.getNome()+".");
+            } else {
+                String fazenda = "";
+                String prop = "";
+                String sql = "SELECT nome_fazenda, nome_prop FROM tb_fazenda where id_fazenda = 1";
+                try {
+                    pst = con.prepareStatement(sql);
+                    rs = pst.executeQuery();
+                    rs.next();
+                    fazenda = rs.getString("nome_fazenda");
+                    prop = rs.getString("nome_prop");
+                } catch (SQLException E) {
+                    JOptionPane.showMessageDialog(null, E);
+                }
+                System.out.println("aqui ante");
+                System.out.println(fazenda + prop);
+                JOptionPane.showMessageDialog(null, "Bem Vindo,\n" + user.getNome() + ".");
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);
-                telaP.usuarioLogadoInfo.setText(user.getUser());
                 telaP.setTitle("RC MILK");
+                telaP.usuarioLogadoInfo.setText(user.getUser());
+                telaP.fazendaLogada1.setText(fazenda);
+                telaP.propLogado.setText(prop);
                 this.dispose();
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario inválido"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario inválido");
         }
     }//GEN-LAST:event_entrarKeyPressed
+    private void carregadadosfiliais() {
+
+    }
 
     /**
      * @param args the command line arguments
@@ -370,6 +404,5 @@ public class Tela_login extends javax.swing.JFrame {
     private javax.swing.JTextField usuarioD;
     private javax.swing.JLabel usuarioL;
     // End of variables declaration//GEN-END:variables
-
 
 }

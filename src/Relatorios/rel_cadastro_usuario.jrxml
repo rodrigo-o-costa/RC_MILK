@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_cadastro_usuario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea3b6875-0a25-40ab-887d-db2930578c59">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select id_usuario,ativo,nome_usuario,usuario,telefone,email from tb_usuario;]]>
+	</queryString>
+	<field name="id_usuario" class="java.lang.Integer"/>
+	<field name="ativo" class="java.lang.Boolean"/>
+	<field name="nome_usuario" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="telefone" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<title>
+		<band height="55" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="54" backcolor="#CCCCCC" uuid="447d059d-37fc-4287-8329-3e0aaff2b769"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="0" width="474" height="50" uuid="be227ef3-a4ca-4b10-aa90-5fa6887ef95a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio Cadastro de Usuarios]]></text>
+			</staticText>
+			<image>
+				<reportElement x="16" y="0" width="122" height="50" uuid="9bc74d14-e4eb-4dc9-9abe-b3449dd53405"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="433" y="0" width="80" height="20" uuid="48c256b5-dcee-4b10-ad3d-09d1e15cd2af"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="0" width="40" height="20" uuid="1aacdef4-b49f-414d-8d5b-878801b54e99"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="382" y="30" width="171" height="20" uuid="de48f7e1-10c5-4b53-8b69-01d282d7d90b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="40" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="271a630f-5a84-4bdf-ad3e-97e1106c7730"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="0" width="41" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="90ad59ea-bac2-41e3-85b5-f36d9268d24c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ativo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="81" y="0" width="114" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="39d20427-7974-4132-979d-5248e435518c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="195" y="0" width="114" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="f8876a79-05cf-4d49-920d-9f360d5ed7e8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="309" y="0" width="84" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="47e23e05-a1cb-45ec-91c5-494a38bf751c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="393" y="0" width="162" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="c2266cfa-dbe0-4eef-854e-ae66c890c064"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="0" y="0" width="40" height="20" uuid="808f0415-de1f-4933-bbd4-df4f5a60a050"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="40" y="0" width="41" height="20" uuid="66f73577-48a7-43a1-ae74-41e47afafa57"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="81" y="0" width="114" height="20" uuid="3dfb9729-0c66-408d-babc-77d0ed1cac91"/>
+				<textFieldExpression><![CDATA[$F{nome_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="195" y="0" width="114" height="20" uuid="fee3686a-9625-4957-abe0-80e93b850c8b"/>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="309" y="0" width="84" height="20" uuid="363d9885-8b05-4d97-a401-e2cc48846487"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="393" y="0" width="162" height="20" uuid="bb3e641b-906b-43ed-92c2-180b73b51dbc"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="39" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

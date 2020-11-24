@@ -52,8 +52,7 @@ INSERT INTO  tb_bovino
 	(ativo, nome, brinco, data_nasc, idade, sexo, raca, 
 	 cor, quantCria, observacao, codPai, nome_pai, codmae, nome_mae)
 	 values (true,'mimosa','1','20/07/2020','1','Fêmea','HOLANDESA','preta',0,'nada consta',-1,'tiao',-1,'cabana')
-select cod, ativo, nome, brinco, data_nasc, idade, sexo, raca, 
-	 cor, quantCria, observacao, codPai, nome_pai, codmae, nome_mae
+select cod, ativo, nome, brinco, data_nasc, idade, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae
 	 from tb_bovino
 
 

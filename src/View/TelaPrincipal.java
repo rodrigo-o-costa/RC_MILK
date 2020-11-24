@@ -7,18 +7,27 @@ package View;
 
 import Controller.Conec;
 import Controller.PostgresBackup;
+import Model.Bovino;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -67,13 +76,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AT_Perdeu = new javax.swing.JButton();
         AT_Parto = new javax.swing.JButton();
         painelInfo1 = new javax.swing.JPanel();
-        usuarioLogadoInfo1 = new javax.swing.JLabel();
+        fazendaLogada1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         painelInfo = new javax.swing.JPanel();
         usuarioLogadoInfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         painelInfo4 = new javax.swing.JPanel();
-        usuarioLogadoInfo4 = new javax.swing.JLabel();
+        propLogado = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         menuBarra = new javax.swing.JMenuBar();
         cadastroM = new javax.swing.JMenu();
@@ -91,6 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relatorioM = new javax.swing.JMenu();
         relcadastro = new javax.swing.JMenu();
         usuarioRel = new javax.swing.JMenuItem();
+        rel_cad_bov = new javax.swing.JMenuItem();
         relreproducao = new javax.swing.JMenu();
         relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
@@ -234,8 +244,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelInfo1.setBackground(new java.awt.Color(255, 255, 255));
         painelInfo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        usuarioLogadoInfo1.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
-        usuarioLogadoInfo1.setText("jLabel1");
+        fazendaLogada1.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
+        fazendaLogada1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jLabel2.setText("Fazenda:");
@@ -248,13 +258,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usuarioLogadoInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addComponent(fazendaLogada1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         painelInfo1Layout.setVerticalGroup(
             painelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelInfo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(usuarioLogadoInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fazendaLogada1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -272,11 +282,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelInfoLayout.setHorizontalGroup(
             painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelInfoLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(usuarioLogadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         painelInfoLayout.setVerticalGroup(
             painelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,8 +298,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         painelInfo4.setBackground(new java.awt.Color(255, 255, 255));
         painelInfo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        usuarioLogadoInfo4.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
-        usuarioLogadoInfo4.setText("jLabel1");
+        propLogado.setFont(new java.awt.Font("Arial Unicode MS", 0, 14)); // NOI18N
+        propLogado.setText("jLabel1");
 
         jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jLabel5.setText("Proprietario:");
@@ -301,14 +311,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(painelInfo4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(usuarioLogadoInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(propLogado, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                .addContainerGap())
         );
         painelInfo4Layout.setVerticalGroup(
             painelInfo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(usuarioLogadoInfo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(propLogado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         menuBarra.setBackground(new java.awt.Color(102, 102, 102));
@@ -416,7 +426,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relcadastro.setText("Cadastro");
 
         usuarioRel.setText("Relatorio Usuario");
+        usuarioRel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioRelActionPerformed(evt);
+            }
+        });
         relcadastro.add(usuarioRel);
+
+        rel_cad_bov.setText("Relatorio Bovino");
+        rel_cad_bov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rel_cad_bovActionPerformed(evt);
+            }
+        });
+        relcadastro.add(rel_cad_bov);
 
         relatorioM.add(relcadastro);
 
@@ -480,12 +503,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(logoTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addComponent(painelInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, Short.MAX_VALUE))
+                .addComponent(painelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addComponent(painelInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(painelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(painelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(203, 203, 203)
+                .addComponent(painelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -671,6 +695,68 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaC.setTitle("RC MILK - Parto");
     }//GEN-LAST:event_AT_PartoActionPerformed
 
+    private void rel_cad_bovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rel_cad_bovActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, observacao, nome_pai, nome_mae from tb_bovino;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_cadastro_bovinos.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_rel_cad_bovActionPerformed
+
+    private void usuarioRelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioRelActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select id_usuario,ativo,nome_usuario,usuario,telefone,email from tb_usuario;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_cadastro_usuario.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_usuarioRelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -725,11 +811,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cioRepetidoM;
     private javax.swing.JMenuItem confirmaCioM;
     private javax.swing.JMenu eventosM;
+    public javax.swing.JLabel fazendaLogada1;
     private javax.swing.JMenuItem fazendaM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -738,12 +823,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel painelAT;
     private javax.swing.JPanel painelInfo;
     private javax.swing.JPanel painelInfo1;
-    private javax.swing.JPanel painelInfo2;
-    private javax.swing.JPanel painelInfo3;
     private javax.swing.JPanel painelInfo4;
     private javax.swing.JMenuItem partoM;
     private javax.swing.JMenuItem perdaCriaM;
     private javax.swing.JMenuItem prePartoM;
+    public javax.swing.JLabel propLogado;
+    private javax.swing.JMenuItem rel_cad_bov;
     private javax.swing.JMenu relatorioM;
     private javax.swing.JMenu relcadastro;
     private javax.swing.JMenu relproducao;
@@ -751,10 +836,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu reproducaoM;
     private javax.swing.JMenuItem trocarUsuarioM;
     public javax.swing.JLabel usuarioLogadoInfo;
-    public javax.swing.JLabel usuarioLogadoInfo1;
-    public javax.swing.JLabel usuarioLogadoInfo2;
-    public javax.swing.JLabel usuarioLogadoInfo3;
-    public javax.swing.JLabel usuarioLogadoInfo4;
     private javax.swing.JMenuItem usuarioM;
     private javax.swing.JMenuItem usuarioRel;
     private javax.swing.JMenu utilitariosM;
