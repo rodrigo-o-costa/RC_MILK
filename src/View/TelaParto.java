@@ -293,7 +293,7 @@ public class TelaParto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campo Data do Parto  não pode ser Vazio");
                 aux_inclu = 0;
             }
-            cio.setDataparto(this.dataPartoD.getDate());      
+            cio.setDataParto(this.dataPartoD.getDate());      
             cio.setObs(this.obsD.getText());
             if(aux_inclu == 1){ 
                 int resposta;

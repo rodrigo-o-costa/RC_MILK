@@ -102,6 +102,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         usuarioRel = new javax.swing.JMenuItem();
         rel_cad_bov = new javax.swing.JMenuItem();
         relreproducao = new javax.swing.JMenu();
+        previsaoParto = new javax.swing.JMenuItem();
         relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -444,6 +445,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relatorioM.add(relcadastro);
 
         relreproducao.setText("Reproducao");
+
+        previsaoParto.setText("Previsão de Parto");
+        previsaoParto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previsaoPartoActionPerformed(evt);
+            }
+        });
+        relreproducao.add(previsaoParto);
+
         relatorioM.add(relreproducao);
 
         relproducao.setText("Produção");
@@ -757,6 +767,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuarioRelActionPerformed
 
+    private void previsaoPartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previsaoPartoActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("SELECT codcio, datacio, codvaca, nomevaca, codtouro, nometouro, confirmado, dataconfirmacao, repetiucio, obs, perdeu, dataparto, parto, dataperda, finalizado, pre_parto, data_preparto, previsao_parto FROM tb_cio WHERE tb_cio.finalizado = false;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_reproducao_previsao_parto.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_previsaoPartoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -827,6 +867,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem partoM;
     private javax.swing.JMenuItem perdaCriaM;
     private javax.swing.JMenuItem prePartoM;
+    private javax.swing.JMenuItem previsaoParto;
     public javax.swing.JLabel propLogado;
     private javax.swing.JMenuItem rel_cad_bov;
     private javax.swing.JMenu relatorioM;

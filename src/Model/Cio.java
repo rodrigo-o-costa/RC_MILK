@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,13 +32,16 @@ public class Cio {
     private Date dataConfirmacao;
     private Boolean repetiuCio;
     private String obs;
-    private Date dataperda;
+    private Date dataPerda;
     private Boolean perda;
-    private Date dataparto;
+    private Date dataParto;
     private Boolean parto;
     private Boolean finilizado;
+    private Date dataPreParto;
+    private Boolean preParto;
+    private Date previsaoParto;
 
-    public Cio(int codCio, Date dataCio, int codVaca, String nomeTouro, int codTouro, String nomeVaca, Boolean confirmado, Date dataConfirmacao, Boolean repetiuCio, String obs, Date dataperda, Boolean perda, Date dataparto, Boolean parto, Boolean finilizado) {
+    public Cio(int codCio, Date dataCio, int codVaca, String nomeTouro, int codTouro, String nomeVaca, Boolean confirmado, Date dataConfirmacao, Boolean repetiuCio, String obs, Date dataPerda, Boolean perda, Date dataParto, Boolean parto, Boolean finilizado, Date dataPreParto, Boolean preParto, Date previsaoParto) {
         this.codCio = codCio;
         this.dataCio = dataCio;
         this.codVaca = codVaca;
@@ -48,16 +52,19 @@ public class Cio {
         this.dataConfirmacao = dataConfirmacao;
         this.repetiuCio = repetiuCio;
         this.obs = obs;
-        this.dataperda = dataperda;
+        this.dataPerda = dataPerda;
         this.perda = perda;
-        this.dataparto = dataparto;
+        this.dataParto = dataParto;
         this.parto = parto;
         this.finilizado = finilizado;
+        this.dataPreParto = dataPreParto;
+        this.preParto = preParto;
+        this.previsaoParto = previsaoParto;
     }
 
     public Cio() {
-
     }
+
 
     public int getCodCio() {
         return codCio;
@@ -139,12 +146,12 @@ public class Cio {
         this.obs = obs;
     }
 
-    public Date getDataperda() {
-        return dataperda;
+    public Date getDataPerda() {
+        return dataPerda;
     }
 
-    public void setDataperda(Date dataperda) {
-        this.dataperda = dataperda;
+    public void setDataPerda(Date dataPerda) {
+        this.dataPerda = dataPerda;
     }
 
     public Boolean getPerda() {
@@ -154,12 +161,12 @@ public class Cio {
     public void setPerda(Boolean perda) {
         this.perda = perda;
     }
-    public Date getDataparto() {
-        return dataparto;
+    public Date getDataParto() {
+        return dataParto;
     }
 
-    public void setDataparto(Date dataparto) {
-        this.dataparto = dataparto;
+    public void setDataParto(Date dataParto) {
+        this.dataParto = dataParto;
     }
 
     public Boolean getParto() {
@@ -177,7 +184,27 @@ public class Cio {
     public void setFinilizado(Boolean finilizado) {
         this.finilizado = finilizado;
     }
+        public Date getDataPreParto() {
+        return dataPreParto;
+    }
 
+    public void setDataPreParto(Date dataPreParto) {
+        this.dataPreParto = dataPreParto;
+    }
+
+    public Boolean getPreParto() {
+        return preParto;
+    }
+
+    public void setPreParto(Boolean preParto) {
+        this.preParto = preParto;
+    }
+    public Date getPrevisaoParto() {
+        return previsaoParto;
+    }
+    public void setPrevisaoParto(Date previsaoParto) {
+        this.previsaoParto = previsaoParto;
+    }
     public void cadastrar() {
         Connection con = null;
         PreparedStatement pst = null;
@@ -186,8 +213,12 @@ public class Cio {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-        System.out.println();
-        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio,perdeu,parto,finalizado) values (?,?,?,?,?,?,false,false,false,false,false);";
+	Calendar cal = Calendar.getInstance();
+	cal.setTime(this.getDataCio());
+	System.out.println(cal.getTime());
+	cal.add(Calendar.MONTH, 9);
+        this.setPrevisaoParto(cal.getTime());
+        String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio,perdeu,parto,finalizado,previsao_parto) values (?,?,?,?,?,?,false,false,false,false,false,?);";
         try {
             pst = con.prepareStatement(sql);
             pst.setDate(1, new java.sql.Date((this.getDataCio()).getTime()));
@@ -196,6 +227,7 @@ public class Cio {
             pst.setInt(4, this.getCodTouro());
             pst.setString(5, this.getNomeTouro());
             pst.setString(6, this.getObs());
+            pst.setDate(7, new java.sql.Date((this.getPrevisaoParto()).getTime()));
             if (!pst.execute()) {
                 JOptionPane.showMessageDialog(null, "Cio cadastrado com sucesso");
             } else {
@@ -362,7 +394,7 @@ public class Cio {
         String sql = "update tb_cio set  dataperda = ?, perdeu = ?,obs = ?, finalizado = true where codCio = ?;";
         try {
             pst = con.prepareStatement(sql);
-            pst.setDate(1, new java.sql.Date((this.getDataperda()).getTime()));
+            pst.setDate(1, new java.sql.Date((this.getDataPerda()).getTime()));
             pst.setBoolean(2, this.getPerda());
             pst.setString(3, this.getObs());
             pst.setInt(4, this.getCodCio());
@@ -376,7 +408,7 @@ public class Cio {
         }
     }
 
-    public void parto() {
+    public void pre_parto() {
         Connection con = null;
         PreparedStatement pst = null;
         try {
@@ -384,11 +416,10 @@ public class Cio {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-
-        String sql = "update tb_cio set  dataparto = ?, parto = ?,obs = ?,finalizado = true where codCio = ?;";
+        String sql = "update tb_cio set  data_preparto = ?, pre_parto = ?,obs = ?,finalizado = true where codCio = ?;";
         try {
             pst = con.prepareStatement(sql);
-            pst.setDate(1, new java.sql.Date((this.getDataparto()).getTime()));
+            pst.setDate(1, new java.sql.Date((this.getDataParto()).getTime()));
             pst.setBoolean(2, this.getParto());
             pst.setString(3, this.getObs());
             pst.setInt(4, this.getCodCio());
@@ -400,7 +431,33 @@ public class Cio {
         } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
-
     }
+        public void parto() {
+        Connection con = null;
+        PreparedStatement pst = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        String sql = "update tb_cio set  dataparto = ?, parto = ?,obs = ? where codCio = ?;";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setDate(1, new java.sql.Date((this.getDataPreParto()).getTime()));
+            pst.setBoolean(2, this.getPreParto());
+            pst.setString(3, this.getObs());
+            pst.setInt(4, this.getCodCio());
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+            } else {
+                JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+            }
+        } catch (SQLException E) {
+            JOptionPane.showMessageDialog(null, E);
+        }
+    }
+
+
 
 }

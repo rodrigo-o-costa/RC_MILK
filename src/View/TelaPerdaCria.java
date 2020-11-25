@@ -293,7 +293,7 @@ public class TelaPerdaCria extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campo Data de Confirmação não pode ser Vazio");
                 aux_inclu = 0;
             }
-            cio.setDataperda(this.dataPercaD.getDate());      
+            cio.setDataPerda(this.dataPercaD.getDate());      
             cio.setObs(this.obsD.getText());
             if(aux_inclu == 1){
                 cio.perdeu();
