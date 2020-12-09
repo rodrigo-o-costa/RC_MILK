@@ -103,6 +103,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         rel_cad_bov = new javax.swing.JMenuItem();
         relreproducao = new javax.swing.JMenu();
         previsaoParto = new javax.swing.JMenuItem();
+        Cio_por_Vaca = new javax.swing.JMenuItem();
         relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -454,6 +455,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         relreproducao.add(previsaoParto);
 
+        Cio_por_Vaca.setText("Cio por Vaca");
+        Cio_por_Vaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cio_por_VacaActionPerformed(evt);
+            }
+        });
+        relreproducao.add(Cio_por_Vaca);
+
         relatorioM.add(relreproducao);
 
         relproducao.setText("Produção");
@@ -797,6 +806,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_previsaoPartoActionPerformed
 
+    private void Cio_por_VacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cio_por_VacaActionPerformed
+        TelaRelatorioDeCioPorVacas telaRC = new TelaRelatorioDeCioPorVacas();
+        telaRC.setVisible(true);
+        telaRC.IniciaTabela();
+        telaRC.setTitle("RC MILK - Relatorio de Cio");
+    }//GEN-LAST:event_Cio_por_VacaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -845,6 +861,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton AT_fazenda;
     private javax.swing.JButton AT_sair;
     private javax.swing.JMenuItem BackupM;
+    private javax.swing.JMenuItem Cio_por_Vaca;
     private javax.swing.JMenuItem bovinoM;
     private javax.swing.JMenuItem cadastroCioM;
     private javax.swing.JMenu cadastroM;

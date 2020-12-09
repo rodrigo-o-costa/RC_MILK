@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_reproducao_previsao_parto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2b3e72a-08f0-4612-b2e8-8be1770207f1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT codcio, datacio, codvaca, nomevaca, codtouro, nometouro, confirmado, dataconfirmacao, repetiucio, obs, perdeu, dataparto, parto, dataperda, finalizado, pre_parto, data_preparto, previsao_parto
+FROM tb_cio
+WHERE tb_cio.finalizado = false]]>
+	</queryString>
+	<field name="codcio" class="java.lang.Integer"/>
+	<field name="datacio" class="java.sql.Date"/>
+	<field name="codvaca" class="java.lang.Integer"/>
+	<field name="nomevaca" class="java.lang.String"/>
+	<field name="codtouro" class="java.lang.Integer"/>
+	<field name="nometouro" class="java.lang.String"/>
+	<field name="confirmado" class="java.lang.Boolean"/>
+	<field name="dataconfirmacao" class="java.sql.Date"/>
+	<field name="repetiucio" class="java.lang.Boolean"/>
+	<field name="obs" class="java.lang.String"/>
+	<field name="perdeu" class="java.lang.Boolean"/>
+	<field name="dataparto" class="java.sql.Date"/>
+	<field name="parto" class="java.lang.Boolean"/>
+	<field name="dataperda" class="java.sql.Date"/>
+	<field name="finalizado" class="java.lang.Boolean"/>
+	<field name="pre_parto" class="java.lang.Boolean"/>
+	<field name="data_preparto" class="java.sql.Date"/>
+	<field name="previsao_parto" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="56" backcolor="#CCCCCC" uuid="12f65709-baa4-46f0-95d5-2fbe75fe61b1"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="679" y="4" width="80" height="22" uuid="f7a75be6-464b-4648-bfcc-260bb15886b7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="614" y="34" width="171" height="22" uuid="2fea3669-af06-4eca-be33-fb5d316899cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="22" y="4" width="122" height="52" uuid="debb2984-5ecc-4da2-9b78-d36b2e33c015"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="98" y="4" width="581" height="52" uuid="6b7200e9-9868-49eb-b5a1-d666dbc86c7e"/>
+				<textElement textAlignment="Center">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio Cio Por Vaca]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="759" y="4" width="40" height="22" uuid="d710f21d-a6c6-4cc9-83a1-8c11e53eb2b8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="fd5cd7c8-fb02-4e09-8fa9-c7106a0cf108"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[codcio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="44" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="997bf745-89f6-40b0-a51e-a5f78b99cf09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[datacio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="88" y="0" width="88" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="8dcbf6b6-60ae-4dba-a03c-f43f893640b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[nomevaca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="176" y="0" width="63" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="142f555e-0bbc-42f9-8125-cc9da06cb8a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[nometouro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="239" y="0" width="66" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="9b1fe3bd-1ae9-4a9e-ba92-e4c4558319cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[dataconfirmacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="305" y="0" width="58" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="73386a19-af12-4470-b1ab-658ad4a2d113"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[repetiucio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="451" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="c02887ad-9fdb-4124-8398-8ed98b105fe0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[dataparto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="495" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="278f63f5-520b-4633-847a-c9c00ba6228a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[dataperda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="363" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="39a3eaf0-2501-4cdb-bd8f-9e590ca5b0e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[data_preparto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="407" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="ff040559-e043-4de8-97f2-5ec570f3cd0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[previsao_parto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="539" y="0" width="260" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="d351c11c-c9c1-4cac-912f-86df537ae951"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[observação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="table 1_TD" x="0" y="0" width="44" height="20" uuid="9e4a05fe-82df-4f1d-b808-46c48416c0ac"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{codcio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="44" y="0" width="44" height="20" uuid="1ae8900c-4a23-4244-bc60-2a5d48546aad"/>
+				<textFieldExpression><![CDATA[$F{datacio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="88" y="0" width="88" height="20" uuid="f11d8ffa-0de3-40f5-8975-d3f3ca228279"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nomevaca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="176" y="0" width="63" height="20" uuid="bb3ec25e-a932-4622-b248-2f9d68a93536"/>
+				<textFieldExpression><![CDATA[$F{nometouro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="239" y="0" width="66" height="20" uuid="d0d01471-9329-4ff9-8073-08d66aab9549"/>
+				<textFieldExpression><![CDATA[$F{dataconfirmacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="305" y="0" width="58" height="20" uuid="3019e509-4b89-422a-ba7a-24d2e133e869"/>
+				<textFieldExpression><![CDATA[$F{repetiucio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="451" y="0" width="44" height="20" uuid="c9261bc8-3185-471c-9105-efe27dac50fe"/>
+				<textFieldExpression><![CDATA[$F{dataparto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="495" y="0" width="44" height="20" uuid="f38837ed-f407-4caa-ba6e-84c5121663fb"/>
+				<textFieldExpression><![CDATA[$F{dataperda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="363" y="0" width="44" height="20" uuid="51d8cc18-1c6f-4613-bb0e-71183ee0aacb"/>
+				<textFieldExpression><![CDATA[$F{data_preparto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="407" y="0" width="44" height="20" uuid="b655b410-a1f1-48e5-9316-5e99ba060dba"/>
+				<textFieldExpression><![CDATA[$F{previsao_parto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" x="539" y="0" width="260" height="20" uuid="dfe7747c-279b-4603-b369-88535572c8f1"/>
+				<textFieldExpression><![CDATA[$F{obs}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="4" width="802" height="50" backcolor="#CCCCCC" uuid="ab8a1dad-8c18-44ce-b0fe-595a59410aa6"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="24" y="4" width="138" height="50" uuid="0450f70e-4771-4be6-bff9-ce26307eb189"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>
