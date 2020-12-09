@@ -708,19 +708,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void rel_cad_bovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rel_cad_bovActionPerformed
         Connection con =null;
         PreparedStatement pst = null;
-        ResultSet rs = null;
+        ResultSet rs = null, rs1 = null;
         try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
-        String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, observacao, nome_pai, nome_mae from tb_bovino;");
+        String sql = ("SELECT tb_bovino.cod AS tb_bovino_cod,tb_bovino.ativo AS tb_bovino_ativo,tb_bovino.nome AS tb_bovino_nome,tb_bovino.brinco AS tb_bovino_brinco,tb_bovino.idade AS tb_bovino_idade,tb_bovino.sexo AS tb_bovino_sexo,tb_bovino.raca AS tb_bovino_raca,tb_bovino.cor AS tb_bovino_cor,tb_bovino.quantcria AS tb_bovino_quantcria,tb_bovino.observacao AS tb_bovino_observacao,tb_bovino.nome_pai AS tb_bovino_nome_pai,tb_bovino.nome_mae AS tb_bovino_nome_mae,tb_bovino.data_nasc AS tb_bovino_data_nasc,tb_fazenda.id_fazenda AS tb_fazenda_id_fazenda,tb_fazenda.ativo AS tb_fazenda_ativo,tb_fazenda.nome_fazenda AS tb_fazenda_nome_fazenda,tb_fazenda.nome_prop AS tb_fazenda_nome_prop,tb_fazenda.cfp_prop AS tb_fazenda_cfp_prop,tb_fazenda.insc_estadual AS tb_fazenda_insc_estadual,tb_fazenda.telefone AS tb_fazenda_telefone,tb_fazenda.celular AS tb_fazenda_celular,tb_fazenda.email AS tb_fazenda_email FROM public.tb_bovino tb_bovino,public.tb_fazenda tb_fazenda;");
         try{
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);
-        } 
+        }
         try {
             
             JRResultSetDataSource resultset = new JRResultSetDataSource(rs);

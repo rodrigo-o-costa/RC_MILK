@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
  *
  * @author rodri
  */
-public class Bovino { 
-    
+public class Bovino {
+
     private int cod;
     private boolean ativo;
     private String nome;
@@ -51,7 +51,7 @@ public class Bovino {
         this.nome_pai = nome_pai;
         this.nome_mae = nome_mae;
     }
-    
+
     public int getCod() {
         return cod;
     }
@@ -135,7 +135,7 @@ public class Bovino {
     public void setNome_pai(String nome_pai) {
         this.nome_pai = nome_pai;
     }
-    
+
     public String getNome_mae() {
         return nome_mae;
     }
@@ -143,83 +143,83 @@ public class Bovino {
     public void setNome_mae(String nome_mae) {
         this.nome_mae = nome_mae;
     }
-    
-    public void excluir(){
+
+    public void excluir() {
         Connection con = null;
         PreparedStatement pst = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "DELETE FROM tb_bovino WHERE cod = ?";
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1,this.getCod());
+            pst.setInt(1, this.getCod());
             System.out.println(pst);
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Bovino Excluido com Sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Bovino Não Excluido");
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Bovino Excluido com Sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Bovino Não Excluido");
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
+        }
     }
-    
-    public void alterar(){
-        Connection con =null;
+
+    public void alterar() {
+        Connection con = null;
         PreparedStatement pst = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
-        String sql = "UPDATE tb_bovino set ativo = ?, nome = ?, brinco = ?, data_nasc = ?, sexo = ?, raca = ?, cor = ?, quantCria = ?, observacao = ?, nome_pai = ?, nome_mae = ? where cod = ? ";
-        try{
-            pst = con.prepareStatement(sql);
-            pst.setBoolean(1,this.isAtivo());
-            pst.setString(2,this.getNome());
-            pst.setInt(3,this.getBrinco());
-            pst.setDate(4,new java.sql.Date(this.getData_nasc().getTime()));
-            pst.setString(5,this.getSexo());
-            pst.setString(6,this.getRaca());
-            pst.setString(7,this.getCor());
-            pst.setInt(8,this.getQuantCria());
-            pst.setString(9,this.getObservacao());
-            pst.setString(10,this.getNome_pai());
-            pst.setString(11,this.getNome_mae());
-            pst.setInt(12,this.getCod());
 
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Bovino Alterado com Sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Bovino Não Alterado");
+        String sql = "UPDATE tb_bovino set ativo = ?, nome = ?, brinco = ?, data_nasc = ?, sexo = ?, raca = ?, cor = ?, quantCria = ?, observacao = ?, nome_pai = ?, nome_mae = ? where cod = ? ";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setBoolean(1, this.isAtivo());
+            pst.setString(2, this.getNome());
+            pst.setInt(3, this.getBrinco());
+            pst.setDate(4, new java.sql.Date(this.getData_nasc().getTime()));
+            pst.setString(5, this.getSexo());
+            pst.setString(6, this.getRaca());
+            pst.setString(7, this.getCor());
+            pst.setInt(8, this.getQuantCria());
+            pst.setString(9, this.getObservacao());
+            pst.setString(10, this.getNome_pai());
+            pst.setString(11, this.getNome_mae());
+            pst.setInt(12, this.getCod());
+
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Bovino Alterado com Sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Bovino Não Alterado");
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
-        
-        
+
     }
-    public boolean pesquisar(){
-        Connection con =null;
+
+    public boolean pesquisar() {
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where nome = ?;");
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,this.getNome());
+            pst.setString(1, this.getNome());
             rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 this.setCod(rs.getInt("cod"));
                 this.setAtivo(rs.getBoolean("ativo"));
                 this.setNome(rs.getString("nome"));
@@ -234,45 +234,46 @@ public class Bovino {
                 this.setNome_mae(rs.getString("nome_mae"));
                 JOptionPane.showMessageDialog(null, "Bovino Encontrada");
                 return true;
-            }else{
-                JOptionPane.showMessageDialog(null, "Bovino Não Encontrada"); 
+            } else {
+                JOptionPane.showMessageDialog(null, "Bovino Não Encontrada");
                 return false;
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
         return false;
-        
+
     }
-    public void cadastrar(){
-        Connection con =null;
+
+    public void cadastrar() {
+        Connection con = null;
         PreparedStatement pst = null;
         try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "INSERT INTO  tb_bovino (ativo, nome, brinco, data_nasc, sexo, raca,cor, quantCria, observacao, nome_pai, nome_mae)values (?,?,?,?,?,?,?,?,?,?,?);";
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setBoolean(1,this.isAtivo());
-            pst.setString(2,this.getNome());
-            pst.setInt(3,this.getBrinco());
-            pst.setDate(4,new java.sql.Date(this.getData_nasc().getTime()));
-            pst.setString(5,this.getSexo());
-            pst.setString(6,this.getRaca());
-            pst.setString(7,this.getCor());
-            pst.setInt(8,this.getQuantCria());
-            pst.setString(9,this.getObservacao());
-            pst.setString(10,this.getNome_pai());
-            pst.setString(11,this.getNome_mae());
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Bovino cadastrado com sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Bovino Não Cadastrado");
+            pst.setBoolean(1, this.isAtivo());
+            pst.setString(2, this.getNome());
+            pst.setInt(3, this.getBrinco());
+            pst.setDate(4, new java.sql.Date(this.getData_nasc().getTime()));
+            pst.setString(5, this.getSexo());
+            pst.setString(6, this.getRaca());
+            pst.setString(7, this.getCor());
+            pst.setInt(8, this.getQuantCria());
+            pst.setString(9, this.getObservacao());
+            pst.setString(10, this.getNome_pai());
+            pst.setString(11, this.getNome_mae());
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Bovino cadastrado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Bovino Não Cadastrado");
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
     }
@@ -282,5 +283,3 @@ public class Bovino {
     }
 
 }
-
-  

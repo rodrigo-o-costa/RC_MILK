@@ -419,14 +419,14 @@ public class Cio {
         String sql = "update tb_cio set  data_preparto = ?, pre_parto = ?,obs = ?,finalizado = true where codCio = ?;";
         try {
             pst = con.prepareStatement(sql);
-            pst.setDate(1, new java.sql.Date((this.getDataParto()).getTime()));
-            pst.setBoolean(2, this.getParto());
+            pst.setDate(1, new java.sql.Date((this.getDataPreParto()).getTime()));
+            pst.setBoolean(2, this.getPreParto());
             pst.setString(3, this.getObs());
             pst.setInt(4, this.getCodCio());
             if (!pst.execute()) {
-                JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+                JOptionPane.showMessageDialog(null, "Pré-parto registrado.");
             } else {
-                JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+                JOptionPane.showMessageDialog(null, "Pré-parto não registrado.");
             }
         } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);

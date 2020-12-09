@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_cadastro_bovinos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28e30f9f-543c-4337-b9f0-2ca8c8df158f">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="114"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -52,19 +52,55 @@
 	</style>
 	<style name="Crosstab Data Text" hAlign="Center"/>
 	<queryString>
-		<![CDATA[select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, observacao, nome_pai, nome_mae from tb_bovino;]]>
+		<![CDATA[SELECT
+     tb_bovino."cod" AS tb_bovino_cod,
+     tb_bovino."ativo" AS tb_bovino_ativo,
+     tb_bovino."nome" AS tb_bovino_nome,
+     tb_bovino."brinco" AS tb_bovino_brinco,
+     tb_bovino."idade" AS tb_bovino_idade,
+     tb_bovino."sexo" AS tb_bovino_sexo,
+     tb_bovino."raca" AS tb_bovino_raca,
+     tb_bovino."cor" AS tb_bovino_cor,
+     tb_bovino."quantcria" AS tb_bovino_quantcria,
+     tb_bovino."observacao" AS tb_bovino_observacao,
+     tb_bovino."nome_pai" AS tb_bovino_nome_pai,
+     tb_bovino."nome_mae" AS tb_bovino_nome_mae,
+     tb_bovino."data_nasc" AS tb_bovino_data_nasc,
+     tb_fazenda."id_fazenda" AS tb_fazenda_id_fazenda,
+     tb_fazenda."ativo" AS tb_fazenda_ativo,
+     tb_fazenda."nome_fazenda" AS tb_fazenda_nome_fazenda,
+     tb_fazenda."nome_prop" AS tb_fazenda_nome_prop,
+     tb_fazenda."cfp_prop" AS tb_fazenda_cfp_prop,
+     tb_fazenda."insc_estadual" AS tb_fazenda_insc_estadual,
+     tb_fazenda."telefone" AS tb_fazenda_telefone,
+     tb_fazenda."celular" AS tb_fazenda_celular,
+     tb_fazenda."email" AS tb_fazenda_email
+FROM
+     "public"."tb_bovino" tb_bovino,
+     "public"."tb_fazenda" tb_fazenda]]>
 	</queryString>
-	<field name="cod" class="java.lang.Integer"/>
-	<field name="ativo" class="java.lang.Boolean"/>
-	<field name="nome" class="java.lang.String"/>
-	<field name="brinco" class="java.lang.Integer"/>
-	<field name="data_nasc" class="java.sql.Date"/>
-	<field name="sexo" class="java.lang.String"/>
-	<field name="raca" class="java.lang.String"/>
-	<field name="cor" class="java.lang.String"/>
-	<field name="observacao" class="java.lang.String"/>
-	<field name="nome_pai" class="java.lang.String"/>
-	<field name="nome_mae" class="java.lang.String"/>
+	<field name="tb_bovino_cod" class="java.lang.Integer"/>
+	<field name="tb_bovino_ativo" class="java.lang.Boolean"/>
+	<field name="tb_bovino_nome" class="java.lang.String"/>
+	<field name="tb_bovino_brinco" class="java.lang.Integer"/>
+	<field name="tb_bovino_idade" class="java.lang.Integer"/>
+	<field name="tb_bovino_sexo" class="java.lang.String"/>
+	<field name="tb_bovino_raca" class="java.lang.String"/>
+	<field name="tb_bovino_data_nasc" class="java.sql.Date"/>
+	<field name="tb_bovino_cor" class="java.lang.String"/>
+	<field name="tb_bovino_quantcria" class="java.lang.Integer"/>
+	<field name="tb_bovino_observacao" class="java.lang.String"/>
+	<field name="tb_bovino_nome_pai" class="java.lang.String"/>
+	<field name="tb_bovino_nome_mae" class="java.lang.String"/>
+	<field name="tb_fazenda_id_fazenda" class="java.lang.Integer"/>
+	<field name="tb_fazenda_ativo" class="java.lang.Boolean"/>
+	<field name="tb_fazenda_nome_fazenda" class="java.lang.String"/>
+	<field name="tb_fazenda_nome_prop" class="java.lang.String"/>
+	<field name="tb_fazenda_cfp_prop" class="java.lang.String"/>
+	<field name="tb_fazenda_insc_estadual" class="java.lang.String"/>
+	<field name="tb_fazenda_telefone" class="java.lang.String"/>
+	<field name="tb_fazenda_celular" class="java.lang.String"/>
+	<field name="tb_fazenda_email" class="java.lang.String"/>
 	<title>
 		<band height="54">
 			<rectangle>
@@ -81,21 +117,21 @@
 				<text><![CDATA[Relatorio Cadastro de Bovinos]]></text>
 			</staticText>
 			<image>
-				<reportElement x="22" y="4" width="122" height="50" uuid="b5b7792f-dc83-4a56-b03d-fab1379ac413"/>
+				<reportElement x="30" y="4" width="122" height="50" uuid="b5b7792f-dc83-4a56-b03d-fab1379ac413"/>
 				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="679" y="4" width="80" height="20" uuid="fe73a84d-73f2-48a9-b3ec-61b5005b366b"/>
+				<reportElement x="700" y="10" width="80" height="20" uuid="fe73a84d-73f2-48a9-b3ec-61b5005b366b"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="759" y="4" width="40" height="20" uuid="e8fcef49-bb3b-4bfe-a717-1c24498859cc"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="780" y="10" width="14" height="20" uuid="e8fcef49-bb3b-4bfe-a717-1c24498859cc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="614" y="34" width="171" height="20" uuid="1fb1bf92-d645-4f08-9a56-080c37e2e274"/>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="623" y="30" width="171" height="14" uuid="1fb1bf92-d645-4f08-9a56-080c37e2e274"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -163,73 +199,105 @@
 	<detail>
 		<band height="20">
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="0" y="0" width="40" height="20" uuid="415f3dcf-f8af-4eb6-9b4d-eaccaf5e5c98"/>
+				<reportElement style="table 1_TD" mode="Opaque" x="0" y="0" width="40" height="20" uuid="ed94eb8c-1f6b-4f4e-9eef-f77f61b2328d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{cod}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tb_bovino_cod}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="40" y="0" width="35" height="20" uuid="c8a582dc-28f6-4658-91ac-d8b22f27da10"/>
+				<reportElement style="table 1_TD" mode="Opaque" x="40" y="0" width="35" height="20" uuid="295ba601-c975-4ae0-b057-8e0ca71e5ca0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{ativo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tb_bovino_ativo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="75" y="0" width="87" height="20" uuid="3e17434c-e3d0-402f-a4db-d3a161987abc"/>
+				<reportElement style="table 1_TD" mode="Opaque" x="209" y="0" width="85" height="20" uuid="741d6336-1537-4889-80c7-873c3c69404d"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tb_bovino_data_nasc}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="162" y="0" width="47" height="20" uuid="6f41e22f-2f39-428d-a0e3-a33d729875fd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{brinco}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement style="table 1_TD" mode="Transparent" x="209" y="0" width="85" height="20" uuid="5a438c0e-e8cc-4dca-b91f-ac8b4a9e9e0e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{data_nasc}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="294" y="0" width="42" height="20" uuid="a8934dc9-185b-45c8-915d-a90f6a6eb8cf"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="336" y="0" width="60" height="20" uuid="6e8f832c-5221-4ef1-8ec6-eced6879ffd7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{raca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="396" y="0" width="66" height="20" uuid="39fb4fb4-646b-475f-9fed-946ff9c5abbd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{cor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="604" y="0" width="198" height="20" uuid="9db6f093-5d93-4151-a358-3f694f09e581"/>
+				<reportElement style="table 1_TD" mode="Opaque" x="75" y="0" width="87" height="20" uuid="a1c18f43-45e4-4cee-a18c-353ec8228b2f"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{observacao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tb_bovino_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="462" y="0" width="66" height="20" uuid="aea02fe2-d276-4c94-a4ad-52cb3ed68d75"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nome_pai}]]></textFieldExpression>
+				<reportElement style="table 1_TD" mode="Opaque" x="162" y="0" width="47" height="20" uuid="02c66388-8ac5-4818-aa29-72e2cbc28d96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_brinco}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" mode="Transparent" x="528" y="0" width="76" height="20" uuid="baeea1f3-8b79-494c-b6d8-0aaf45155edc"/>
+				<reportElement style="table 1_TD" mode="Opaque" x="294" y="0" width="42" height="20" uuid="62477359-ce1c-4450-bcdf-baaa41e3d934"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="336" y="0" width="65" height="20" uuid="d6fd3f66-b31a-4d5d-8bd8-8d0e39d7c8bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_raca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="401" y="0" width="61" height="20" uuid="c58eaf6b-bbc1-4963-a1fb-a9b26618ef17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_cor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="462" y="0" width="66" height="20" uuid="7bfa1244-41eb-4459-a1fd-816e320f7a45"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nome_mae}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tb_bovino_nome_pai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="528" y="0" width="76" height="20" uuid="ddbe370e-5797-4a8f-826d-0522a8b2239e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_nome_mae}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="604" y="0" width="198" height="20" uuid="95715e81-a638-41d4-8774-bbb3b0fadd15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tb_bovino_observacao}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="50">
+		<band height="90">
 			<rectangle>
-				<reportElement x="0" y="0" width="802" height="50" backcolor="#CCCCCC" uuid="6453fb03-d263-498b-9b8d-ad165904dde7"/>
+				<reportElement x="0" y="0" width="802" height="90" backcolor="#CCCCCC" uuid="6453fb03-d263-498b-9b8d-ad165904dde7"/>
 				<graphicElement>
 					<pen lineWidth="0.0" lineStyle="Solid"/>
 				</graphicElement>
 			</rectangle>
+			<textField>
+				<reportElement x="282" y="46" width="238" height="20" uuid="45bb9ad8-784a-479a-9a77-6acaaf0a5716"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_fazenda_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="66" width="238" height="20" uuid="6a5b6ded-c428-4975-bb17-0d425bbf3c21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_fazenda_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="26" width="238" height="20" uuid="e05b7f75-d790-4a11-bd59-cf29a55026cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_fazenda_nome_prop}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="6" width="238" height="20" uuid="afad3dc7-c77a-436b-81f8-f86dee3362d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_fazenda_nome_fazenda}]]></textFieldExpression>
+			</textField>
 			<image>
-				<reportElement x="24" y="0" width="138" height="50" uuid="ea547405-c78a-4c32-bc91-a5751ad210cf"/>
-				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+				<reportElement x="0" y="0" width="224" height="90" uuid="675fd5d2-50e0-49c0-994d-47974d4315e5"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="578" y="0" width="224" height="90" uuid="54770a71-835f-464f-9e2c-e75b7837dc06"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
 			</image>
 		</band>
 	</pageFooter>

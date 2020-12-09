@@ -166,7 +166,6 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
         codBovinoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         codBovinoL.setText("Cod.:");
-        codBovinoL.setPreferredSize(null);
 
         codBovinoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
