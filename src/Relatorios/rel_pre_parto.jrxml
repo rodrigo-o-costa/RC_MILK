@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_reproducao_previsao_parto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2b3e72a-08f0-4612-b2e8-8be1770207f1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select codcio, nomevaca, previsao_parto, data_preparto  from tb_cio where pre_parto = true and finalizado <> true]]>
+	</queryString>
+	<field name="codcio" class="java.lang.Integer"/>
+	<field name="nomevaca" class="java.lang.String"/>
+	<field name="previsao_parto" class="java.sql.Date"/>
+	<field name="data_preparto" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="56" backcolor="#CCCCCC" uuid="12f65709-baa4-46f0-95d5-2fbe75fe61b1"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="679" y="4" width="80" height="22" uuid="f7a75be6-464b-4648-bfcc-260bb15886b7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="614" y="34" width="171" height="22" uuid="2fea3669-af06-4eca-be33-fb5d316899cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="22" y="4" width="122" height="52" uuid="debb2984-5ecc-4da2-9b78-d36b2e33c015"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="98" y="4" width="581" height="48" uuid="6b7200e9-9868-49eb-b5a1-d666dbc86c7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANIMAIS EM PRE PARTO]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="759" y="4" width="40" height="22" uuid="d710f21d-a6c6-4cc9-83a1-8c11e53eb2b8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="0fd80881-c3b5-4a8a-8774-b136df54bebb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CODIGO CIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="50bf1721-d18d-4be7-a119-5c4388dccf4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NOME VACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="b17e87ad-a3f6-4d7a-8790-e4e97ffcd39b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PREVISAO DE PARTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="600" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="cc1c25de-efaf-4288-afcd-91dc52dc6bb8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DATA PRE PARTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="0" y="0" width="200" height="20" uuid="abb6ecd1-7cfc-423c-9447-3c0690c97d0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codcio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table 1_TD" mode="Opaque" x="200" y="0" width="200" height="20" uuid="9987dd7f-935b-4350-8b00-c7f70cdf2519"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nomevaca}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement style="table 1_TD" mode="Opaque" x="400" y="0" width="200" height="20" uuid="56e3dd16-5adb-438d-8de5-59d19bfce1df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{previsao_parto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement style="table 1_TD" mode="Opaque" x="600" y="0" width="200" height="20" uuid="d310f277-6acc-4857-bea6-d97d75381fb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data_preparto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="58" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="4" width="802" height="50" backcolor="#CCCCCC" uuid="ab8a1dad-8c18-44ce-b0fe-595a59410aa6"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="24" y="4" width="138" height="50" uuid="0450f70e-4771-4be6-bff9-ce26307eb189"/>
+				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

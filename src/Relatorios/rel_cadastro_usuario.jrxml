@@ -13,6 +13,11 @@
 			<style backcolor="#EFF7FF"/>
 		</conditionalStyle>
 	</style>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
 	<queryString>
 		<![CDATA[select id_usuario,ativo,nome_usuario,usuario,telefone,email from tb_usuario;]]>
 	</queryString>

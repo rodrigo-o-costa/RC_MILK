@@ -104,6 +104,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relreproducao = new javax.swing.JMenu();
         previsaoParto = new javax.swing.JMenuItem();
         Cio_por_Vaca = new javax.swing.JMenuItem();
+        mtouros = new javax.swing.JMenuItem();
+        CiosRepetidosTouros = new javax.swing.JMenuItem();
+        relPreParto = new javax.swing.JMenuItem();
+        relpreparto = new javax.swing.JMenuItem();
         relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -446,6 +450,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relatorioM.add(relcadastro);
 
         relreproducao.setText("Reproducao");
+        relreproducao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relreproducaoActionPerformed(evt);
+            }
+        });
 
         previsaoParto.setText("Previsão de Parto");
         previsaoParto.addActionListener(new java.awt.event.ActionListener() {
@@ -462,6 +471,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         relreproducao.add(Cio_por_Vaca);
+
+        mtouros.setText("Montas por Touros");
+        mtouros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mtourosActionPerformed(evt);
+            }
+        });
+        relreproducao.add(mtouros);
+
+        CiosRepetidosTouros.setText("Cios Repetidos Touros");
+        CiosRepetidosTouros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CiosRepetidosTourosActionPerformed(evt);
+            }
+        });
+        relreproducao.add(CiosRepetidosTouros);
+
+        relPreParto.setText("Planejamento Pre - Parto");
+        relPreParto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relPrePartoActionPerformed(evt);
+            }
+        });
+        relreproducao.add(relPreParto);
+
+        relpreparto.setText("Vaca em Pre - Parto");
+        relpreparto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relprepartoActionPerformed(evt);
+            }
+        });
+        relreproducao.add(relpreparto);
 
         relatorioM.add(relreproducao);
 
@@ -813,6 +854,127 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaRC.setTitle("RC MILK - Relatorio de Cio");
     }//GEN-LAST:event_Cio_por_VacaActionPerformed
 
+    private void relreproducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relreproducaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_relreproducaoActionPerformed
+
+    private void mtourosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mtourosActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select nometouro, count (nometouro) from tb_cio group by nometouro;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_monta_touro.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_mtourosActionPerformed
+
+    private void CiosRepetidosTourosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CiosRepetidosTourosActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select nometouro, count (nometouro) from tb_cio where repetiucio = true group by nometouro");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_monta_touro_repetidos.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CiosRepetidosTourosActionPerformed
+
+    private void relPrePartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relPrePartoActionPerformed
+               Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select nomevaca , previsao_parto - 60 as DATA_PARA_PRE_PARTO , previsao_parto from tb_cio where confirmado = true and finalizado <> true;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_planejamento_pre_parto.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_relPrePartoActionPerformed
+
+    private void relprepartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relprepartoActionPerformed
+
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = ("select codcio, nomevaca, previsao_parto, data_preparto  from tb_cio where pre_parto = true and finalizado <> true;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_planejamento_pre_parto.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_relprepartoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -862,6 +1024,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton AT_sair;
     private javax.swing.JMenuItem BackupM;
     private javax.swing.JMenuItem Cio_por_Vaca;
+    private javax.swing.JMenuItem CiosRepetidosTouros;
     private javax.swing.JMenuItem bovinoM;
     private javax.swing.JMenuItem cadastroCioM;
     private javax.swing.JMenu cadastroM;
@@ -877,6 +1040,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel logoTelaPrincipal;
     private javax.swing.JMenuBar menuBarra;
+    private javax.swing.JMenuItem mtouros;
     private javax.swing.JPanel painelAT;
     private javax.swing.JPanel painelInfo;
     private javax.swing.JPanel painelInfo1;
@@ -886,9 +1050,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem prePartoM;
     private javax.swing.JMenuItem previsaoParto;
     public javax.swing.JLabel propLogado;
+    private javax.swing.JMenuItem relPreParto;
     private javax.swing.JMenuItem rel_cad_bov;
     private javax.swing.JMenu relatorioM;
     private javax.swing.JMenu relcadastro;
+    private javax.swing.JMenuItem relpreparto;
     private javax.swing.JMenu relproducao;
     private javax.swing.JMenu relreproducao;
     private javax.swing.JMenu reproducaoM;

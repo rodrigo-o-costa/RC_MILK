@@ -164,6 +164,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reproducao"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relreproducaoActionPerformed"/>
+              </Events>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="previsaoParto">
                   <Properties>
@@ -179,6 +182,38 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cio_por_VacaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="mtouros">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Montas por Touros"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mtourosActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="CiosRepetidosTouros">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cios Repetidos Touros"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CiosRepetidosTourosActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="relPreParto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Planejamento Pre - Parto"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relPrePartoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="relpreparto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Vaca em Pre - Parto"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relprepartoActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

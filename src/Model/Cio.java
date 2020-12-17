@@ -391,7 +391,7 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
 
-        String sql = "update tb_cio set  dataperda = ?, perdeu = ?,obs = ?, finalizado = true where codCio = ?;";
+        String sql = "update tb_cio set  dataperda = ?, perdeu = ?,obs = ? where codCio = ?;";
         try {
             pst = con.prepareStatement(sql);
             pst.setDate(1, new java.sql.Date((this.getDataPerda()).getTime()));
@@ -441,15 +441,15 @@ public class Cio {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
 
-        String sql = "update tb_cio set  dataparto = ?, parto = ?,obs = ? where codCio = ?;";
+        String sql = "update tb_cio set  dataparto = ?, parto = ?,obs = ?,finalizado = true where codCio = ?;";
         try {
             pst = con.prepareStatement(sql);
-            pst.setDate(1, new java.sql.Date((this.getDataPreParto()).getTime()));
-            pst.setBoolean(2, this.getPreParto());
+            pst.setDate(1, new java.sql.Date((this.getDataParto()).getTime()));
+            pst.setBoolean(2, this.getParto());
             pst.setString(3, this.getObs());
             pst.setInt(4, this.getCodCio());
             if (!pst.execute()) {
-                JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
+                JOptionPane.showMessageDialog(null, "Parto de Cria Registrada");
             } else {
                 JOptionPane.showMessageDialog(null, "Perda de Cria Registrada");
             }
