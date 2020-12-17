@@ -227,7 +227,7 @@ public class Tela_login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usuarioDKeyPressed
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/4.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/LogoRCIcon.png")));
 
     }
     private void esqueceuDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuDActionPerformed
