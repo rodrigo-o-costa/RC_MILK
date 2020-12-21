@@ -232,12 +232,20 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rel_quant_cio_vacaActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+                <MenuItem class="javax.swing.JMenuItem" name="rel_desempenho_vacas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Desempenho Vacas"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rel_desempenho_vacasActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="rel_desempenho_touro">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Desempenho Touro"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rel_desempenho_touroActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
