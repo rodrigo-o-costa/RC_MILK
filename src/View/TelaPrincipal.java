@@ -110,6 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         relpreparto = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         rel_quant_cio_vaca = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         relproducao = new javax.swing.JMenu();
         utilitariosM = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -521,6 +522,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         rel_quanti_perdas.add(rel_quant_cio_vaca);
+
+        jMenuItem4.setText("Desempenho Vacas");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        rel_quanti_perdas.add(jMenuItem4);
 
         relatorioM.add(rel_quanti_perdas);
 
@@ -1051,6 +1060,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rel_quant_cio_vacaActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Connection con =null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
+        }
+        String sql = (  "SELECT  c.codvaca, bov.nome, bov.brinco, bov.idade,bov.raca,bov.cor, bov.data_nasc,\n" +
+                        "		count(codcio) as Quant_Cios,\n" +
+                        "		SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_rep,\n" +
+                        "		SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_partos,\n" +
+                        "		SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_Perdidos,\n" +
+                        "		(COUNT(c.codcio)  - (SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END)+\n" +
+                        "						  SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END)+\n" +
+                        "						  SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END))) as Quant_cios_Confirmados_Sem_Finalizar\n" +
+                        "FROM tb_cio as c inner join tb_bovino as bov on c.codvaca = bov.cod\n" +
+                        "GROUP BY c.codvaca,bov.cod\n" +
+                        "ORDER BY c.codvaca;");
+        try{
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+        }catch(SQLException E){
+            JOptionPane.showMessageDialog(null, E);
+        } 
+        try {
+            JRResultSetDataSource resultset = new JRResultSetDataSource(rs);
+            Map map = null;
+            String url = "src\\Relatorios\\rel_desempenho_vacas.jasper";
+            System.out.println(url);
+            JasperPrint jasperPrint  = JasperFillManager.fillReport(url,map, resultset);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false );	  
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1115,6 +1163,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JLabel logoTelaPrincipal;
     private javax.swing.JMenuBar menuBarra;
     private javax.swing.JMenuItem mtouros;

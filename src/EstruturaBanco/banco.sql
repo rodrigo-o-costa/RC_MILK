@@ -76,3 +76,20 @@ select codCio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dat
 update tb_cio set codCio = ?, dataCio = ?, codvaca = ?, nomeVaca = ?, codTouro = ?, nomeTouro = ?, confirmado = ?, dataConfirmacao = ?, repetiucio = ?, obs = ?;
 
 INSERT INTO tb_cio insert into (codCio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs) values (?,?,?,?,?,?,?,?,?,?);
+
+
+SELECT  c.codvaca, bov.nome, bov.brinco, bov.idade,bov.raca,bov.cor, bov.data_nasc,
+		count(codcio) as Quant_Cios,
+		SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_rep,
+		SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_partos,
+		SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_Perdidos,
+		(COUNT(c.codcio)  - (SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END)+
+						  SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END)+
+						  SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END))) as Quant_cios_Confirmados_Sem_Finalizar
+FROM tb_cio as c inner join tb_bovino as bov on c.codvaca = bov.cod
+GROUP BY c.codvaca,bov.cod
+ORDER BY c.codvaca;
+
+
+	
+	 
