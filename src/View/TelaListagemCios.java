@@ -58,8 +58,20 @@ public class TelaListagemCios extends javax.swing.JFrame {
                 cio.setDataConfirmacao(rs.getDate("dataConfirmacao"));
                 cio.setRepetiuCio(rs.getBoolean("repetiuCio"));
                 cio.setObs(rs.getString("obs"));
+                String Confirmado = "" ;
+                if(cio.isConfirmado() == true){
+                    Confirmado = "Sim";
+                }else{
+                    Confirmado = "Não";
+                }
+                String RepetiuCio = "" ;
+                if(cio.getRepetiuCio() == true){
+                    RepetiuCio = "Sim";
+                }else{
+                    RepetiuCio = "Não";
+                }
                 table.addRow(new Object[]{cio.getCodCio(),cio.getDataCio(),cio.getCodVaca(),cio.getNomeVaca(),
-                                cio.getCodTouro(),cio.getNomeTouro(),cio.isConfirmado(),cio.getDataConfirmacao(),cio.getRepetiuCio(),cio.getObs()});
+                                cio.getCodTouro(),cio.getNomeTouro(),Confirmado,cio.getDataConfirmacao(),RepetiuCio,cio.getObs()});
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);

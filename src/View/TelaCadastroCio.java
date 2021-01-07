@@ -136,7 +136,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data Do Cio:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,10 +151,10 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         });
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Cód. do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Cód. do Touro:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
@@ -180,7 +180,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Cód. da Vaca:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,8 +225,8 @@ public class TelaCadastroCio extends javax.swing.JFrame {
                                             .addComponent(pesquisaTouroB)
                                             .addComponent(pesquisaVacaB)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()

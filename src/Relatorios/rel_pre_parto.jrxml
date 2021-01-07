@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_reproducao_previsao_parto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2b3e72a-08f0-4612-b2e8-8be1770207f1">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="228"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
@@ -50,7 +50,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ANIMAIS EM PRE PARTO]]></text>
+				<text><![CDATA[Relatório de Vacas em Pré-Parto]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="759" y="4" width="40" height="22" uuid="d710f21d-a6c6-4cc9-83a1-8c11e53eb2b8"/>
@@ -64,22 +64,22 @@
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="0fd80881-c3b5-4a8a-8774-b136df54bebb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[CODIGO CIO]]></text>
+				<text><![CDATA[Código do cio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="200" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="50bf1721-d18d-4be7-a119-5c4388dccf4f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[NOME VACA]]></text>
+				<text><![CDATA[Nome da vaca]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="400" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="b17e87ad-a3f6-4d7a-8790-e4e97ffcd39b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[PREVISAO DE PARTO]]></text>
+				<text><![CDATA[Previsão de parto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="600" y="0" width="200" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="cc1c25de-efaf-4288-afcd-91dc52dc6bb8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[DATA PRE PARTO]]></text>
+				<text><![CDATA[Data de entrada em pré-parto]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

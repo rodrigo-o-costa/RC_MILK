@@ -96,7 +96,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         });
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Código do Cio:");
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -114,10 +114,10 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Código do Touro:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Código da Vaca:");
 
         codTouroD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,11 +145,11 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
@@ -177,14 +177,14 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                     .addComponent(codTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeTouroD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dataCioD, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Novo Cio:");
+        dataConfirmacaoL.setText("Data do novo Cio:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,9 +195,9 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(codCioL)
-                        .addGap(26, 26, 26)
-                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
+                        .addGap(18, 18, 18)
+                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(pesquisaCio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()

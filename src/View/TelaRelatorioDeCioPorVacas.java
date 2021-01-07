@@ -90,7 +90,7 @@ public class TelaRelatorioDeCioPorVacas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "cod", "Nome"
+                "Código", "Nome"
             }
         ) {
             Class[] types = new Class [] {

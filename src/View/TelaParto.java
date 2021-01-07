@@ -52,7 +52,6 @@ public class TelaParto extends javax.swing.JFrame {
         dataPartoD = new com.toedter.calendar.JDateChooser();
         codCioL = new javax.swing.JLabel();
         obsL = new javax.swing.JLabel();
-        partoS = new javax.swing.JCheckBox();
         pesquisaCio = new javax.swing.JButton();
         codCioD = new javax.swing.JTextField();
         PainelExebicaodeCio = new javax.swing.JPanel();
@@ -105,18 +104,10 @@ public class TelaParto extends javax.swing.JFrame {
         dataPartoL.setText("Data do Parto:");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Código do Cio:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
-
-        partoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        partoS.setText("Parto");
-        partoS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partoSActionPerformed(evt);
-            }
-        });
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +125,10 @@ public class TelaParto extends javax.swing.JFrame {
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Código do Touro:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +137,7 @@ public class TelaParto extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Código da Vaca:");
 
         codTouroD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +156,7 @@ public class TelaParto extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,7 +199,7 @@ public class TelaParto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(codCioL)
@@ -237,10 +228,8 @@ public class TelaParto extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(dataPartoL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataPartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(partoS)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(dataPartoD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,8 +245,7 @@ public class TelaParto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dataPartoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataPartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(partoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataPartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,7 +276,7 @@ public class TelaParto extends javax.swing.JFrame {
             cio.setNomeVaca(this.nomeVacaD.getText());
             cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
             cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setParto(this.partoS.isSelected());
+            cio.setParto(true);
             if (this.dataPartoD.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Campo Data do Parto  não pode ser Vazio");
                 aux_inclu = 0;
@@ -326,7 +314,6 @@ public class TelaParto extends javax.swing.JFrame {
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
-        this.partoS.setSelected(false);
         this.dataCioD.setDate(null);
         this.dataPartoD.setDate(null);
         this.nomeTouroD.setText("");
@@ -339,7 +326,6 @@ public class TelaParto extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
-        this.partoS.setEnabled(false);
         this.dataCioD.setEnabled(false);
         this.dataPartoD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
@@ -355,7 +341,6 @@ public class TelaParto extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
-        this.partoS.setEnabled(true);
         this.dataPartoD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
@@ -391,11 +376,6 @@ public class TelaParto extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
-
-    private void partoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partoSActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_partoSActionPerformed
     public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro,Date dtConfirmado,Boolean confirmaC) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
@@ -475,7 +455,6 @@ public class TelaParto extends javax.swing.JFrame {
     private javax.swing.JTextField nomeVacaD;
     private javax.swing.JTextPane obsD;
     private javax.swing.JLabel obsL;
-    private javax.swing.JCheckBox partoS;
     private javax.swing.JButton pesquisaCio;
     private javax.swing.JButton salvarU;
     // End of variables declaration//GEN-END:variables

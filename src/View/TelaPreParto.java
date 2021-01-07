@@ -101,10 +101,10 @@ public class TelaPreParto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataPartoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataPartoL.setText("Data entrada em Pre Parto");
+        dataPartoL.setText("Data entrada em Pré-Parto");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Código do Cio:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
@@ -125,10 +125,10 @@ public class TelaPreParto extends javax.swing.JFrame {
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Código do Touro:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +137,7 @@ public class TelaPreParto extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Código da Vaca:");
 
         codTouroD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,11 +156,11 @@ public class TelaPreParto extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
@@ -229,7 +229,7 @@ public class TelaPreParto extends javax.swing.JFrame {
                         .addComponent(dataPartoL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataPrePartoD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -52,7 +52,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         dataPercaD = new com.toedter.calendar.JDateChooser();
         codCioL = new javax.swing.JLabel();
         obsL = new javax.swing.JLabel();
-        perdaS = new javax.swing.JCheckBox();
         pesquisaCio = new javax.swing.JButton();
         codCioD = new javax.swing.JTextField();
         PainelExebicaodeCio = new javax.swing.JPanel();
@@ -102,21 +101,13 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Perda.:");
+        dataConfirmacaoL.setText("Data da Perda:");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Código do Cio:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
-
-        perdaS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        perdaS.setText("Perda");
-        perdaS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                perdaSActionPerformed(evt);
-            }
-        });
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +125,10 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Código do Touro:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +137,7 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Código da Vaca:");
 
         codTouroD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,11 +156,11 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
@@ -217,9 +208,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addComponent(pesquisaCio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(obsL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -235,12 +223,13 @@ public class TelaPerdaCria extends javax.swing.JFrame {
                         .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(dataConfirmacaoL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataPercaD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(perdaS)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(dataConfirmacaoL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dataPercaD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(PainelExebicaodeCio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,8 +245,7 @@ public class TelaPerdaCria extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataPercaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(perdaS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataPercaD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,7 +276,7 @@ public class TelaPerdaCria extends javax.swing.JFrame {
             cio.setNomeVaca(this.nomeVacaD.getText());
             cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
             cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setPerda(this.perdaS.isSelected());
+            cio.setPerda(true);
             if (this.dataPercaD.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Campo Data de Confirmação não pode ser Vazio");
                 aux_inclu = 0;
@@ -312,7 +300,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
-        this.perdaS.setSelected(false);
         this.dataCioD.setDate(null);
         this.dataPercaD.setDate(null);
         this.nomeTouroD.setText("");
@@ -325,7 +312,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
-        this.perdaS.setEnabled(false);
         this.dataCioD.setEnabled(false);
         this.dataPercaD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
@@ -341,7 +327,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
-        this.perdaS.setEnabled(true);
         this.dataPercaD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
@@ -377,11 +362,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
-
-    private void perdaSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perdaSActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_perdaSActionPerformed
     public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro,Date dtConfirmado,Boolean confirmaC) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
@@ -459,7 +439,6 @@ public class TelaPerdaCria extends javax.swing.JFrame {
     private javax.swing.JTextField nomeVacaD;
     private javax.swing.JTextPane obsD;
     private javax.swing.JLabel obsL;
-    private javax.swing.JCheckBox perdaS;
     private javax.swing.JButton pesquisaCio;
     private javax.swing.JButton salvarU;
     // End of variables declaration//GEN-END:variables

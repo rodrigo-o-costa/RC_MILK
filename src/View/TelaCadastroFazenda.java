@@ -107,13 +107,13 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         });
 
         nomeFazendaL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        nomeFazendaL.setText("Nome Fazenda:*");
+        nomeFazendaL.setText("Nome da Fazenda:*");
 
         nomeProdL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        nomeProdL.setText("Nome Prod.:");
+        nomeProdL.setText("Nome do Produtor:");
 
         cpfL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cpfL.setText("CPF Prod.:");
+        cpfL.setText("CPF do Produtor:");
 
         ieL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ieL.setText("Inscrição Estadual:");
@@ -122,7 +122,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         emailL.setText("E-mail:");
 
         telefoneL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        telefoneL.setText("Telefone");
+        telefoneL.setText("Telefone:");
 
         ativoD.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ativoD.setText("Ativo");
@@ -139,10 +139,10 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         });
 
         codUsuarioL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codUsuarioL.setText("Cod.:");
+        codUsuarioL.setText("Código:");
 
         celularL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        celularL.setText("Celular");
+        celularL.setText("Celular:");
 
         try {
             celularD.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
@@ -197,7 +197,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
                                 .addComponent(telefoneL)
                                 .addComponent(nomeFazendaL)
                                 .addComponent(nomeProdL))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGap(18, 18, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(emailL)
                         .addGap(72, 72, 72)))

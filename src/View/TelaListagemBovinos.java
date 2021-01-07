@@ -60,7 +60,13 @@ public class TelaListagemBovinos extends javax.swing.JFrame {
                 bov.setObservacao(rs.getString("observacao"));
                 bov.setNome_pai(rs.getString("nome_pai"));
                 bov.setNome_mae(rs.getString("nome_mae"));
-                table.addRow(new Object[]{bov.getCod(),bov.isAtivo(),bov.getNome(),bov.getBrinco(),bov.getData_nasc(),bov.getSexo(),bov.getRaca(),bov.getCor(),bov.getQuantCria(), bov.getNome_pai(),bov.getNome_mae(),bov.getObservacao()});
+                String ativo = "" ;
+                if(bov.isAtivo() == true){
+                    ativo = "Sim";
+                }else{
+                    ativo = "Não";
+                }
+                table.addRow(new Object[]{bov.getCod(),ativo,bov.getNome(),bov.getBrinco(),bov.getData_nasc(),bov.getSexo(),bov.getRaca(),bov.getCor(),bov.getQuantCria(), bov.getNome_pai(),bov.getNome_mae(),bov.getObservacao()});
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);

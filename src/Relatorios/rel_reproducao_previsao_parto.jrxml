@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_reproducao_previsao_parto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2b3e72a-08f0-4612-b2e8-8be1770207f1">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="434"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
@@ -52,11 +52,6 @@ WHERE tb_cio.finalizado = false]]>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="614" y="34" width="171" height="22" uuid="2fea3669-af06-4eca-be33-fb5d316899cf"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<image>
 				<reportElement x="22" y="4" width="122" height="52" uuid="debb2984-5ecc-4da2-9b78-d36b2e33c015"/>
 				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
@@ -66,7 +61,7 @@ WHERE tb_cio.finalizado = false]]>
 				<textElement textAlignment="Center">
 					<font size="36" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Relatorio Previsão de Parto]]></text>
+				<text><![CDATA[Relatório de Previsão para Parto]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="759" y="4" width="40" height="22" uuid="d710f21d-a6c6-4cc9-83a1-8c11e53eb2b8"/>
@@ -78,34 +73,34 @@ WHERE tb_cio.finalizado = false]]>
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="2" width="53" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3dc9f53c-5000-4b0b-b6d6-f0ae52f35c56"/>
+				<reportElement mode="Opaque" x="0" y="2" width="77" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3dc9f53c-5000-4b0b-b6d6-f0ae52f35c56"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Codigo Cio]]></text>
+				<text><![CDATA[Código do cio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="53" y="2" width="65" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="e357ad3b-a78d-496c-9da0-2763a84297f5"/>
+				<reportElement mode="Opaque" x="77" y="2" width="85" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="e357ad3b-a78d-496c-9da0-2763a84297f5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Codigo Vaca]]></text>
+				<text><![CDATA[Código da vaca]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="118" y="2" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcfbaa93-b3cd-4ffd-a772-de2ddb7ba747"/>
+				<reportElement mode="Opaque" x="162" y="2" width="87" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcfbaa93-b3cd-4ffd-a772-de2ddb7ba747"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Nome Vaca]]></text>
+				<text><![CDATA[Nome da vaca]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="218" y="2" width="68" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="f4ab0585-918c-4061-8f3c-5d1a5b26aa0a"/>
+				<reportElement mode="Opaque" x="249" y="2" width="92" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="f4ab0585-918c-4061-8f3c-5d1a5b26aa0a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Codigo Touro]]></text>
+				<text><![CDATA[Código do touro]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="386" y="2" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="2bbddcfa-2691-40f4-aa42-2f13c700978e"/>
+				<reportElement mode="Opaque" x="424" y="2" width="62" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="2bbddcfa-2691-40f4-aa42-2f13c700978e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Data do Cio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="486" y="2" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="8a738071-e0b0-44f0-8971-39e19eec32df"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[previsao_parto]]></text>
+				<text><![CDATA[Previsão para parto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="586" y="2" width="216" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="efc2721f-fe8b-4fe7-84e0-ec6c9287a2f5"/>
@@ -113,36 +108,36 @@ WHERE tb_cio.finalizado = false]]>
 				<text><![CDATA[Observação]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="286" y="2" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="871a492a-6b77-4712-9a25-83e8798cf202"/>
+				<reportElement mode="Opaque" x="341" y="2" width="83" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="871a492a-6b77-4712-9a25-83e8798cf202"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Nome Touro]]></text>
+				<text><![CDATA[Nome do touro]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement style="table 1_TD" x="0" y="0" width="53" height="20" uuid="bed15044-0e16-4005-93a4-871ca18c13a1"/>
+				<reportElement style="table 1_TD" x="0" y="0" width="77" height="20" uuid="bed15044-0e16-4005-93a4-871ca18c13a1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{codcio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" x="53" y="0" width="65" height="20" uuid="1a981714-9134-4a5f-8f2e-bc9681d72b90"/>
+				<reportElement style="table 1_TD" x="77" y="0" width="85" height="20" uuid="1a981714-9134-4a5f-8f2e-bc9681d72b90"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{codvaca}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" x="118" y="0" width="100" height="20" uuid="3dc74186-d9a0-4e53-91ab-df7da8e57943"/>
+				<reportElement style="table 1_TD" x="162" y="0" width="87" height="20" uuid="3dc74186-d9a0-4e53-91ab-df7da8e57943"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{nomevaca}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" x="218" y="0" width="68" height="20" uuid="29fd21fe-016a-42fd-bc55-7eb0f610e349"/>
+				<reportElement style="table 1_TD" x="249" y="0" width="92" height="20" uuid="29fd21fe-016a-42fd-bc55-7eb0f610e349"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{codtouro}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement style="table 1_TD" x="386" y="0" width="100" height="20" uuid="acc5027a-59d8-434d-bded-97e26d23fd3a"/>
+				<reportElement style="table 1_TD" x="424" y="0" width="62" height="20" uuid="acc5027a-59d8-434d-bded-97e26d23fd3a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{datacio}]]></textFieldExpression>
 			</textField>
@@ -157,7 +152,7 @@ WHERE tb_cio.finalizado = false]]>
 				<textFieldExpression><![CDATA[$F{obs}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table 1_TD" x="286" y="0" width="100" height="20" uuid="584a9f54-3473-4099-bff6-197efd0b28bc"/>
+				<reportElement style="table 1_TD" x="341" y="0" width="83" height="20" uuid="584a9f54-3473-4099-bff6-197efd0b28bc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{nometouro}]]></textFieldExpression>
 			</textField>
@@ -175,6 +170,11 @@ WHERE tb_cio.finalizado = false]]>
 				<reportElement x="24" y="4" width="138" height="50" uuid="0450f70e-4771-4be6-bff9-ce26307eb189"/>
 				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
 			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="611" y="19" width="171" height="22" uuid="2fea3669-af06-4eca-be33-fb5d316899cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

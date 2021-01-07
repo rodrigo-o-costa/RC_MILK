@@ -36,11 +36,11 @@
                               <Component id="observacaoD" min="-2" pref="466" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="nomePaiL" min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="nomePaiL" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="nomePaiD" min="-2" pref="181" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nomePaiD" min="-2" pref="187" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nomeMaeL" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="nomeMaeL" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="nomeMaeD" max="32767" attributes="0"/>
                           </Group>
@@ -50,11 +50,11 @@
                                   <Component id="BrincoL" min="-2" pref="60" max="-2" attributes="0"/>
                                   <Component id="racaL" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="racaD" pref="80" max="32767" attributes="0"/>
-                                  <Component id="BrincoD" alignment="1" pref="80" max="32767" attributes="0"/>
-                                  <Component id="codBovinoD" alignment="1" pref="80" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="BrincoD" alignment="1" pref="62" max="32767" attributes="0"/>
+                                  <Component id="racaD" max="32767" attributes="0"/>
+                                  <Component id="codBovinoD" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -72,7 +72,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="dataNascL" max="32767" attributes="0"/>
-                                          <Component id="quantCriasL" pref="75" max="32767" attributes="0"/>
+                                          <Component id="quantCriasL" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -304,7 +304,7 @@
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Data Nasc.:"/>
+        <Property name="text" type="java.lang.String" value="Data de Nasc.:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nomePaiL">
@@ -313,7 +313,7 @@
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Nome Pai:"/>
+        <Property name="text" type="java.lang.String" value="Nome do Pai:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeD">
@@ -327,7 +327,7 @@
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Nome M&#xe3;e:"/>
+        <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="observacaoL">
@@ -346,7 +346,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cod.:"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="codBovinoD">
@@ -376,7 +376,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Sexo"/>
+        <Property name="text" type="java.lang.String" value="Sexo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="racaL">
@@ -423,7 +423,7 @@
           <Font name="Tahoma" size="11" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Quant. Crias:"/>
+        <Property name="text" type="java.lang.String" value="Quant. de Crias:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="quantCriasD">

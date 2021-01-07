@@ -52,7 +52,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         dataConfirmacaoD = new com.toedter.calendar.JDateChooser();
         codCioL = new javax.swing.JLabel();
         obsL = new javax.swing.JLabel();
-        confirmadoS = new javax.swing.JCheckBox();
         pesquisaCio = new javax.swing.JButton();
         codCioD = new javax.swing.JTextField();
         PainelExebicaodeCio = new javax.swing.JPanel();
@@ -102,21 +101,13 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Con.:");
+        dataConfirmacaoL.setText("Data de Confirmação:");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codCioL.setText("Cod. Cio:");
+        codCioL.setText("Código do Cio:");
 
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
-
-        confirmadoS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        confirmadoS.setText("Confirmado");
-        confirmadoS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmadoSActionPerformed(evt);
-            }
-        });
 
         pesquisaCio.setText("pesquisa");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +125,10 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         PainelExebicaodeCio.setBackground(new java.awt.Color(204, 204, 204));
 
         dataCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataCioL.setText("Data Do Cio");
+        dataCioL.setText("Data Do Cio:");
 
         codTouroL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codTouroL.setText("Cod. Touro:");
+        codTouroL.setText("Código do Touro:");
 
         codVacaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +137,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         });
 
         codVacaL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        codVacaL.setText("Cod. Vaca:");
+        codVacaL.setText("Código da Vaca:");
 
         codTouroD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,11 +156,11 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         PainelExebicaodeCioLayout.setHorizontalGroup(
             PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelExebicaodeCioLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codTouroL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(codVacaL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dataCioL, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelExebicaodeCioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelExebicaodeCioLayout.createSequentialGroup()
@@ -208,12 +199,12 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(codCioL)
-                        .addGap(26, 26, 26)
-                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(codCioD, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(pesquisaCio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -238,10 +229,8 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dataConfirmacaoL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(confirmadoS)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,8 +246,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confirmadoS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(obsL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +277,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
             cio.setNomeVaca(this.nomeVacaD.getText());
             cio.setCodTouro(Integer.parseInt(this.codTouroD.getText()));
             cio.setNomeTouro(this.nomeTouroD.getText());
-            cio.setConfirmado(this.confirmadoS.isSelected());
+            cio.setConfirmado(true);
             if (this.dataConfirmacaoD.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Campo Data de Confirmação não pode ser Vazio");
                 aux_inclu = 0;
@@ -313,7 +301,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.codCioD.setText("");
         this.codVacaD.setText("");
         this.codTouroD.setText("");
-        this.confirmadoS.setSelected(false);
         this.dataCioD.setDate(null);
         this.dataConfirmacaoD.setDate(null);
         this.nomeTouroD.setText("");
@@ -326,7 +313,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(false);
         this.codCioD.setEnabled(false);
         this.codTouroD.setEnabled(false);
-        this.confirmadoS.setEnabled(false);
         this.dataCioD.setEnabled(false);
         this.dataConfirmacaoD.setEnabled(false);
         this.nomeTouroD.setEnabled(false);
@@ -342,7 +328,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         this.pesquisaCio.setEnabled(true);
         this.codCioD.setEnabled(true);
         this.codTouroD.setEnabled(true);
-        this.confirmadoS.setEnabled(true);
         this.dataConfirmacaoD.setEnabled(true);
         this.nomeTouroD.setEnabled(true);
         this.nomeVacaD.setEnabled(true);
@@ -378,11 +363,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
-
-    private void confirmadoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmadoSActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_confirmadoSActionPerformed
     public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
@@ -448,7 +428,6 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
     private javax.swing.JLabel codTouroL;
     private javax.swing.JTextField codVacaD;
     private javax.swing.JLabel codVacaL;
-    private javax.swing.JCheckBox confirmadoS;
     private com.toedter.calendar.JDateChooser dataCioD;
     private javax.swing.JLabel dataCioL;
     private com.toedter.calendar.JDateChooser dataConfirmacaoD;

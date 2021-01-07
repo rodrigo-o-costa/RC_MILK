@@ -29,9 +29,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="codCioL" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="codCioD" min="-2" pref="86" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="codCioD" min="-2" pref="83" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="pesquisaCio" min="-2" pref="210" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -150,7 +150,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cod. Cio:"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo do Cio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="pesquisaCio">
@@ -177,11 +177,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="codTouroL" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="dataCioL" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="codVacaL" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataCioL" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -218,9 +218,9 @@
                       <Component id="nomeTouroD" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dataCioD" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="dataCioL" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="dataCioD" pref="25" max="32767" attributes="0"/>
+                      <Component id="dataCioL" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -235,7 +235,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Data Do Cio"/>
+            <Property name="text" type="java.lang.String" value="Data do Cio:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nomeTouroD">
@@ -245,7 +245,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cod. Touro:"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo do Touro:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="codVacaD">
@@ -258,7 +258,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cod. Vaca:"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo da Vaca:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="codTouroD">
@@ -280,7 +280,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Data de Novo Cio:"/>
+        <Property name="text" type="java.lang.String" value="Data do novo Cio:"/>
       </Properties>
     </Component>
   </SubComponents>

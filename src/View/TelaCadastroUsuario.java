@@ -104,7 +104,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         usuarioL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         usuarioL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        usuarioL.setText("Usuario:");
+        usuarioL.setText("Usuário:");
 
         salvarU.setText("Salvar");
         salvarU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -179,7 +179,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         });
 
         codUsuarioL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codUsuarioL.setText("Cod.:");
+        codUsuarioL.setText("Código:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,21 +209,24 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addGap(2, 2, 2)
                                 .addComponent(ativoD))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(usuarioD, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(usuarioL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(usuarioD))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(senhaL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(senhaD, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(telefoneL)))
                                 .addGap(4, 4, 4)
-                                .addComponent(codUsuarioL)
-                                .addGap(4, 4, 4)
-                                .addComponent(codD, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(senhaL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(senhaD, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(telefoneL)
-                                .addGap(4, 4, 4)
-                                .addComponent(telefoneD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(telefoneD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(codUsuarioL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(codD, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)

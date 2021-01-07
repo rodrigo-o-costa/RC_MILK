@@ -58,7 +58,13 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
                 faz.setTelefone(rs.getString("telefone"));
                 faz.setCelular(rs.getString("celular"));
                 faz.setEmail(rs.getString("email"));
-                table.addRow(new Object[]{faz.getCodigo(),faz.getAtivo(),faz.getNome(),faz.getNome_prop(),faz.getCfp_prop(),faz.getInsc_estadual(),faz.getTelefone(),faz.getCelular(),faz.getEmail()});
+                String ativo = "" ;
+                if(faz.getAtivo() == true){
+                    ativo = "Sim";
+                }else{
+                    ativo = "Não";
+                }
+                table.addRow(new Object[]{faz.getCodigo(),ativo,faz.getNome(),faz.getNome_prop(),faz.getCfp_prop(),faz.getInsc_estadual(),faz.getTelefone(),faz.getCelular(),faz.getEmail()});
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);

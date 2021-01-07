@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Desempenho_vaca" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b28f6623-c940-44a6-bfd8-f24c56717034">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Desempenho_touro" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b28f6623-c940-44a6-bfd8-f24c56717034">
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -15,22 +15,22 @@
 		</conditionalStyle>
 	</style>
 	<queryString>
-		<![CDATA[SELECT  c.codvaca, bov.nome, bov.brinco, bov.idade,bov.raca,bov.cor, bov.data_nasc,
-		count(codcio) as Quant_Cios,
-		SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_rep,
-		SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_partos,
-		SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_Perdidos,
-		(COUNT(c.codcio)  - (SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END)+
-						  SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END)+
-						  SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END))) as Quant_cios_Confirmados_Sem_Finalizar
-FROM tb_cio as c inner join tb_bovino as bov on c.codvaca = bov.cod
-GROUP BY c.codvaca,bov.cod
-ORDER BY c.codvaca;]]>
+		<![CDATA[SELECT  c.codtouro, bov.nome, bov.brinco, bov.sexo,bov.raca,bov.cor, bov.data_nasc,
+            		count(codcio) as Quant_Cios,
+            		SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_rep,
+            		SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_partos,
+            		SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END) as Quant_Cios_Perdidos,
+            		(COUNT(c.codcio)  - (SUM(CASE c.repetiucio WHEN TRUE THEN 1 ELSE 0 END))+
+            						  SUM(CASE c.parto WHEN TRUE THEN 1 ELSE 0 END)+
+            						  SUM(CASE c.perdeu WHEN TRUE THEN 1 ELSE 0 END)) as Quant_cios_Confirmados_Sem_Finalizar
+            FROM tb_cio as c inner join tb_bovino as bov on c.codtouro = bov.cod
+            GROUP BY c.codtouro,bov.cod
+            ORDER BY c.codtouro;]]>
 	</queryString>
-	<field name="codvaca" class="java.lang.Integer"/>
+	<field name="codtouro" class="java.lang.Integer"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="brinco" class="java.lang.Integer"/>
-	<field name="idade" class="java.lang.Integer"/>
+	<field name="sexo" class="java.lang.String"/>
 	<field name="raca" class="java.lang.String"/>
 	<field name="cor" class="java.lang.String"/>
 	<field name="data_nasc" class="java.sql.Date"/>
@@ -44,20 +44,6 @@ ORDER BY c.codvaca;]]>
 	</background>
 	<title>
 		<band height="127" splitType="Stretch">
-			<staticText>
-				<reportElement style="Title" x="146" y="10" width="435" height="93" uuid="8f5cf770-a29f-489d-9a56-a4fb2d58b0b0"/>
-				<textElement>
-					<font size="80" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Desempenho]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="SubTitle" x="352" y="90" width="203" height="29" uuid="f96e9e40-ea54-4622-b11d-219cb7536015"/>
-				<textElement textAlignment="Right">
-					<font size="22" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Vaca]]></text>
-			</staticText>
 			<image>
 				<reportElement x="4" y="-18" width="222" height="132" uuid="e2d268b8-a338-4a97-b414-05efb55b6651"/>
 				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
@@ -65,6 +51,13 @@ ORDER BY c.codvaca;]]>
 			<frame>
 				<reportElement mode="Opaque" x="2" y="113" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="79c35a70-7c8a-467e-ae40-b94f188b2198"/>
 			</frame>
+			<staticText>
+				<reportElement style="Title" x="133" y="2" width="411" height="113" uuid="26a306fd-acf5-4d93-ae9d-3df94a841aaf"/>
+				<textElement textAlignment="Center">
+					<font size="48" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Histórico Geral Touro]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -78,103 +71,33 @@ ORDER BY c.codvaca;]]>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="2" y="116" width="551" height="1" uuid="42505fda-287b-4d20-945e-77202e88a128"/>
 			</line>
-			<textField>
-				<reportElement x="109" y="18" width="113" height="20" uuid="6e22efad-6d09-4184-a000-e35f164b363d"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="54" y="18" width="19" height="20" uuid="4a34e023-fe9f-4c43-aff2-07f3bad1d15d"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{codvaca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="59" y="38" width="163" height="20" uuid="999222c9-094b-4448-aba9-061c11e1c942"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{raca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="54" y="58" width="168" height="20" uuid="3880aad6-0d67-4317-9dbc-31160669448a"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="124" y="78" width="98" height="20" uuid="a1be9d0d-2e22-42da-bb85-afeb7786eb83"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{data_nasc}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="23" y="18" width="31" height="20" uuid="f3daa6a0-9653-4f5d-b7a5-f66b8b1205bd"/>
+				<reportElement x="312" y="48" width="214" height="20" uuid="0333ddd4-cd06-4b1f-a8ba-bf0f6a7f8f0b"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Narrow" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cod:]]></text>
+				<text><![CDATA[Quantidade crias sem sucesso:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="73" y="18" width="36" height="20" uuid="d714b371-ab68-4ca6-bf82-17b5897183d9"/>
+				<reportElement x="312" y="68" width="214" height="20" uuid="49f28844-dd2e-4816-85e8-91af7d50acc5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Narrow" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nome:]]></text>
+				<text><![CDATA[Quantidade de montas sem conclução:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="38" width="35" height="20" uuid="aef057a0-7f0e-4cfe-a94e-6f21e7956936"/>
+				<reportElement x="313" y="28" width="213" height="20" uuid="7802aa81-823d-43ef-b0cf-140ecd9b709e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Narrow" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Raça:]]></text>
+				<text><![CDATA[Quantidade de montas repetidas:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="24" y="58" width="30" height="20" uuid="e33b7136-5c7b-4f37-aa40-371c423387df"/>
+				<reportElement x="312" y="8" width="214" height="20" uuid="1a0a44c5-40e3-44ef-b9f7-a0b925381cc8"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Narrow" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cor:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="23" y="78" width="101" height="20" uuid="66c67174-df65-4693-bd0c-ff6ba8cd17ef"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Data Nascimento:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="339" y="48" width="187" height="20" uuid="0333ddd4-cd06-4b1f-a8ba-bf0f6a7f8f0b"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Quantida de Perdas de Crias:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="338" y="68" width="188" height="20" uuid="49f28844-dd2e-4816-85e8-91af7d50acc5"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Quantidade de Cios em Abertos:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="339" y="28" width="187" height="20" uuid="7802aa81-823d-43ef-b0cf-140ecd9b709e"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Quantidade de Cios Repetidos:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="338" y="8" width="133" height="20" uuid="1a0a44c5-40e3-44ef-b9f7-a0b925381cc8"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Quantidade  de Cios:]]></text>
+				<text><![CDATA[Quantidade  de montas:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="526" y="8" width="27" height="20" uuid="c45189cf-1942-4202-916e-b78cdb8b5090"/>
@@ -212,12 +135,82 @@ ORDER BY c.codvaca;]]>
 				<textFieldExpression><![CDATA[$F{quant_cios_confirmados_sem_finalizar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="339" y="88" width="187" height="20" uuid="b2b80e8d-59e0-4f13-a00c-a2d875b694f1"/>
+				<reportElement x="313" y="88" width="213" height="20" uuid="b2b80e8d-59e0-4f13-a00c-a2d875b694f1"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial Narrow" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Quantidade de Partos:]]></text>
+				<text><![CDATA[Quantidade de crias com sucesso:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="28" y="68" width="30" height="20" uuid="82a75121-348f-4f88-85e4-3e95351af208"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="10" width="50" height="20" uuid="d6a6e14a-e0b8-4e28-b6c2-7d8ba6bf9d14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="28" width="36" height="20" uuid="302c9240-54fb-4250-99d3-e78bda1b93d8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="28" width="113" height="20" uuid="a7f782af-0b17-41df-ad98-b9ed48bdc056"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="88" width="123" height="20" uuid="6b619404-0cd3-4896-9793-31ebb7dc8dc1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Nascimento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="48" width="163" height="20" uuid="8dadd117-2e58-49ce-a6ea-25504df6cc5d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{raca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="10" width="100" height="20" uuid="f068679c-dee0-4fb2-9b68-39c1115f4f55"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codtouro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="48" width="35" height="20" uuid="121d2b1d-ffbe-4450-8bea-c8e504815677"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Raça:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="58" y="68" width="168" height="20" uuid="66f8e2be-79d2-43bd-a315-6a02a082f474"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="150" y="88" width="98" height="20" uuid="519b69ae-c6e4-4eea-9585-f8711f0643c5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_nasc}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

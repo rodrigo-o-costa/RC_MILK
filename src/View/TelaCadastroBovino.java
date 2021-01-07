@@ -144,11 +144,11 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
         dataNascL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         dataNascL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        dataNascL.setText("Data Nasc.:");
+        dataNascL.setText("Data de Nasc.:");
 
         nomePaiL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nomePaiL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nomePaiL.setText("Nome Pai:");
+        nomePaiL.setText("Nome do Pai:");
 
         nomeD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,14 +158,14 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
         nomeMaeL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nomeMaeL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nomeMaeL.setText("Nome Mãe:");
+        nomeMaeL.setText("Nome da Mãe:");
 
         observacaoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         observacaoL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         observacaoL.setText("Obs.:");
 
         codBovinoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        codBovinoL.setText("Cod.:");
+        codBovinoL.setText("Código:");
 
         codBovinoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
         });
 
         sexoL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        sexoL.setText("Sexo");
+        sexoL.setText("Sexo:");
 
         racaL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         racaL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -210,7 +210,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
 
         quantCriasL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         quantCriasL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        quantCriasL.setText("Quant. Crias:");
+        quantCriasL.setText("Quant. de Crias:");
 
         quantCriasD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,11 +256,11 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(observacaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(nomePaiL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomePaiL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nomePaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomePaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeMaeL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomeMaeL, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(nomeMaeD))
                             .addGroup(layout.createSequentialGroup()
@@ -268,11 +268,11 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                                     .addComponent(codBovinoL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(BrincoL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(racaL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(racaD, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addComponent(BrincoD, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addComponent(codBovinoD, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(BrincoD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                                    .addComponent(racaD)
+                                    .addComponent(codBovinoD))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(sexoL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +287,7 @@ public class TelaCadastroBovino extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(dataNascL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(quantCriasL, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
+                                            .addComponent(quantCriasL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()

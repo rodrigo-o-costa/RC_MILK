@@ -55,7 +55,13 @@ public class TelaListagemUsuario extends javax.swing.JFrame {
                 user.setSenha(rs.getString("senha"));
                 user.setTelefone(rs.getString("telefone"));
                 user.setEmail(rs.getString("email"));
-                table.addRow(new Object[]{user.getCodigo(),user.getAtivo(),user.getNome(),user.getUser(),user.getTelefone(),user.getEmail()});
+                String ativo = "" ;
+                if(user.getAtivo() == true){
+                    ativo = "Sim";
+                }else{
+                    ativo = "Não";
+                }
+                table.addRow(new Object[]{user.getCodigo(),ativo,user.getNome(),user.getUser(),user.getTelefone(),user.getEmail()});
             }
         }catch(SQLException E){
             JOptionPane.showMessageDialog(null, E);

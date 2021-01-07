@@ -165,7 +165,7 @@ public class Tela_login extends javax.swing.JFrame {
                                 .addGap(0, 50, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(esqueceL, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(configL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(configL, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(ConfigD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,7 +195,7 @@ public class Tela_login extends javax.swing.JFrame {
                             .addComponent(esqueceuD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(configL)
+                            .addComponent(configL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ConfigD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(logo_LoginL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))
@@ -237,8 +237,8 @@ public class Tela_login extends javax.swing.JFrame {
             rs = pst.executeQuery();
             rs.next();
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/Imagens/suporte.png")));
-            JOptionPane.showMessageDialog(null, "Entre em contato com:\nSuporte: " + rs.getString("nome_usuario")
-                    + "\nTelefone: " + rs.getString("telefone") + "\nE-mail: "
+            JOptionPane.showMessageDialog(null, "Entre em contato com:\n" + rs.getString("nome_usuario")
+                    + "\n" + rs.getString("telefone") + "\n"
                     + rs.getString("email"), "RC MILK - SUPORTE", JOptionPane.PLAIN_MESSAGE, figura);
         } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
@@ -260,13 +260,13 @@ public class Tela_login extends javax.swing.JFrame {
         boolean aux_user = user.pesquisar();
         if (aux_user == true) {
             if (!user.getSenha().equals(senhaD.getText())) {
-                JOptionPane.showMessageDialog(null, "Senha inválida");
+                JOptionPane.showMessageDialog(null, "Senha inválida!");
                 senhaD.setText("");
                 senhaD.requestFocus();
                 return;
             }
             if (user.getAtivo() == false) {
-                JOptionPane.showMessageDialog(null, "Usuario: " + user.getUser() + " Inativo.");
+                JOptionPane.showMessageDialog(null, "Usuário: " + user.getUser() + " Inativo!");
                 usuarioD.requestFocus();
                 usuarioD.setText("");
                 senhaD.setText("");
@@ -295,7 +295,7 @@ public class Tela_login extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario inválido");
+            JOptionPane.showMessageDialog(null, "Usuário inválido!");
         }
     }//GEN-LAST:event_entrarActionPerformed
 
@@ -305,13 +305,13 @@ public class Tela_login extends javax.swing.JFrame {
         boolean aux_user = user.pesquisar();
         if (aux_user == true) {
             if (!user.getSenha().equals(senhaD.getText())) {
-                JOptionPane.showMessageDialog(null, "Senha inválida");
+                JOptionPane.showMessageDialog(null, "Senha inválida!");
                 senhaD.setText("");
                 senhaD.requestFocus();
                 return;
             }
             if (user.getAtivo() == false) {
-                JOptionPane.showMessageDialog(null, "Usuario: " + user.getUser() + " Inativo.");
+                JOptionPane.showMessageDialog(null, "Usuário: " + user.getUser() + " Inativo!");
                 usuarioD.requestFocus();
                 usuarioD.setText("");
                 senhaD.setText("");
@@ -329,7 +329,6 @@ public class Tela_login extends javax.swing.JFrame {
                 } catch (SQLException E) {
                     JOptionPane.showMessageDialog(null, E);
                 }
-                System.out.println("aqui ante");
                 System.out.println(fazenda + prop);
                 JOptionPane.showMessageDialog(null, "Bem Vindo,\n" + user.getNome() + ".");
                 TelaPrincipal telaP = new TelaPrincipal();
@@ -341,7 +340,7 @@ public class Tela_login extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario inválido");
+            JOptionPane.showMessageDialog(null, "Usuário inválido!");
         }
     }//GEN-LAST:event_entrarKeyPressed
     private void carregadadosfiliais() {
