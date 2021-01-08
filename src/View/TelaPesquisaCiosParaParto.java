@@ -35,9 +35,9 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
         this.setResizable(false);
 
     }
-    
-    public void IniciaTabela(){
-        Connection con =null;
+
+    public void IniciaTabela() {
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Cio cio = new Cio();
@@ -46,13 +46,13 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where perdeu = false and confirmado = true and parto = false;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 cio.setCodCio(rs.getInt("codcio"));
                 cio.setDataCio(rs.getDate("dataCio"));
                 cio.setCodVaca(rs.getInt("codVaca"));
@@ -63,14 +63,14 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
                 cio.setDataConfirmacao(rs.getDate("dataConfirmacao"));
                 cio.setRepetiuCio(rs.getBoolean("repetiuCio"));
                 cio.setObs(rs.getString("obs"));
-                table.addRow(new Object[]{cio.getCodCio(),cio.getDataCio(),cio.getCodVaca(),cio.getNomeVaca(),
-                                cio.getCodTouro(),cio.getNomeTouro(),cio.isConfirmado(),cio.getDataConfirmacao(),cio.getRepetiuCio(),cio.getObs()});
+                table.addRow(new Object[]{cio.getCodCio(), cio.getDataCio(), cio.getCodVaca(), cio.getNomeVaca(),
+                    cio.getCodTouro(), cio.getNomeTouro(), cio.isConfirmado(), cio.getDataConfirmacao(), cio.getRepetiuCio(), cio.getObs()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaCios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaCios.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
     }
 
     @SuppressWarnings("unchecked")
@@ -196,7 +196,7 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PesquisaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaBActionPerformed
-     Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Cio cio = new Cio();
@@ -205,17 +205,17 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio where nomeVaca like ? and perdeu = false and confirmado = true and parto = false;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
-        for(int i = table.getRowCount(); i > 0;i--){
-            table.removeRow(i-1);
+        for (int i = table.getRowCount(); i > 0; i--) {
+            table.removeRow(i - 1);
         }
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,valorPesquisaD.getText());
+            pst.setString(1, valorPesquisaD.getText());
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 cio.setCodCio(rs.getInt("codcio"));
                 cio.setDataCio(rs.getDate("dataCio"));
                 cio.setCodVaca(rs.getInt("codVaca"));
@@ -226,18 +226,19 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
                 cio.setDataConfirmacao(rs.getDate("dataConfirmacao"));
                 cio.setRepetiuCio(rs.getBoolean("repetiuCio"));
                 cio.setObs(rs.getString("obs"));
-                table.addRow(new Object[]{cio.getCodCio(),cio.getDataCio(),cio.getCodVaca(),cio.getNomeVaca(),
-                                cio.getCodTouro(),cio.getNomeTouro(),cio.isConfirmado(),cio.getDataConfirmacao(),cio.getRepetiuCio(),cio.getObs()});
+                table.addRow(new Object[]{cio.getCodCio(), cio.getDataCio(), cio.getCodVaca(), cio.getNomeVaca(),
+                    cio.getCodTouro(), cio.getNomeTouro(), cio.isConfirmado(), cio.getDataConfirmacao(), cio.getRepetiuCio(), cio.getObs()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaCios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaCios.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisaBActionPerformed
     private TelaParto TcioAux;
-    public void enviavaloresCio(TelaParto cio1){
+
+    public void enviavaloresCio(TelaParto cio1) {
         this.TcioAux = cio1;
     }
     private void valorPesquisaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPesquisaDActionPerformed
@@ -246,20 +247,20 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
 
     private void selecionarB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarB1ActionPerformed
         int linhaSelecionada = listaCios.getSelectedRow();
-        DefaultTableModel table = (DefaultTableModel) listaCios.getModel();  
-        int auxcodc,auxcodv,auxcodt;
-        String auxnomev,auxnomet;
-        Date dateC = null,confirmaDate = null;
+        DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
+        int auxcodc, auxcodv, auxcodt;
+        String auxnomev, auxnomet;
+        Date dateC = null, confirmaDate = null;
         Boolean confirmaC;
-      
+
         auxcodc = ((int) table.getValueAt(linhaSelecionada, 0));
-        dateC = (Date)(table.getValueAt(linhaSelecionada, 1));
+        dateC = (Date) (table.getValueAt(linhaSelecionada, 1));
         auxcodv = ((int) table.getValueAt(linhaSelecionada, 2));
         auxnomev = (String) (table.getValueAt(linhaSelecionada, 3));
         auxcodt = ((int) table.getValueAt(linhaSelecionada, 4));
         auxnomet = (String) (table.getValueAt(linhaSelecionada, 5));
-        confirmaDate = (Date)(table.getValueAt(linhaSelecionada, 7));
-        confirmaC = (Boolean)(table.getValueAt(linhaSelecionada, 6));
+        confirmaDate = (Date) (table.getValueAt(linhaSelecionada, 7));
+        confirmaC = (Boolean) (table.getValueAt(linhaSelecionada, 6));
         System.out.println(auxcodc);
         System.out.println(auxcodv);
         System.out.println(auxnomev);
@@ -267,7 +268,7 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
         System.out.println(auxnomet);
         System.out.println(dateC);
         System.out.println("rw");
-        TcioAux.retornaValorCio(auxcodc,dateC,auxcodv,auxnomev,auxcodt,auxnomet,confirmaDate,confirmaC);
+        TcioAux.retornaValorCio(auxcodc, dateC, auxcodv, auxnomev, auxcodt, auxnomet, confirmaDate, confirmaC);
         this.dispose();
     }//GEN-LAST:event_selecionarB1ActionPerformed
 
@@ -298,7 +299,7 @@ public class TelaPesquisaCiosParaParto extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-      
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -32,7 +32,7 @@ public class TelaListagemCios extends javax.swing.JFrame {
         initComponents();
         this.setTitle("RC MILK - LISTAGEM DE CIOS");
         this.setResizable(false);
-        Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Cio cio = new Cio();
@@ -41,13 +41,13 @@ public class TelaListagemCios extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Cio.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = ("select codcio, dataCio, codVaca, nomeVaca, codTouro, nomeTouro , confirmado, dataConfirmacao, repetiuCio, obs from tb_cio;");
         DefaultTableModel table = (DefaultTableModel) listaCios.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 cio.setCodCio(rs.getInt("codcio"));
                 cio.setDataCio(rs.getDate("dataCio"));
                 cio.setCodVaca(rs.getInt("codVaca"));
@@ -58,28 +58,28 @@ public class TelaListagemCios extends javax.swing.JFrame {
                 cio.setDataConfirmacao(rs.getDate("dataConfirmacao"));
                 cio.setRepetiuCio(rs.getBoolean("repetiuCio"));
                 cio.setObs(rs.getString("obs"));
-                String Confirmado = "" ;
-                if(cio.isConfirmado() == true){
+                String Confirmado = "";
+                if (cio.isConfirmado() == true) {
                     Confirmado = "Sim";
-                }else{
+                } else {
                     Confirmado = "Não";
                 }
-                String RepetiuCio = "" ;
-                if(cio.getRepetiuCio() == true){
+                String RepetiuCio = "";
+                if (cio.getRepetiuCio() == true) {
                     RepetiuCio = "Sim";
-                }else{
+                } else {
                     RepetiuCio = "Não";
                 }
-                table.addRow(new Object[]{cio.getCodCio(),cio.getDataCio(),cio.getCodVaca(),cio.getNomeVaca(),
-                                cio.getCodTouro(),cio.getNomeTouro(),Confirmado,cio.getDataConfirmacao(),RepetiuCio,cio.getObs()});
+                table.addRow(new Object[]{cio.getCodCio(), cio.getDataCio(), cio.getCodVaca(), cio.getNomeVaca(),
+                    cio.getCodTouro(), cio.getNomeTouro(), Confirmado, cio.getDataConfirmacao(), RepetiuCio, cio.getObs()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaCios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaCios.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

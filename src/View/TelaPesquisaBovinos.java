@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author rodri
@@ -29,21 +28,20 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroBovino
      */
-    
-
     public TelaPesquisaBovinos() {
         initComponents();
         this.setResizable(false);
     }
-    public void IniciaTabela(){
-        Connection con =null;
+
+    public void IniciaTabela() {
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Bovino bov = new Bovino();
         String sexo;
-        if(idsexo==0){
+        if (idsexo == 0) {
             sexo = "Fêmea";
-        }else {
+        } else {
             sexo = "Macho";
         }
         try {
@@ -51,18 +49,15 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
-        
-        
-        
-        
+
         String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where sexo = ? ");
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             System.out.println(sexo);
-            pst.setString(1,sexo);
+            pst.setString(1, sexo);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 bov.setCod(rs.getInt("cod"));
                 bov.setAtivo(rs.getBoolean("ativo"));
                 bov.setNome(rs.getString("nome"));
@@ -75,14 +70,15 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
                 bov.setObservacao(rs.getString("observacao"));
                 bov.setNome_pai(rs.getString("nome_pai"));
                 bov.setNome_mae(rs.getString("nome_mae"));
-                table.addRow(new Object[]{bov.getCod(),bov.isAtivo(),bov.getNome(),bov.getBrinco(),bov.getData_nasc(),bov.getSexo(),bov.getRaca(),bov.getCor(),bov.getQuantCria(), bov.getNome_pai(),bov.getNome_mae(),bov.getObservacao()});
+                table.addRow(new Object[]{bov.getCod(), bov.isAtivo(), bov.getNome(), bov.getBrinco(), bov.getData_nasc(), bov.getSexo(), bov.getRaca(), bov.getCor(), bov.getQuantCria(), bov.getNome_pai(), bov.getNome_mae(), bov.getObservacao()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaBovinos.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));  
-           }
+        }
+
+        listaBovinos.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -203,7 +199,7 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
     }//GEN-LAST:event_valorPesquisaDActionPerformed
 
     private void PesquisaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaBActionPerformed
-        Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Bovino bov = new Bovino();
@@ -214,23 +210,23 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
         String sexo;
-        if(idsexo==0){
+        if (idsexo == 0) {
             sexo = "Fêmea";
-        }else {
+        } else {
             sexo = "Macho";
         }
         String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino where nome like ? and sexo = ? ;");
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
-        
-        for(int i = table.getRowCount(); i > 0;i--){
-            table.removeRow(i-1);
+
+        for (int i = table.getRowCount(); i > 0; i--) {
+            table.removeRow(i - 1);
         }
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,valorPesquisaD.getText());
-            pst.setString(2,sexo);
+            pst.setString(1, valorPesquisaD.getText());
+            pst.setString(2, sexo);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 bov.setCod(rs.getInt("cod"));
                 bov.setAtivo(rs.getBoolean("ativo"));
                 bov.setNome(rs.getString("nome"));
@@ -243,52 +239,52 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
                 bov.setObservacao(rs.getString("observacao"));
                 bov.setNome_pai(rs.getString("nome_pai"));
                 bov.setNome_mae(rs.getString("nome_mae"));
-                table.addRow(new Object[]{bov.getCod(),bov.isAtivo(),bov.getNome(),bov.getBrinco(),bov.getData_nasc(),bov.getSexo(),bov.getRaca(),bov.getCor(),bov.getQuantCria(), bov.getNome_pai(),bov.getNome_mae(),bov.getObservacao()});
+                table.addRow(new Object[]{bov.getCod(), bov.isAtivo(), bov.getNome(), bov.getBrinco(), bov.getData_nasc(), bov.getSexo(), bov.getRaca(), bov.getCor(), bov.getQuantCria(), bov.getNome_pai(), bov.getNome_mae(), bov.getObservacao()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        
-        listaBovinos.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12)); 
+        }
+
+        listaBovinos.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisaBActionPerformed
     private TelaCadastroCio TcioAux;
     private int idsexo;
-    public void enviavaloresVaca(TelaCadastroCio cio1,int idsexoC){
+
+    public void enviavaloresVaca(TelaCadastroCio cio1, int idsexoC) {
         this.TcioAux = cio1;
         this.idsexo = idsexoC;
     }
-    public void enviavaloresTouro(TelaCadastroCio cio1,int idsexoC){
-        this.TcioAux = cio1; 
+
+    public void enviavaloresTouro(TelaCadastroCio cio1, int idsexoC) {
+        this.TcioAux = cio1;
         this.idsexo = idsexoC;
     }
-   
+
     private void selecionarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarBActionPerformed
         int linhaSelecionada = listaBovinos.getSelectedRow();
         DefaultTableModel table = (DefaultTableModel) listaBovinos.getModel();
         int auxcod;
         auxcod = ((int) table.getValueAt(linhaSelecionada, 0));
         String auxnome;
-        auxnome = (String) (table.getValueAt(linhaSelecionada, 2));      
+        auxnome = (String) (table.getValueAt(linhaSelecionada, 2));
         System.out.println(auxcod);
         System.out.println(auxnome);
-        if(idsexo==0){
-           TcioAux.retornaValorVaca(auxcod,auxnome);
-        }else {
-           TcioAux.retornaValorTouro(auxcod,auxnome);
+        if (idsexo == 0) {
+            TcioAux.retornaValorVaca(auxcod, auxnome);
+        } else {
+            TcioAux.retornaValorTouro(auxcod, auxnome);
         }
 
-
         this.dispose();
-     
+
     }//GEN-LAST:event_selecionarBActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -306,16 +302,15 @@ public class TelaPesquisaBovinos extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaPesquisaBovinos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
- 
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPesquisaBovinos().setVisible(true);
-                
+
             }
         });
     }
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PesquisaB;
     private javax.swing.JLabel jLabel1;

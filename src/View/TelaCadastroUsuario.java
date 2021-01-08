@@ -12,11 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author rodri
  */
-
 public class TelaCadastroUsuario extends javax.swing.JFrame {
+
     int aux_inclu = 0;
     int aux_altera = 0;
     int aux_excluir = 0;
+
     /**
      * Creates new form TelaCadastroBovino
      */
@@ -288,18 +289,18 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     private void alterarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarUActionPerformed
         boolean aux;
-        do{
+        do {
             String imput;
-            imput=(JOptionPane.showInputDialog(null,"Digite o Usuario:")); 
+            imput = (JOptionPane.showInputDialog(null, "Digite o Usuario:"));
             usuarioD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 System.out.println("Cancel is pressed");
                 break;
             }
             Usuario user = new Usuario();
             user.setUser(usuarioD.getText());
             aux = user.pesquisar();
-            if(aux){
+            if (aux) {
                 codD.setText(Integer.toString(user.getCodigo()));
                 ativoD.setSelected(user.getAtivo());
                 nomeUsuarioD.setText(user.getNome());
@@ -308,19 +309,19 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 telefoneD.setText(user.getTelefone());
                 emailD.setText(user.getEmail());
                 this.habilitaCampos();
-                aux_altera = 1; 
+                aux_altera = 1;
             }
-        }while(!aux);
+        } while (!aux);
     }//GEN-LAST:event_alterarUActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
         TelaListagemUsuario telaLU = new TelaListagemUsuario();
         telaLU.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_listarBActionPerformed
-    
+
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
         // TODO add your handling code here:
-        if(aux_inclu == 1){
+        if (aux_inclu == 1) {
             Usuario user = new Usuario();
             user.setAtivo(ativoD.isSelected());
             user.setNome(nomeUsuarioD.getText());
@@ -329,21 +330,25 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             user.setTelefone(telefoneD.getText());
             user.setEmail(emailD.getText());
             boolean aux_user = user.pesquisar();
-            if(nomeUsuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio.");
-            }if(usuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio.");
-            }if(senhaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio.");
-            }if(aux_user == true){
+            if (nomeUsuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio.");
+            }
+            if (usuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio.");
+            }
+            if (senhaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio.");
+            }
+            if (aux_user == true) {
                 JOptionPane.showMessageDialog(null, "Já existe um usuario com esse login.\nPor favor cadastre um outro login.");
-            }else{
+            } else {
                 user.cadastrar();
                 this.desabilitaCampos();
                 this.limpaCampos();
                 aux_inclu = 0;
             }
-        }if(aux_altera == 1){
+        }
+        if (aux_altera == 1) {
             Usuario user = new Usuario();
             user.setCodigo(Integer.parseInt(codD.getText()));
             user.setAtivo(ativoD.isSelected());
@@ -352,19 +357,22 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             user.setSenha(senhaD.getText());
             user.setTelefone(telefoneD.getText());
             user.setEmail(emailD.getText());
-            if(nomeUsuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio");
-            }if(usuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio");
-            }if(senhaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio");
-            }else{
+            if (nomeUsuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio");
+            }
+            if (usuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio");
+            }
+            if (senhaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio");
+            } else {
                 user.alterar();
                 this.desabilitaCampos();
                 aux_altera = 0;
                 this.limpaCampos();
             }
-        }if(aux_excluir == 1){
+        }
+        if (aux_excluir == 1) {
             Usuario user = new Usuario();
             user.setCodigo(Integer.parseInt(codD.getText()));
             user.setAtivo(ativoD.isSelected());
@@ -373,21 +381,23 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             user.setSenha(senhaD.getText());
             user.setTelefone(telefoneD.getText());
             user.setEmail(emailD.getText());
-            if(nomeUsuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio");
-            }if(usuarioD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio");
-            }if(senhaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio");
-            }else{
+            if (nomeUsuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome não pode ser vazio");
+            }
+            if (usuarioD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Usuario não pode ser vazio");
+            }
+            if (senhaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Senha não pode ser vazio");
+            } else {
                 user.excluir();
                 this.desabilitaCampos();
                 aux_altera = 0;
                 this.limpaCampos();
             }
-        } 
+        }
     }//GEN-LAST:event_salvarUActionPerformed
-    public void limpaCampos(){
+    public void limpaCampos() {
         ativoD.setHideActionText(false);
         nomeUsuarioD.setText("");
         usuarioD.setText("");
@@ -397,7 +407,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_ativoDActionPerformed
 
     private void nomeUsuarioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioDActionPerformed
@@ -423,10 +433,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         Usuario user = new Usuario();
         user.setUser(usuarioD.getText());
         boolean aux_user = user.pesquisar();
-        if(aux_user == true){
+        if (aux_user == true) {
             JOptionPane.showMessageDialog(null, "Usuario Encontrado");
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario Não Encontrado"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario Não Encontrado");
         }
         codD.setText(Integer.toString(user.getCodigo()));
         ativoD.setSelected(user.getAtivo());
@@ -435,26 +445,27 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         senhaD.setText(user.getSenha());
         telefoneD.setText(user.getTelefone());
         emailD.setText(user.getEmail());
-        
+
     }//GEN-LAST:event_pesquisarUActionPerformed
 
     private void limparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparUActionPerformed
         // TODO add your handling code here:
         this.limpaCampos();
     }//GEN-LAST:event_limparUActionPerformed
-    public void desabilitaCampos(){
-                nomeUsuarioD.setEnabled(false);
-                ativoD.setEnabled(false);
-                codD.setEnabled(false);
-                emailD.setEnabled(false);
-                salvarU.setEnabled(false);
-                senhaD.setEnabled(false);
-                telefoneD.setEnabled(false);
-                usuarioD.setEnabled(false);
-                limparU.setEnabled(false);
-                cancelarU.setEnabled(false);
+    public void desabilitaCampos() {
+        nomeUsuarioD.setEnabled(false);
+        ativoD.setEnabled(false);
+        codD.setEnabled(false);
+        emailD.setEnabled(false);
+        salvarU.setEnabled(false);
+        senhaD.setEnabled(false);
+        telefoneD.setEnabled(false);
+        usuarioD.setEnabled(false);
+        limparU.setEnabled(false);
+        cancelarU.setEnabled(false);
     }
-    public void habilitaCampos(){
+
+    public void habilitaCampos() {
         nomeUsuarioD.setEnabled(true);
         ativoD.setEnabled(true);
         emailD.setEnabled(true);
@@ -489,17 +500,17 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     private void excluirUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUActionPerformed
         boolean aux;
-        do{
+        do {
             String imput;
-            imput = (JOptionPane.showInputDialog("Digite o Usuario:")); 
+            imput = (JOptionPane.showInputDialog("Digite o Usuario:"));
             usuarioD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 break;
             }
             Usuario user = new Usuario();
             user.setUser(usuarioD.getText());
             aux = user.pesquisar();
-            if(aux){
+            if (aux) {
                 codD.setText(Integer.toString(user.getCodigo()));
                 ativoD.setSelected(user.getAtivo());
                 nomeUsuarioD.setText(user.getNome());
@@ -508,9 +519,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 telefoneD.setText(user.getTelefone());
                 emailD.setText(user.getEmail());
                 this.habilitaCampos();
-                aux_excluir = 1;  
+                aux_excluir = 1;
             }
-        }while(!aux);        // TODO add your handling code here:
+        } while (!aux);        // TODO add your handling code here:
     }//GEN-LAST:event_excluirUActionPerformed
 
     /**

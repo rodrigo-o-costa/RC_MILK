@@ -331,12 +331,12 @@ public class TelaCadastroCio extends javax.swing.JFrame {
             if (this.dataCioD.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "Campo Data Cio nao pode ser Vazio");
                 aux_inclu = 0;
-            } 
+            }
             cio.setDataCio(this.dataCioD.getDate());
             if (this.codVacaD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo cod Vaca nao pode ser Vazio");
                 aux_inclu = 0;
-                
+
             }
             cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
             if (this.nomeVacaD.getText().equals("")) {
@@ -359,7 +359,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
                 aux_inclu = 0;
             }
             cio.setObs(this.obsD.getText());
-            if(aux_inclu == 1){
+            if (aux_inclu == 1) {
                 cio.cadastrar();
                 this.desabilitaCampos();
                 aux_inclu = 0;
@@ -557,7 +557,7 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         telaPB.setVisible(true);
 
     }//GEN-LAST:event_pesquisaVacaBActionPerformed
-    
+
     private void pesquisaTouroBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaTouroBActionPerformed
         TelaPesquisaBovinos telaPB = new TelaPesquisaBovinos();
         telaPB.setTitle("RC MILK - PESQUISA DE BOVINOS");
@@ -565,15 +565,14 @@ public class TelaCadastroCio extends javax.swing.JFrame {
         telaPB.IniciaTabela();
         telaPB.setVisible(true);
 
-
     }//GEN-LAST:event_pesquisaTouroBActionPerformed
-    public void cadastraCioRepetido(String cod,String nome,Date dataC){
+    public void cadastraCioRepetido(String cod, String nome, Date dataC) {
         this.habilitaCampos();
         aux_inclu = 1;
         this.codVacaD.setText(cod);
         this.dataCioD.setDate(dataC);
         this.nomeVacaD.setText(nome);
-        System.out.println(codVacaD.getText()+nomeVacaD.getText()+dataCioD.getDate());
+        System.out.println(codVacaD.getText() + nomeVacaD.getText() + dataCioD.getDate());
     }
     private void codCioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codCioDActionPerformed
         // TODO add your handling code here:

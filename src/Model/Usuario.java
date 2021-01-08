@@ -11,12 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author rodri
  */
 public class Usuario {
+
     private int codigo;
     private boolean ativo;
     private String nome;
@@ -37,12 +37,12 @@ public class Usuario {
         this.telefone = telefone;
         this.email = email;
     }
-    
-    public int getCodigo(){
+
+    public int getCodigo() {
         return codigo;
     }
-    
-    public void setCodigo(int codigo){
+
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -53,7 +53,7 @@ public class Usuario {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
+
     public String getNome() {
         return nome;
     }
@@ -93,102 +93,106 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void cadastrar(){
-        Connection con =null;
+
+    public void cadastrar() {
+        Connection con = null;
         PreparedStatement pst = null;
         try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "INSERT INTO tb_usuario (ativo,nome_usuario,usuario,senha,telefone,email)VALUES(?,?,?,?,?,?)";
-        try{
+        try {
             pst = con.prepareStatement(sql);
-            pst.setBoolean(1,this.getAtivo());
-            pst.setString(2,this.getNome());
-            pst.setString(3,this.getUser());
-            pst.setString(4,this.getSenha());
-            pst.setString(5,this.getTelefone());
-            pst.setString(6,this.getEmail());
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Usuario Não Cadastrado");
+            pst.setBoolean(1, this.getAtivo());
+            pst.setString(2, this.getNome());
+            pst.setString(3, this.getUser());
+            pst.setString(4, this.getSenha());
+            pst.setString(5, this.getTelefone());
+            pst.setString(6, this.getEmail());
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario Não Cadastrado");
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
     }
-    public void alterar(){
-        Connection con =null;
-        PreparedStatement pst = null;
-         try {
-            con = Conec.Conectar();
-        } catch (ClassNotFoundException e) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
-        }
-  
-        String sql = "UPDATE tb_usuario SET ativo = ?,nome_usuario = ?,usuario = ?, senha = ?,telefone = ?,email = ? WHERE id_usuario = ?";
-        try{
-            pst = con.prepareStatement(sql);
-            pst.setBoolean(1,this.getAtivo());
-            pst.setString(2,this.getNome());
-            pst.setString(3,this.getUser());
-            pst.setString(4,this.getSenha());
-            pst.setString(5,this.getTelefone());
-            pst.setString(6,this.getEmail());
-            pst.setInt(7,this.getCodigo());
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Usuario Alterado com Sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Usuario Não Alterado");
-            }
-        }catch(SQLException E){
-            JOptionPane.showMessageDialog(null, E);
-        }
-        
-    }
-    public void excluir(){
+
+    public void alterar() {
         Connection con = null;
         PreparedStatement pst = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
-        String sql = "DELETE FROM tb_usuario WHERE id_usuario = ?";
-        try{
+
+        String sql = "UPDATE tb_usuario SET ativo = ?,nome_usuario = ?,usuario = ?, senha = ?,telefone = ?,email = ? WHERE id_usuario = ?";
+        try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1,this.getCodigo());
-            System.out.println(pst);
-            if(!pst.execute()){
-                 JOptionPane.showMessageDialog(null, "Usuario Excluido com Sucesso");
-            }else{
-                 JOptionPane.showMessageDialog(null, "Usuario Não Excluido");
+            pst.setBoolean(1, this.getAtivo());
+            pst.setString(2, this.getNome());
+            pst.setString(3, this.getUser());
+            pst.setString(4, this.getSenha());
+            pst.setString(5, this.getTelefone());
+            pst.setString(6, this.getEmail());
+            pst.setInt(7, this.getCodigo());
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Usuario Alterado com Sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario Não Alterado");
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
-        
+
     }
-    public boolean pesquisar(){
-        Connection con =null;
+
+    public void excluir() {
+        Connection con = null;
         PreparedStatement pst = null;
-        ResultSet rs = null;
-         try {
+        try {
             con = Conec.Conectar();
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
-        String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario where usuario like ?";
-        try{
+
+        String sql = "DELETE FROM tb_usuario WHERE id_usuario = ?";
+        try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,this.getUser());
+            pst.setInt(1, this.getCodigo());
+            System.out.println(pst);
+            if (!pst.execute()) {
+                JOptionPane.showMessageDialog(null, "Usuario Excluido com Sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario Não Excluido");
+            }
+        } catch (SQLException E) {
+            JOptionPane.showMessageDialog(null, E);
+        }
+
+    }
+
+    public boolean pesquisar() {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = Conec.Conectar();
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario where usuario like ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, this.getUser());
             rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 this.setCodigo(rs.getInt("id_usuario"));
                 this.setAtivo(rs.getBoolean("ativo"));
                 this.setNome(rs.getString("nome_usuario"));
@@ -197,15 +201,13 @@ public class Usuario {
                 this.setTelefone(rs.getString("telefone"));
                 this.setEmail(rs.getString("email"));
                 return true;
-            }else{
+            } else {
                 return false;
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
         return false;
     }
-    
-    }
 
-
+}

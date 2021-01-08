@@ -65,7 +65,6 @@ public class Cio {
     public Cio() {
     }
 
-
     public int getCodCio() {
         return codCio;
     }
@@ -161,6 +160,7 @@ public class Cio {
     public void setPerda(Boolean perda) {
         this.perda = perda;
     }
+
     public Date getDataParto() {
         return dataParto;
     }
@@ -184,7 +184,8 @@ public class Cio {
     public void setFinilizado(Boolean finilizado) {
         this.finilizado = finilizado;
     }
-        public Date getDataPreParto() {
+
+    public Date getDataPreParto() {
         return dataPreParto;
     }
 
@@ -199,12 +200,15 @@ public class Cio {
     public void setPreParto(Boolean preParto) {
         this.preParto = preParto;
     }
+
     public Date getPrevisaoParto() {
         return previsaoParto;
     }
+
     public void setPrevisaoParto(Date previsaoParto) {
         this.previsaoParto = previsaoParto;
     }
+
     public void cadastrar() {
         Connection con = null;
         PreparedStatement pst = null;
@@ -213,10 +217,10 @@ public class Cio {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-	Calendar cal = Calendar.getInstance();
-	cal.setTime(this.getDataCio());
-	System.out.println(cal.getTime());
-	cal.add(Calendar.MONTH, 9);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(this.getDataCio());
+        System.out.println(cal.getTime());
+        cal.add(Calendar.MONTH, 9);
         this.setPrevisaoParto(cal.getTime());
         String sql = "INSERT INTO tb_cio ( dataCio, codVaca, nomeVaca, codTouro, nomeTouro, obs,confirmado, repetiuCio,perdeu,parto,finalizado,previsao_parto) values (?,?,?,?,?,?,false,false,false,false,false,?);";
         try {
@@ -432,7 +436,8 @@ public class Cio {
             JOptionPane.showMessageDialog(null, E);
         }
     }
-        public void parto() {
+
+    public void parto() {
         Connection con = null;
         PreparedStatement pst = null;
         try {
@@ -457,7 +462,5 @@ public class Cio {
             JOptionPane.showMessageDialog(null, E);
         }
     }
-
-
 
 }

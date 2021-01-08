@@ -15,18 +15,17 @@ import javax.swing.JOptionPane;
  * @author rodri
  */
 public class Conec {
-    public static Connection Conectar() throws ClassNotFoundException{
-        try{
-            
-        Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/rc_milk","postgres" ,"root");
-        return con;
-        }
-        
-        catch(SQLException E){
+
+    public static Connection Conectar() throws ClassNotFoundException {
+        try {
+
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/rc_milk", "postgres", "root");
+            return con;
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
         }
         return null;
     }
- 
+
 }

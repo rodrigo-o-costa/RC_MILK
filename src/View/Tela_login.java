@@ -291,7 +291,7 @@ public class Tela_login extends javax.swing.JFrame {
                 telaP.setTitle("RC MILK");
                 telaP.usuarioLogadoInfo.setText(user.getUser());
                 telaP.fazendaLogada1.setText(fazenda);
-                telaP.propLogado.setText(prop);
+                telaP.fazendaLogada1.setText(prop);
                 this.dispose();
             }
         } else {
@@ -336,7 +336,7 @@ public class Tela_login extends javax.swing.JFrame {
                 telaP.setTitle("RC MILK");
                 telaP.usuarioLogadoInfo.setText(user.getUser());
                 telaP.fazendaLogada1.setText(fazenda);
-                telaP.propLogado.setText(prop);
+                telaP.proLogada1.setText(prop);
                 this.dispose();
             }
         } else {

@@ -33,7 +33,7 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
         initComponents();
         this.setTitle("RC MILK - LISTAGEM DE USUARIO");
         this.setResizable(false);
-        Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Fazenda faz = new Fazenda();
@@ -42,13 +42,13 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "select id_fazenda,ativo,nome_fazenda,nome_prop,cfp_prop,insc_estadual,telefone,celular,email from tb_fazenda";
         DefaultTableModel table = (DefaultTableModel) listaFazenda.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 faz.setCodigo(rs.getInt("id_fazenda"));
                 faz.setAtivo(rs.getBoolean("ativo"));
                 faz.setNome(rs.getString("nome_fazenda"));
@@ -58,21 +58,21 @@ public class TelaListagemFazendas extends javax.swing.JFrame {
                 faz.setTelefone(rs.getString("telefone"));
                 faz.setCelular(rs.getString("celular"));
                 faz.setEmail(rs.getString("email"));
-                String ativo = "" ;
-                if(faz.getAtivo() == true){
+                String ativo = "";
+                if (faz.getAtivo() == true) {
                     ativo = "Sim";
-                }else{
+                } else {
                     ativo = "Não";
                 }
-                table.addRow(new Object[]{faz.getCodigo(),ativo,faz.getNome(),faz.getNome_prop(),faz.getCfp_prop(),faz.getInsc_estadual(),faz.getTelefone(),faz.getCelular(),faz.getEmail()});
+                table.addRow(new Object[]{faz.getCodigo(), ativo, faz.getNome(), faz.getNome_prop(), faz.getCfp_prop(), faz.getInsc_estadual(), faz.getTelefone(), faz.getCelular(), faz.getEmail()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaFazenda.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaFazenda.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

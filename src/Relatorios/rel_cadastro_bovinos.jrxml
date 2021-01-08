@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_cadastro_bovinos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28e30f9f-543c-4337-b9f0-2ca8c8df158f">
-	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<style name="table">
-		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table 1">
-		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
-		<box>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
-		<box>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
-			<style backcolor="#EFF7FF"/>
-		</conditionalStyle>
-	</style>
-	<style name="Crosstab Data Text" hAlign="Center"/>
-	<queryString>
+    <property name="ireport.zoom" value="1.5"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="table">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table 1">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+            <style backcolor="#EFF7FF"/>
+        </conditionalStyle>
+    </style>
+    <style name="Crosstab Data Text" hAlign="Center"/>
+    <queryString>
 		<![CDATA[SELECT
      tb_bovino."cod" AS tb_bovino_cod,
      tb_bovino."ativo" AS tb_bovino_ativo,
@@ -78,227 +78,227 @@
 FROM
      "public"."tb_bovino" tb_bovino,
      "public"."tb_fazenda" tb_fazenda]]>
-	</queryString>
-	<field name="tb_bovino_cod" class="java.lang.Integer"/>
-	<field name="tb_bovino_ativo" class="java.lang.Boolean"/>
-	<field name="tb_bovino_nome" class="java.lang.String"/>
-	<field name="tb_bovino_brinco" class="java.lang.Integer"/>
-	<field name="tb_bovino_idade" class="java.lang.Integer"/>
-	<field name="tb_bovino_sexo" class="java.lang.String"/>
-	<field name="tb_bovino_raca" class="java.lang.String"/>
-	<field name="tb_bovino_data_nasc" class="java.sql.Date"/>
-	<field name="tb_bovino_cor" class="java.lang.String"/>
-	<field name="tb_bovino_quantcria" class="java.lang.Integer"/>
-	<field name="tb_bovino_observacao" class="java.lang.String"/>
-	<field name="tb_bovino_nome_pai" class="java.lang.String"/>
-	<field name="tb_bovino_nome_mae" class="java.lang.String"/>
-	<field name="tb_fazenda_id_fazenda" class="java.lang.Integer"/>
-	<field name="tb_fazenda_ativo" class="java.lang.Boolean"/>
-	<field name="tb_fazenda_nome_fazenda" class="java.lang.String"/>
-	<field name="tb_fazenda_nome_prop" class="java.lang.String"/>
-	<field name="tb_fazenda_cfp_prop" class="java.lang.String"/>
-	<field name="tb_fazenda_insc_estadual" class="java.lang.String"/>
-	<field name="tb_fazenda_telefone" class="java.lang.String"/>
-	<field name="tb_fazenda_celular" class="java.lang.String"/>
-	<field name="tb_fazenda_email" class="java.lang.String"/>
-	<title>
-		<band height="54">
-			<rectangle>
-				<reportElement x="0" y="0" width="802" height="54" backcolor="#CCCCCC" uuid="69bc7398-f9fe-4012-83f1-e06cfbfb150f"/>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-			<staticText>
-				<reportElement x="98" y="4" width="581" height="50" uuid="d3c5b13c-f959-490e-ae8d-e80f4d56f8b6"/>
-				<textElement textAlignment="Center">
-					<font size="36" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Relatorio Cadastro de Bovinos]]></text>
-			</staticText>
-			<image>
-				<reportElement x="30" y="4" width="122" height="50" uuid="b5b7792f-dc83-4a56-b03d-fab1379ac413"/>
-				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="700" y="10" width="80" height="20" uuid="fe73a84d-73f2-48a9-b3ec-61b5005b366b"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="780" y="10" width="14" height="20" uuid="e8fcef49-bb3b-4bfe-a717-1c24498859cc"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd MMMMM yyyy">
-				<reportElement x="623" y="30" width="171" height="14" uuid="1fb1bf92-d645-4f08-9a56-080c37e2e274"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-		</band>
-	</title>
-	<columnHeader>
-		<band height="20">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="40" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dea65673-69b7-44d0-8bb6-ccc5a38d4def"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Codigo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="40" y="0" width="35" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="0724f982-bba5-4fee-a228-623a6f31dced"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Ativo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="75" y="0" width="87" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="9097cdf3-b2fb-4a53-ada5-0edaa3063c0e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Nome]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="162" y="0" width="47" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="7b27a41a-457c-4e13-877c-1365a4f68031"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Brinco]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="209" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcf0f26d-db39-4c39-87b5-9dce7d451f38"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Data de Nascimento]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="309" y="0" width="46" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="f8c4d14f-9743-46af-a8d9-da5c28e8f4b0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Sexo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="355" y="0" width="41" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dc8dae5e-9bc7-4f7d-8ceb-5fef1ef45856"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Raça]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="396" y="0" width="66" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3aa99968-5d38-471d-bd1d-d130ef8713d4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Cor]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="604" y="0" width="198" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="a2feb443-0e4a-4dcb-bba8-4924201beea3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Observação]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="462" y="0" width="66" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3271d63f-8d94-42b0-9189-2dbd8337208c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Pai]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="528" y="0" width="76" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcec84f2-84b1-45f9-8ac2-7877de5e8855"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Mãe]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="20">
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="0" y="0" width="40" height="20" uuid="ed94eb8c-1f6b-4f4e-9eef-f77f61b2328d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_cod}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="40" y="0" width="35" height="20" uuid="295ba601-c975-4ae0-b057-8e0ca71e5ca0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_ativo} == true ? "Ativo" : "Inativo"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="209" y="0" width="100" height="20" uuid="741d6336-1537-4889-80c7-873c3c69404d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_data_nasc}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="75" y="0" width="87" height="20" uuid="a1c18f43-45e4-4cee-a18c-353ec8228b2f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="162" y="0" width="47" height="20" uuid="02c66388-8ac5-4818-aa29-72e2cbc28d96"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_brinco}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="309" y="0" width="46" height="20" uuid="62477359-ce1c-4450-bcdf-baaa41e3d934"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_sexo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="355" y="0" width="46" height="20" uuid="d6fd3f66-b31a-4d5d-8bd8-8d0e39d7c8bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_raca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="401" y="0" width="61" height="20" uuid="c58eaf6b-bbc1-4963-a1fb-a9b26618ef17"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_cor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="462" y="0" width="66" height="20" uuid="7bfa1244-41eb-4459-a1fd-816e320f7a45"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_nome_pai}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="528" y="0" width="76" height="20" uuid="ddbe370e-5797-4a8f-826d-0522a8b2239e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_nome_mae}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="table 1_TD" mode="Opaque" x="604" y="0" width="198" height="20" uuid="95715e81-a638-41d4-8774-bbb3b0fadd15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tb_bovino_observacao}]]></textFieldExpression>
-			</textField>
-		</band>
-	</detail>
-	<pageFooter>
-		<band height="90">
-			<rectangle>
-				<reportElement x="0" y="0" width="802" height="90" backcolor="#CCCCCC" uuid="6453fb03-d263-498b-9b8d-ad165904dde7"/>
-				<graphicElement>
-					<pen lineWidth="0.0" lineStyle="Solid"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="282" y="46" width="238" height="20" uuid="45bb9ad8-784a-479a-9a77-6acaaf0a5716"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_fazenda_telefone}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="282" y="66" width="238" height="20" uuid="6a5b6ded-c428-4975-bb17-0d425bbf3c21"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_fazenda_email}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="280" y="26" width="238" height="20" uuid="e05b7f75-d790-4a11-bd59-cf29a55026cc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_fazenda_nome_prop}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="282" y="6" width="238" height="20" uuid="afad3dc7-c77a-436b-81f8-f86dee3362d3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_fazenda_nome_fazenda}]]></textFieldExpression>
-			</textField>
-			<image>
-				<reportElement x="0" y="0" width="224" height="90" uuid="675fd5d2-50e0-49c0-994d-47974d4315e5"/>
-				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="578" y="0" width="224" height="90" uuid="54770a71-835f-464f-9e2c-e75b7837dc06"/>
-				<imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
-			</image>
-		</band>
-	</pageFooter>
+    </queryString>
+    <field name="tb_bovino_cod" class="java.lang.Integer"/>
+    <field name="tb_bovino_ativo" class="java.lang.Boolean"/>
+    <field name="tb_bovino_nome" class="java.lang.String"/>
+    <field name="tb_bovino_brinco" class="java.lang.Integer"/>
+    <field name="tb_bovino_idade" class="java.lang.Integer"/>
+    <field name="tb_bovino_sexo" class="java.lang.String"/>
+    <field name="tb_bovino_raca" class="java.lang.String"/>
+    <field name="tb_bovino_data_nasc" class="java.sql.Date"/>
+    <field name="tb_bovino_cor" class="java.lang.String"/>
+    <field name="tb_bovino_quantcria" class="java.lang.Integer"/>
+    <field name="tb_bovino_observacao" class="java.lang.String"/>
+    <field name="tb_bovino_nome_pai" class="java.lang.String"/>
+    <field name="tb_bovino_nome_mae" class="java.lang.String"/>
+    <field name="tb_fazenda_id_fazenda" class="java.lang.Integer"/>
+    <field name="tb_fazenda_ativo" class="java.lang.Boolean"/>
+    <field name="tb_fazenda_nome_fazenda" class="java.lang.String"/>
+    <field name="tb_fazenda_nome_prop" class="java.lang.String"/>
+    <field name="tb_fazenda_cfp_prop" class="java.lang.String"/>
+    <field name="tb_fazenda_insc_estadual" class="java.lang.String"/>
+    <field name="tb_fazenda_telefone" class="java.lang.String"/>
+    <field name="tb_fazenda_celular" class="java.lang.String"/>
+    <field name="tb_fazenda_email" class="java.lang.String"/>
+    <title>
+        <band height="54">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="54" backcolor="#CCCCCC" uuid="69bc7398-f9fe-4012-83f1-e06cfbfb150f"/>
+                <graphicElement>
+                    <pen lineWidth="0.0"/>
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="98" y="4" width="581" height="50" uuid="d3c5b13c-f959-490e-ae8d-e80f4d56f8b6"/>
+                <textElement textAlignment="Center">
+                    <font size="36" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Relatorio Cadastro de Bovinos]]></text>
+            </staticText>
+            <image>
+                <reportElement x="30" y="4" width="122" height="50" uuid="b5b7792f-dc83-4a56-b03d-fab1379ac413"/>
+                <imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_login.png"]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement x="700" y="10" width="80" height="20" uuid="fe73a84d-73f2-48a9-b3ec-61b5005b366b"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="780" y="10" width="14" height="20" uuid="e8fcef49-bb3b-4bfe-a717-1c24498859cc"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd MMMMM yyyy">
+                <reportElement x="623" y="30" width="171" height="14" uuid="1fb1bf92-d645-4f08-9a56-080c37e2e274"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="40" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dea65673-69b7-44d0-8bb6-ccc5a38d4def"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Codigo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="40" y="0" width="35" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="0724f982-bba5-4fee-a228-623a6f31dced"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Ativo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="75" y="0" width="87" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="9097cdf3-b2fb-4a53-ada5-0edaa3063c0e"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Nome]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="162" y="0" width="47" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="7b27a41a-457c-4e13-877c-1365a4f68031"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Brinco]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="209" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcf0f26d-db39-4c39-87b5-9dce7d451f38"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Data de Nascimento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="309" y="0" width="46" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="f8c4d14f-9743-46af-a8d9-da5c28e8f4b0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Sexo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="355" y="0" width="41" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dc8dae5e-9bc7-4f7d-8ceb-5fef1ef45856"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Raça]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="396" y="0" width="66" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3aa99968-5d38-471d-bd1d-d130ef8713d4"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Cor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="604" y="0" width="198" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="a2feb443-0e4a-4dcb-bba8-4924201beea3"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Observação]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="462" y="0" width="66" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="3271d63f-8d94-42b0-9189-2dbd8337208c"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Pai]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="528" y="0" width="76" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dcec84f2-84b1-45f9-8ac2-7877de5e8855"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Mãe]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="0" y="0" width="40" height="20" uuid="ed94eb8c-1f6b-4f4e-9eef-f77f61b2328d"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_cod}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="40" y="0" width="35" height="20" uuid="295ba601-c975-4ae0-b057-8e0ca71e5ca0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_ativo} == true ? "Ativo" : "Inativo"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="209" y="0" width="100" height="20" uuid="741d6336-1537-4889-80c7-873c3c69404d"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_data_nasc}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="75" y="0" width="87" height="20" uuid="a1c18f43-45e4-4cee-a18c-353ec8228b2f"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_nome}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="162" y="0" width="47" height="20" uuid="02c66388-8ac5-4818-aa29-72e2cbc28d96"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_brinco}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="309" y="0" width="46" height="20" uuid="62477359-ce1c-4450-bcdf-baaa41e3d934"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_sexo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="355" y="0" width="46" height="20" uuid="d6fd3f66-b31a-4d5d-8bd8-8d0e39d7c8bb"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_raca}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="401" y="0" width="61" height="20" uuid="c58eaf6b-bbc1-4963-a1fb-a9b26618ef17"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_cor}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="462" y="0" width="66" height="20" uuid="7bfa1244-41eb-4459-a1fd-816e320f7a45"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_nome_pai}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="528" y="0" width="76" height="20" uuid="ddbe370e-5797-4a8f-826d-0522a8b2239e"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_nome_mae}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="table 1_TD" mode="Opaque" x="604" y="0" width="198" height="20" uuid="95715e81-a638-41d4-8774-bbb3b0fadd15"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{tb_bovino_observacao}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="90">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="90" backcolor="#CCCCCC" uuid="6453fb03-d263-498b-9b8d-ad165904dde7"/>
+                <graphicElement>
+                    <pen lineWidth="0.0" lineStyle="Solid"/>
+                </graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="282" y="46" width="238" height="20" uuid="45bb9ad8-784a-479a-9a77-6acaaf0a5716"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tb_fazenda_telefone}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="282" y="66" width="238" height="20" uuid="6a5b6ded-c428-4975-bb17-0d425bbf3c21"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tb_fazenda_email}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="26" width="238" height="20" uuid="e05b7f75-d790-4a11-bd59-cf29a55026cc"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tb_fazenda_nome_prop}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="282" y="6" width="238" height="20" uuid="afad3dc7-c77a-436b-81f8-f86dee3362d3"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tb_fazenda_nome_fazenda}]]></textFieldExpression>
+            </textField>
+            <image>
+                <reportElement x="0" y="0" width="224" height="90" uuid="675fd5d2-50e0-49c0-994d-47974d4315e5"/>
+                <imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
+            </image>
+            <image>
+                <reportElement x="578" y="0" width="224" height="90" uuid="54770a71-835f-464f-9e2c-e75b7837dc06"/>
+                <imageExpression><![CDATA["C:\\Users\\RODRIGO_PC\\Documents\\NetBeansProjects\\TCC_2_RCMILK2.0\\src\\Imagens\\Logo_TelaPrincipal.png"]]></imageExpression>
+            </image>
+        </band>
+    </pageFooter>
 </jasperReport>

@@ -32,7 +32,7 @@ public class TelaListagemBovinos extends javax.swing.JFrame {
         initComponents();
         this.setTitle("RC MILK - LISTAGEM DE BOVINOS");
         this.setResizable(false);
-        Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Bovino bov = new Bovino();
@@ -41,13 +41,13 @@ public class TelaListagemBovinos extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Bovino.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = ("select cod, ativo, nome, brinco, data_nasc, sexo, raca, cor, quantCria, observacao, nome_pai, nome_mae from tb_bovino;");
         DefaultTableModel table = (DefaultTableModel) listaFazenda.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 bov.setCod(rs.getInt("cod"));
                 bov.setAtivo(rs.getBoolean("ativo"));
                 bov.setNome(rs.getString("nome"));
@@ -60,21 +60,21 @@ public class TelaListagemBovinos extends javax.swing.JFrame {
                 bov.setObservacao(rs.getString("observacao"));
                 bov.setNome_pai(rs.getString("nome_pai"));
                 bov.setNome_mae(rs.getString("nome_mae"));
-                String ativo = "" ;
-                if(bov.isAtivo() == true){
+                String ativo = "";
+                if (bov.isAtivo() == true) {
                     ativo = "Sim";
-                }else{
+                } else {
                     ativo = "Não";
                 }
-                table.addRow(new Object[]{bov.getCod(),ativo,bov.getNome(),bov.getBrinco(),bov.getData_nasc(),bov.getSexo(),bov.getRaca(),bov.getCor(),bov.getQuantCria(), bov.getNome_pai(),bov.getNome_mae(),bov.getObservacao()});
+                table.addRow(new Object[]{bov.getCod(), ativo, bov.getNome(), bov.getBrinco(), bov.getData_nasc(), bov.getSexo(), bov.getRaca(), bov.getCor(), bov.getQuantCria(), bov.getNome_pai(), bov.getNome_mae(), bov.getObservacao()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaFazenda.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaFazenda.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

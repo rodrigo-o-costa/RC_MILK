@@ -264,13 +264,13 @@ public class TelaParto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
-        if(aux_inclu==1){
+        if (aux_inclu == 1) {
             Cio cio = new Cio();
-            if (this.codCioD.getText().equals("")){
+            if (this.codCioD.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo Cod Cio nao pode ser Vazio");
                 aux_inclu = 0;
             }
-            cio.setCodCio(Integer.parseInt(this.codCioD.getText())); 
+            cio.setCodCio(Integer.parseInt(this.codCioD.getText()));
             cio.setDataCio(this.dataCioD.getDate());
             cio.setCodVaca(Integer.parseInt(this.codVacaD.getText()));
             cio.setNomeVaca(this.nomeVacaD.getText());
@@ -281,32 +281,32 @@ public class TelaParto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campo Data do Parto  não pode ser Vazio");
                 aux_inclu = 0;
             }
-            cio.setDataParto(this.dataPartoD.getDate());      
+            cio.setDataParto(this.dataPartoD.getDate());
             cio.setObs(this.obsD.getText());
-            if(aux_inclu == 1){ 
+            if (aux_inclu == 1) {
                 int resposta;
-                    resposta = JOptionPane.showConfirmDialog( null,"Confirma a que a vaca:  " +this.nomeVacaD.getText()+" teve parto na data: " + dataPartoD.getDate(), "Parto",JOptionPane.YES_NO_OPTION);
-                    System.out.println(resposta);
-                if(resposta == 0){
+                resposta = JOptionPane.showConfirmDialog(null, "Confirma a que a vaca:  " + this.nomeVacaD.getText() + " teve parto na data: " + dataPartoD.getDate(), "Parto", JOptionPane.YES_NO_OPTION);
+                System.out.println(resposta);
+                if (resposta == 0) {
                     cio.parto();
                     this.desabilitaCampos();
                     aux_inclu = 0;
                     this.limpaCampos();
-                    TelaCadastroBovino telaC = new  TelaCadastroBovino();
+                    TelaCadastroBovino telaC = new TelaCadastroBovino();
                     telaC.setVisible(true);
                     telaC.setTitle("RC MILK - Cadastro de Bezerro Cria");
-                    String cod,nome;
-                    cod =this.codVacaD.getText();
-                    nome=this.nomeVacaD.getText();
-                    String obsParto = ("Nascimento ref. ao Cio"+cio.getCodCio());
-                    telaC.cadastroBezerro(cio.getNomeVaca(),cio.getNomeTouro(),dataPartoD.getDate(),obsParto);
- 
+                    String cod, nome;
+                    cod = this.codVacaD.getText();
+                    nome = this.nomeVacaD.getText();
+                    String obsParto = ("Nascimento ref. ao Cio" + cio.getCodCio());
+                    telaC.cadastroBezerro(cio.getNomeVaca(), cio.getNomeTouro(), dataPartoD.getDate(), obsParto);
+
                 }
             }
         }
-        if(aux_altera==1){
-            
-           aux_altera = 0;
+        if (aux_altera == 1) {
+
+            aux_altera = 0;
         }
 
     }//GEN-LAST:event_salvarUActionPerformed
@@ -376,7 +376,7 @@ public class TelaParto extends javax.swing.JFrame {
     private void codTouroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codTouroDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codTouroDActionPerformed
-    public void retornaValorCio(int codCio,Date dataCio,int codvaca, String nomevaca,int codTouro, String nomeTouro,Date dtConfirmado,Boolean confirmaC) {
+    public void retornaValorCio(int codCio, Date dataCio, int codvaca, String nomevaca, int codTouro, String nomeTouro, Date dtConfirmado, Boolean confirmaC) {
         this.codCioD.setText(Integer.toString(codCio));
         this.codVacaD.setText(Integer.toString(codvaca));
         this.nomeVacaD.setText(nomevaca);

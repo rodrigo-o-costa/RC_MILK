@@ -32,7 +32,7 @@ public class TelaListagemUsuario extends javax.swing.JFrame {
         initComponents();
         this.setTitle("RC MILK - LISTAGEM DE USUARIO");
         this.setResizable(false);
-        Connection con =null;
+        Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         Usuario user = new Usuario();
@@ -41,13 +41,13 @@ public class TelaListagemUsuario extends javax.swing.JFrame {
         } catch (ClassNotFoundException e) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
         }
-  
+
         String sql = "select id_usuario,ativo,nome_usuario,usuario,senha,telefone,email from tb_usuario";
         DefaultTableModel table = (DefaultTableModel) listaUsuarios.getModel();
-        try{
+        try {
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 user.setCodigo(rs.getInt("id_usuario"));
                 user.setAtivo(rs.getBoolean("ativo"));
                 user.setNome(rs.getString("nome_usuario"));
@@ -55,21 +55,21 @@ public class TelaListagemUsuario extends javax.swing.JFrame {
                 user.setSenha(rs.getString("senha"));
                 user.setTelefone(rs.getString("telefone"));
                 user.setEmail(rs.getString("email"));
-                String ativo = "" ;
-                if(user.getAtivo() == true){
+                String ativo = "";
+                if (user.getAtivo() == true) {
                     ativo = "Sim";
-                }else{
+                } else {
                     ativo = "Não";
                 }
-                table.addRow(new Object[]{user.getCodigo(),ativo,user.getNome(),user.getUser(),user.getTelefone(),user.getEmail()});
+                table.addRow(new Object[]{user.getCodigo(), ativo, user.getNome(), user.getUser(), user.getTelefone(), user.getEmail()});
             }
-        }catch(SQLException E){
+        } catch (SQLException E) {
             JOptionPane.showMessageDialog(null, E);
-        } 
-        
-        listaUsuarios.getTableHeader().setFont(new Font("Tahoma",Font.BOLD,12));
+        }
+
+        listaUsuarios.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

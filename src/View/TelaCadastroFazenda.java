@@ -300,18 +300,18 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
     private void alterarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBActionPerformed
         this.limpaCampos();
         boolean aux;
-        do{
+        do {
             String imput;
-            imput=(JOptionPane.showInputDialog(null,"Digite a Fazenda:")); 
+            imput = (JOptionPane.showInputDialog(null, "Digite a Fazenda:"));
             nomeFazendaD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 System.out.println("Cancel is pressed");
                 break;
             }
             Fazenda faz = new Fazenda();
             faz.setNome(nomeFazendaD.getText());
             aux = faz.pesquisar();
-            if(aux){
+            if (aux) {
                 codD.setText(Integer.toString(faz.getCodigo()));
                 ativoD.setSelected(faz.getAtivo());
                 nomeFazendaD.setText(faz.getNome());
@@ -322,10 +322,10 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
                 telefoneD.setText(faz.getTelefone());
                 emailD.setText(faz.getEmail());
                 this.habilitaCampos();
-                aux_altera = 1; 
+                aux_altera = 1;
             }
 
-        }while(!aux);        // TODO add your handling code here:
+        } while (!aux);        // TODO add your handling code here:
     }//GEN-LAST:event_alterarBActionPerformed
 
     private void ativoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativoDActionPerformed
@@ -368,8 +368,8 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
 
     private void salvarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarUActionPerformed
         // TODO add your handling code here:
-        if(aux_inclu == 1){
-           Fazenda faz = new Fazenda();
+        if (aux_inclu == 1) {
+            Fazenda faz = new Fazenda();
             faz.setAtivo(ativoD.isSelected());
             faz.setNome(nomeFazendaD.getText());
             faz.setNome_prop(nomeProdD.getText());
@@ -379,19 +379,20 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
             faz.setTelefone(telefoneD.getText());
             faz.setEmail(emailD.getText());
             boolean aux_faz_inclu = faz.pesquisar();
-            if(aux_faz_inclu == true){
+            if (aux_faz_inclu == true) {
                 JOptionPane.showMessageDialog(null, "Fazenda ja cadastrada");
-            } else{
-                if(nomeFazendaD.getText().equals("")){
-                   JOptionPane.showMessageDialog(null, "Campo nome fazenda não pode ser vazio");
-                }else{
+            } else {
+                if (nomeFazendaD.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Campo nome fazenda não pode ser vazio");
+                } else {
                     faz.cadastrar();
                     this.desabilitaCampos();
                     aux_inclu = 0;
                     this.limpaCampos();
                 }
             }
-        }if(aux_altera == 1){
+        }
+        if (aux_altera == 1) {
             Fazenda faz = new Fazenda();
             faz.setCodigo(Integer.parseInt(codD.getText()));
             faz.setAtivo(ativoD.isSelected());
@@ -402,18 +403,20 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
             faz.setCelular(celularD.getText());
             faz.setTelefone(telefoneD.getText());
             faz.setEmail(emailD.getText());
-            
-            if(nomeFazendaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Fazenda não pode ser vazio");
-            }if(nomeProdD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Produtor não pode ser vazio");
-            }else{
+
+            if (nomeFazendaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome Fazenda não pode ser vazio");
+            }
+            if (nomeProdD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome Produtor não pode ser vazio");
+            } else {
                 faz.alterar();
                 this.desabilitaCampos();
                 aux_altera = 0;
                 this.limpaCampos();
             }
-        }if(aux_excluir  == 1){
+        }
+        if (aux_excluir == 1) {
             Fazenda faz = new Fazenda();
             faz.setCodigo(Integer.parseInt(codD.getText()));
             faz.setAtivo(ativoD.isSelected());
@@ -424,11 +427,12 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
             faz.setCelular(celularD.getText());
             faz.setTelefone(telefoneD.getText());
             faz.setEmail(emailD.getText());
-            if(nomeFazendaD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Fazenda não pode ser vazio");
-            }if(nomeProdD.getText().equals("")){
-               JOptionPane.showMessageDialog(null, "Campo Nome Produtor não pode ser vazio");
-            }else{
+            if (nomeFazendaD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome Fazenda não pode ser vazio");
+            }
+            if (nomeProdD.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Campo Nome Produtor não pode ser vazio");
+            } else {
                 faz.excluir();
                 this.desabilitaCampos();
                 aux_excluir = 0;
@@ -437,7 +441,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salvarUActionPerformed
 
-    public void habilitaCampos(){
+    public void habilitaCampos() {
         ativoD.setEnabled(true);
         celularD.setEnabled(true);
         codD.setEnabled(true);
@@ -447,12 +451,12 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         nomeFazendaD.setEnabled(true);
         nomeProdD.setEnabled(true);
         telefoneD.setEnabled(true);
-        limparU.setEnabled(true); 
-        cancelarU.setEnabled(true); 
+        limparU.setEnabled(true);
+        cancelarU.setEnabled(true);
         salvarU.setEnabled(true);
     }
-    
-    public void desabilitaCampos(){
+
+    public void desabilitaCampos() {
         ativoD.setEnabled(false);
         celularD.setEnabled(false);
         codD.setEnabled(false);
@@ -462,12 +466,12 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
         nomeFazendaD.setEnabled(false);
         nomeProdD.setEnabled(false);
         telefoneD.setEnabled(false);
-        limparU.setEnabled(false); 
-        cancelarU.setEnabled(false); 
+        limparU.setEnabled(false);
+        cancelarU.setEnabled(false);
         salvarU.setEnabled(false);
     }
-    
-    public void limpaCampos(){
+
+    public void limpaCampos() {
         ativoD.setSelected(false);
         celularD.setText("");
         codD.setText("");
@@ -486,18 +490,18 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
     private void excluirBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirBActionPerformed
         this.limpaCampos();
         boolean aux;
-        do{
+        do {
             String imput;
-            imput=(JOptionPane.showInputDialog(null,"Digite a Fazenda:")); 
+            imput = (JOptionPane.showInputDialog(null, "Digite a Fazenda:"));
             nomeFazendaD.setText(imput);
-            if(imput == null){
+            if (imput == null) {
                 System.out.println("Cancel is pressed");
                 break;
             }
             Fazenda faz = new Fazenda();
             faz.setNome(nomeFazendaD.getText());
             aux = faz.pesquisar();
-            if(aux){
+            if (aux) {
                 codD.setText(Integer.toString(faz.getCodigo()));
                 ativoD.setSelected(faz.getAtivo());
                 nomeFazendaD.setText(faz.getNome());
@@ -508,10 +512,10 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
                 telefoneD.setText(faz.getTelefone());
                 emailD.setText(faz.getEmail());
                 this.habilitaCampos();
-                aux_excluir = 1; 
+                aux_excluir = 1;
             }
 
-        }while(!aux); 
+        } while (!aux);
     }//GEN-LAST:event_excluirBActionPerformed
 
     private void inclusaoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inclusaoBActionPerformed
@@ -522,7 +526,7 @@ public class TelaCadastroFazenda extends javax.swing.JFrame {
     }//GEN-LAST:event_inclusaoBActionPerformed
 
     private void listarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBActionPerformed
-        TelaListagemFazendas telaLF = new TelaListagemFazendas ();
+        TelaListagemFazendas telaLF = new TelaListagemFazendas();
         telaLF.setVisible(true);
     }//GEN-LAST:event_listarBActionPerformed
 
