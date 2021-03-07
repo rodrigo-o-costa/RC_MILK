@@ -80,7 +80,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AT_Cio = new javax.swing.JButton();
         AT_Confirmacao = new javax.swing.JButton();
         AT_Repetiu = new javax.swing.JButton();
-        AT_Pre_parto = new javax.swing.JButton();
         AT_Perdeu = new javax.swing.JButton();
         AT_Parto = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -167,7 +166,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        AT_Cio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_cio.png"))); // NOI18N
+        AT_Cio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_cio_novo.png"))); // NOI18N
         AT_Cio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AT_CioActionPerformed(evt);
@@ -175,6 +174,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         AT_Confirmacao.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Confirmacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_cio_confirma.png"))); // NOI18N
         AT_Confirmacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AT_ConfirmacaoActionPerformed(evt);
@@ -182,20 +182,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         AT_Repetiu.setBackground(new java.awt.Color(102, 102, 102));
+        AT_Repetiu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_cio_repetiu.png"))); // NOI18N
         AT_Repetiu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AT_RepetiuActionPerformed(evt);
             }
         });
 
-        AT_Pre_parto.setBackground(new java.awt.Color(51, 51, 51));
-        AT_Pre_parto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AT_Pre_partoActionPerformed(evt);
-            }
-        });
-
         AT_Perdeu.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Perdeu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_perdeu.png"))); // NOI18N
         AT_Perdeu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AT_PerdeuActionPerformed(evt);
@@ -203,6 +198,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         AT_Parto.setBackground(new java.awt.Color(51, 51, 51));
+        AT_Parto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icones/at_parto.png"))); // NOI18N
         AT_Parto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AT_PartoActionPerformed(evt);
@@ -226,11 +222,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(AT_Repetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AT_Confirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AT_Pre_parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AT_Perdeu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AT_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AT_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +239,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(painelATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AT_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Perdeu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AT_Pre_parto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Repetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Confirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AT_Cio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -742,12 +735,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaC.setTitle("RC MILK - REGISTRAR EVENTO DE CIO REPETIDO");
     }//GEN-LAST:event_AT_RepetiuActionPerformed
 
-    private void AT_Pre_partoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_Pre_partoActionPerformed
-        TelaPreParto telaC = new TelaPreParto();
-        telaC.setVisible(true);
-        telaC.setTitle("RC MILK - REGISTRAR EVENTO DE PRÉ-PARTO");
-    }//GEN-LAST:event_AT_Pre_partoActionPerformed
-
     private void AT_PerdeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AT_PerdeuActionPerformed
         TelaPerdaCria telaC = new TelaPerdaCria();
         telaC.setVisible(true);
@@ -1051,7 +1038,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton AT_Confirmacao;
     private javax.swing.JButton AT_Parto;
     private javax.swing.JButton AT_Perdeu;
-    private javax.swing.JButton AT_Pre_parto;
     private javax.swing.JButton AT_Repetiu;
     private javax.swing.JButton AT_USUARIO1;
     private javax.swing.JButton AT_backup;

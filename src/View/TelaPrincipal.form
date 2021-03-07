@@ -358,11 +358,9 @@
                   <Component id="AT_Repetiu" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="AT_Confirmacao" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="AT_Pre_parto" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="AT_Perdeu" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="AT_Parto" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="AT_backup" min="-2" pref="33" max="-2" attributes="0"/>
@@ -379,7 +377,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="AT_Parto" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_Perdeu" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="AT_Pre_parto" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_Repetiu" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_Confirmacao" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="AT_Cio" min="-2" pref="33" max="-2" attributes="0"/>
@@ -451,7 +448,7 @@
         <Component class="javax.swing.JButton" name="AT_Cio">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagens/icones/at_cio.png"/>
+              <Image iconType="3" name="/Imagens/icones/at_cio_novo.png"/>
             </Property>
           </Properties>
           <Events>
@@ -463,6 +460,9 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/icones/at_cio_confirma.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_ConfirmacaoActionPerformed"/>
@@ -473,25 +473,21 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_RepetiuActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="AT_Pre_parto">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/icones/at_cio_repetiu.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_Pre_partoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AT_RepetiuActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="AT_Perdeu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/icones/at_perdeu.png"/>
             </Property>
           </Properties>
           <Events>
@@ -502,6 +498,9 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/icones/at_parto.png"/>
             </Property>
           </Properties>
           <Events>
