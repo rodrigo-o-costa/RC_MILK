@@ -101,7 +101,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data de Confirmação:");
+        dataConfirmacaoL.setText("Data de Confirmação:*");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         codCioL.setText("Código do Cio:");
@@ -109,7 +109,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
 
-        pesquisaCio.setText("pesquisa");
+        pesquisaCio.setText("pesquisar");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaCioActionPerformed(evt);
@@ -227,7 +227,7 @@ public class TelaConfirmacaoDeCio extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(salvarU, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(dataConfirmacaoL)
+                                .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dataConfirmacaoD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(14, Short.MAX_VALUE))

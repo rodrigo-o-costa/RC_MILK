@@ -101,7 +101,7 @@ public class TelaPreParto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(obsD);
 
         dataPartoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataPartoL.setText("Data entrada em Pré-Parto");
+        dataPartoL.setText("Data de entrada em Pré-Parto*");
 
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         codCioL.setText("Código do Cio:");
@@ -109,7 +109,7 @@ public class TelaPreParto extends javax.swing.JFrame {
         obsL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obsL.setText("Obs.:");
 
-        pesquisaCio.setText("pesquisa");
+        pesquisaCio.setText("pesquisar");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaCioActionPerformed(evt);

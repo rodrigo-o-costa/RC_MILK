@@ -57,7 +57,7 @@
                               <Component id="salvarU" min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="dataConfirmacaoL" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataConfirmacaoL" min="-2" pref="142" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="dataConfirmacaoD" max="32767" attributes="0"/>
                           </Group>
@@ -172,7 +172,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Data de Confirma&#xe7;&#xe3;o:"/>
+        <Property name="text" type="java.lang.String" value="Data de Confirma&#xe7;&#xe3;o:*"/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dataConfirmacaoD">
@@ -195,7 +195,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="pesquisaCio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="pesquisa"/>
+        <Property name="text" type="java.lang.String" value="pesquisar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaCioActionPerformed"/>

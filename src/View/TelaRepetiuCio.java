@@ -98,7 +98,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         codCioL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         codCioL.setText("Código do Cio:");
 
-        pesquisaCio.setText("pesquisa");
+        pesquisaCio.setText("pesquisar");
         pesquisaCio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaCioActionPerformed(evt);
@@ -184,7 +184,7 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
         );
 
         dataConfirmacaoL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        dataConfirmacaoL.setText("Data do novo Cio:");
+        dataConfirmacaoL.setText("Data do novo Cio:*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,9 +206,9 @@ public class TelaRepetiuCio extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(dataConfirmacaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataRepetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(dataConfirmacaoL)
+                                .addGap(2, 2, 2)
+                                .addComponent(dataRepetiu, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(inclusaoU, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46)

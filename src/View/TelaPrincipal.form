@@ -13,7 +13,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="cadastroM">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastro"/>
+            <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastroMActionPerformed"/>
@@ -229,7 +229,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="utilitariosM">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Utilit&#xe1;rio"/>
+            <Property name="text" type="java.lang.String" value="Utilit&#xe1;rios"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">

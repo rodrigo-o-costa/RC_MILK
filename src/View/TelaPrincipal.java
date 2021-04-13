@@ -336,7 +336,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuBarra.setBackground(new java.awt.Color(102, 102, 102));
 
-        cadastroM.setText("Cadastro");
+        cadastroM.setText("Cadastros");
         cadastroM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroMActionPerformed(evt);
@@ -518,7 +518,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuBarra.add(relatorioM);
 
-        utilitariosM.setText("Utilitário");
+        utilitariosM.setText("Utilitários");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem2.setText("Sair");
